@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableUserComponent } from './table-user/table-user.component';
 
 const routes: Routes = [
-  {path: '', component: TableUserComponent}
+  {path: 'tableuser', component: TableUserComponent},
+  {path: '', component: DashbordComponent},
+  {path: 'navbar', component: NavbarComponent},
 ];
 
 @NgModule({

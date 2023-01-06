@@ -1,0 +1,113 @@
+
+  <div class="container c_form" style="margin-top: 90px; padding: 10px;">
+    <!-- Table -->
+    <div class="box">
+
+              <h2 class="text-center" style="padding-top: 10px;">Inscription</h2>
+
+            <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+              <div class="form-group col-md-6">
+                <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
+                <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}" class="input-group input-group-alternative mb-3">
+
+                  <input  formControlName="prenom"
+                  type="text" class="form-control" autocomplete="on">
+                </div>
+                <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['prenom'].errors" class="text-danger">
+                  <div *ngIf="submitted && signupForm.controls['prenom'].errors['required']">
+                      Le prenom est obligatoire!
+                  </div>
+                  <div *ngIf="submitted && signupForm.controls['prenom'].errors['cannotContainSpace']">
+                      Espace prénom autorisé
+                  </div>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="prenom">Nom <span class="obligatoire">*</span></label>
+                <div [ngClass]="{'invalid':submitted && signupForm.controls['nom'].errors}" class="input-group input-group-alternative mb-3">
+
+                  <input formControlName="nom" class="form-control" type="text">
+                </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['nom'].errors" class="text-danger">
+                  <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
+                      Le nom est obligatoire!
+                  </div>
+                  <div *ngIf="submitted && signupForm.controls['nom'].errors['cannotContainSpace']">
+                      Espace non autorisé
+                  </div>
+                  </div>
+              </div>
+
+
+              <div class="form-group col-md-6">
+                <label for="role">Role <span class="obligatoire">*</span></label>
+                <div [ngClass]="{'invalid':submitted && signupForm.controls['role'].errors}" class="input-group input-group-alternative mb-3">
+
+                  <select formControlName="role" class="form-control" >
+                      <option  selected disabled></option>
+                      <option>Administrateur</option>
+                      <option>Utilisateur</option>
+                  </select>
+                </div>
+                <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['role'].errors" class="text-danger">
+                  <div *ngIf="submitted && signupForm.controls['role'].errors['required']">
+                      Le role est obligatoire!
+                  </div>
+                  <div *ngIf="submitted && signupForm.controls['role'].errors['cannotContainSpace']">
+                      Espace non autorisé
+                  </div>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="email">Email <span class="obligatoire">*</span></label>
+                <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"  class="input-group input-group-alternative mb-3">
+
+                  <input formControlName="email" class="form-control"  type="email">
+                </div>
+                <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['email'].errors" class="text-danger">
+                  <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
+                      Le mail est obligatoire!
+                  </div>
+                  <div *ngIf="submitted && signupForm.controls['email'].errors['email']">
+                      format incorrect
+                  </div>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="mdp">Mot de passe  <span class="obligatoire">*</span></label>
+                <div [ngClass]="{'invalid':submitted && signupForm.controls['password'].errors}"
+                 class="input-group input-group-alternative">
+
+                  <input formControlName="password" class="form-control"  type="password">
+                </div>
+                <div *ngIf="submitted && signupForm.controls['password'].errors" class="text-danger">
+                  <div *ngIf="submitted && signupForm.controls['password'].errors['required']">
+                      Le Password est obligatoire!
+                  </div>
+              </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="mdp_c">Confirmer le mot de passe <span class="obligatoire">*</span></label>
+                <div  [ngClass]="{'invalid':submitted && invalid }" class="input-group input-group-alternative">
+
+                  <input class="form-control" formControlName="passwordConfirm" (keyup)="passeIdentique()"  type="password">
+                </div>
+
+                  <div *ngIf="submitted && invalid" class="text-danger">
+                  les mot de passe ne correspond pas
+                  </div >
+
+            </div>
+            <div class="col-md-6">
+                <button type="submit"  class="btn btn-primary btnp">Inscrire</button>
+            </div>
+            </form>
+          </div>
+        </div>
+
+
+

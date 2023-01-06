@@ -26,18 +26,18 @@
 
 <div class="d-flex">
     <div class="dropdown show " style="margin-right:10px;">
-      <button class=" btn shadow" (click)="afficher()" href="#"  (blur)="cacher()" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class=" btn shadow" (click)="afficher()" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span>
           <img src="./assets/img/icons/common/menu.svg" class="bg-white rounded-circle">
         </span>
       </button>
 
-      <div *ngIf="affiche != ''" class="dropdown-menu d-block" aria-labelledby="dropdownMenuLink">
-        <a href="/profile" class="dropdown-item">
+      <div *ngIf="affiche != '' && open" class="dropdown-menu d-block" aria-labelledby="dropdownMenuLink">
+        <a routerLinkActive="active" routerLink="profile" class="dropdown-item">
           <i class="ni ni-single-02"></i>
           <span>Mon profile</span>
         </a>
-        <a routerLinkActive="active" [routerLink]="['/profile']" class="dropdown-item">
+        <a routerLinkActive="" routerLink="" class="dropdown-item">
           <i class="ni ni-settings-gear-65"></i>
           <span>Modifier password</span>
         </a>

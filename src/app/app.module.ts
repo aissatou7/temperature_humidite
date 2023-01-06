@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableUserComponent } from './table-user/table-user.component';
-
+import { InscriptionComponent } from './inscription/inscription.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
@@ -24,18 +24,19 @@ import { HttpClientModule } from '@angular/common/http';
     DashbordComponent,
  SystemeComponent,
     AdminComponent,
-    ProfileComponent
+    ProfileComponent,
 
-
+    InscriptionComponent,
   ],
   imports: [
 
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
-     BrowserAnimationsModule,
+    FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule
+
 
   ],
   providers: [],

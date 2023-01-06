@@ -1,0 +1,113 @@
+<div class="bg-gradient-danger" style="height: 45%; width: 100%; position: absolute;">
+  <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" ></a>
+      <!-- Form -->
+      <!-- <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+        <div class="form-group mb-0" >
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Search" type="text"
+           >
+          </div>
+        </div>
+      </form> -->
+
+
+
+
+
+
+
+
+
+<div class="d-flex">
+    <div class="dropdown show " style="margin-right:10px;">
+      <button class=" btn shadow" (click)="afficher()" href="#"  (blur)="cacher()" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>
+          <img src="./assets/img/icons/common/menu.svg" class="bg-white rounded-circle">
+        </span>
+      </button>
+
+      <div *ngIf="affiche != ''" class="dropdown-menu d-block" aria-labelledby="dropdownMenuLink">
+        <a href="/profile" class="dropdown-item">
+          <i class="ni ni-single-02"></i>
+          <span>Mon profile</span>
+        </a>
+        <a routerLinkActive="active" [routerLink]="['/profile']" class="dropdown-item">
+          <i class="ni ni-settings-gear-65"></i>
+          <span>Modifier password</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a routerLinkActive="active" [routerLink]="['/systeme']" class="dropdown-item">
+          <i class="ni ni-user-run"></i>
+          <span>Deconnexion</span>
+        </a>
+      </div>
+    </div>
+    <div class="mt-4"><span><h5 class="text-white">Cheikh SALL</h5></span></div></div>
+  </div>
+</nav>
+</div>
+
+
+ <!-- User -->
+    <!--  <ul class="navbar-nav align-items-center d-none d-md-flex">
+      <li class=" nav-item bottom-right" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link pr-0" >
+          <div class="media align-items-center">
+            <span class="bg-white rounded-circle">
+              <img src="./assets/img/icons/common/menu.svg">
+            </span>
+            <div class="media-body ml-2 d-none d-lg-block">
+              <span class="mb-0 text-danger  font-weight-bold">Cheikh SALL</span>
+            </div>
+          </div>
+        </a>
+        <div class="dropdown-menu-arrow dropdown-menu-right" >
+          <div class=" dropdown-header noti-title">
+            <h6 class="text-overflow m-0">bienvenue!</h6>
+          </div>
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-single-02"></i>
+            <span>Mon profile</span>
+          </a>
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-settings-gear-65"></i>
+            <span>Modifier password</span>
+          </a>
+
+          <div class="dropdown-divider"></div>
+          <a href="#!" class="dropdown-item">
+            <i class="ni ni-user-run"></i>
+            <span>Deconnexion</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <a href="#" class="d-flex justify-content-center align-items-center link-light text-decoration-none dropdown-toggle mt-3" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+      <strong>Paramètres</strong>
+    </a>
+    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+      <li><a class="dropdown-item" href="#">New project...</a></li>
+      <li><a class="dropdown-item" href="#">Settings</a></li>
+      <li><a class="dropdown-item" href="#">Profil</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Deconnection</a></li>
+    </ul>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>-->
+
+
+

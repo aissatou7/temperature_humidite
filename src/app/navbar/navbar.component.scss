@@ -1,0 +1,36 @@
+.navbar {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+
+.dropup .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-light {
+  background-color:light;
+  border-color: light;
+}
+
+
+.navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: block;
+  text-align: center;
+  padding-top: (2rem );
+  padding-bottom: (2rem );
+}
+
+
+.dropup .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bg-gradient-danger {
+  background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
+}

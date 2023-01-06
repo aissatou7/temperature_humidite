@@ -1,0 +1,32 @@
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor(private http:HttpClient) { }
+
+
+  //Here we have user adding
+  addUser(user:any){
+       return this.http.post('http://localhost:2000/endpoint/addUser', user);
+  }
+
+  //Here we have user listing
+  listUser(){
+    return this.http.get('http://localhost:2000/endpoint/ ');
+  }
+
+  //Here we have user deleting
+  deleteUser(id:any){
+    return this.http.delete('http://localhost:2000/endpoint/deleteUser/'+id);
+    
+  }
+
+  //Here we have user updating
+ updateUser(id:any){
+    return this.http.put('http://localhost:2000/endpoint/updateUser/',id);
+  }
+}

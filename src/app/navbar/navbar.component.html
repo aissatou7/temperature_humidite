@@ -33,11 +33,11 @@
       </button>
 
       <div *ngIf="affiche != '' && open" class="dropdown-menu d-block" aria-labelledby="dropdownMenuLink">
-        <a href="/profile" class="dropdown-item">
+        <a routerLinkActive="active" routerLink="profile" class="dropdown-item">
           <i class="ni ni-single-02"></i>
           <span>Mon profile</span>
         </a>
-        <a routerLinkActive="active" routerLink="profile" class="dropdown-item">
+        <a routerLinkActive="" routerLink="" class="dropdown-item">
           <i class="ni ni-settings-gear-65"></i>
           <span>Modifier password</span>
         </a>

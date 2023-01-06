@@ -7,18 +7,29 @@ import { TableUserComponent } from './table-user/table-user.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
-
+import { AdminComponent } from './admin/admin.component';
+import { SystemeComponent } from './systeme/systeme.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ReactiveFormsModule , FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
     TableUserComponent,
     SidebarComponent,
     NavbarComponent,
-    DashbordComponent
+    DashbordComponent,
+ SystemeComponent,
+    AdminComponent,
+    ProfileComponent
+
+
   ],
   imports: [
+
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

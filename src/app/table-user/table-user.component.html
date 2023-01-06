@@ -1,4 +1,3 @@
-
 <!-- Page content -->
 <div class="container-fluid mt--7">
   <!-- Table -->
@@ -10,6 +9,7 @@
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
+           
             <thead class="card-header ">
               <tr>
                 <th scope="col">Prenom</th>
@@ -21,19 +21,23 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users">
+              <tr *ngFor="let user of users  " >
                 <td> {{user.prenom}} </td>
                 <td> {{user.nom}} </td>
                 <td> {{user.email}} </td>
                 <td> 'matricule' </td>
                 <td> {{user.role}} </td>
-                <td> 
-                 <button class="btn"> <span class="material-symbols-outlined">sync_alt </span></button> 
-                 <a href="pageUpdate/{{user._id}}" class="btn"><span class="material-symbols-outlined">update</span></a>
-                 <button  (click)="deleteUser(user)"  class="btn"> <span class="material-symbols-outlined">  delete </span></button> 
+                <td>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"> <span
+                      class="material-symbols-outlined">sync_alt </span></button>
+                  <a href="pageUpdate/{{user._id}}" class="btn" data-bs-toggle="modal"
+                    data-bs-target="#updateModal"><span class="material-symbols-outlined">update</span></a>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"> <span class="material-symbols-outlined"> delete
+                    </span></button>
                 </td>
               </tr>
             </tbody>
+         
           </table>
         </div>
         <div class="card-footer py-4">
@@ -49,7 +53,7 @@
                 <a class="page-link" href="javascript:void(0)">1</a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="javascript:void(0)">2 </a>
+                <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
               </li>
               <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
               <li class="page-item">
@@ -64,3 +68,130 @@
       </div>
     </div>
   </div>
+
+  <!-- Button trigger modal -->
+
+
+  <!-- Modal Switch -->
+  <div class="modal fade" id="switchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CHANGEMENT DE ROLE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Voulez-vous vraiment modifier le role de ce user ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
+          <button type="button" class="btn btn-danger">OUI</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal archivage -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ARCHIVAGE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Voulez-vous vraiment archiver ce user ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
+          <button type="button" class="btn btn-danger">OUI</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Update -->
+  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">MODIFICATION</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Ici nous avons le corps de notre modal : le formulaire de modification -->
+        <div class="modal-body">
+          <div class="container c_form" style=" padding: 10px;">
+            <!-- Table -->
+            <div class="box">
+              <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+                <div class="form-group col-md-6">
+                  <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
+                  <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}"
+                    class="input-group input-group-alternative mb-3">
+
+                    <input formControlName="prenom" type="text" class="form-control" autocomplete="on">
+                  </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['prenom'].errors"
+                    class="text-danger">
+                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['required']">
+                      Le prenom est obligatoire!
+                    </div>
+                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['cannotContainSpace']">
+                      Espace prénom autorisé
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="prenom">Nom <span class="obligatoire">*</span></label>
+                  <div [ngClass]="{'invalid':submitted && signupForm.controls['nom'].errors}"
+                    class="input-group input-group-alternative mb-3">
+
+                    <input formControlName="nom" class="form-control" type="text">
+                  </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['nom'].errors"
+                    class="text-danger">
+                    <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
+                      Le nom est obligatoire!
+                    </div>
+                    <div *ngIf="submitted && signupForm.controls['nom'].errors['cannotContainSpace']">
+                      Espace non autorisé
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-6" style="margin-left: 130px;">
+                  <label for="email">Email <span class="obligatoire">*</span></label>
+                  <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"
+                    class="input-group input-group-alternative mb-3">
+
+                    <input formControlName="email" class="form-control" type="email">
+                  </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['email'].errors"
+                    class="text-danger">
+                    <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
+                      Le mail est obligatoire!
+                    </div>
+                    <div *ngIf="submitted && signupForm.controls['email'].errors['email']">
+                      format incorrect
+                    </div>
+                  </div>
+                </div>               
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" type="submit" >Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pagination -->
+  <ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="users.length">
+</ngb-pagination>

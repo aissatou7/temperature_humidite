@@ -22,6 +22,7 @@ vide = false;
   id: any;
 // pagination
   p: number = 1;
+term: any;
 
 
 
@@ -84,10 +85,10 @@ loadUser(){
   });
 }
 
-// upDateUser(data){
-//   this.userService.updateUser(this.data.value).subscribe(data =>{
-//   });
-// }
+upDateUser(id:any, data:any){
+  this.userService.updateUser(id,data).subscribe(data =>{
+  });
+}
 
 deleteUser(data: any){
   this.userService.deleteUser(data._id).subscribe(data => {

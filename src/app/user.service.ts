@@ -31,7 +31,7 @@ export class UserService {
 
   //Here we have user updating
   updateUser(id: any, data: any): Observable<any> {
-    return this.http.put('http://localhost:2000/endpoint/updateUser/'+id, data, { headers: this.httpHeaders })
+    return this.http.put('http://localhost:2000/endpoint/updateUser/'+id, data)
       // .pipe(catchError(this.handleError));
   }
 }

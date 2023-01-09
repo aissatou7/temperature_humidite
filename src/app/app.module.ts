@@ -21,6 +21,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SystemeComponent } from './systeme/systeme.component';
 import { ProfileComponent } from './profile/profile.component';
 import {NgxPaginationModule} from 'ngx-pagination'; //pagination
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //recherche
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import {NgxPaginationModule} from 'ngx-pagination'; //pagination
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-     NgxPaginationModule
+     NgxPaginationModule,
+     Ng2SearchPipeModule
 
 
   ],

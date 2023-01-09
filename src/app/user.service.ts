@@ -24,9 +24,12 @@ export class UserService {
     return this.http.delete('http://localhost:2000/endpoint/deleteUser/'+id);
     
   }
+singleUser(id:any){
+  return this.http.put('http://localhost:2000/endpoint/user/'+id);
+}
 
   //Here we have user updating
- updateUser(id:any){
-    return this.http.put('http://localhost:2000/endpoint/updateUser/',id);
+ updateUser(user:any){
+    return this.http.put('http://localhost:2000/endpoint/updateUser/'+user.id,user);
   }
 }

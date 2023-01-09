@@ -28,13 +28,91 @@
                 <td> 'matricule' </td>
                 <td> {{user.role}} </td>
                 <td>
-                  <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"> <span
-                      class="material-symbols-outlined">sync_alt </span></button>
-                  <a href="pageUpdate/{{user._id}}" class="btn" data-bs-toggle="modal"
-                    data-bs-target="#updateModal"><span class="material-symbols-outlined">update</span></a>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  > <span class="material-symbols-outlined">sync_alt </span></button>
+                  <button class="btn" data-bs-toggle="modal"data-bs-target="#updateModal"><span class="material-symbols-outlined">update</span></button>
                   <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"> <span class="material-symbols-outlined"> delete
                     </span></button>
                 </td>
+
+                <!-- Modal Update -->
+  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">MODIFICATION</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Ici nous avons le corps de notre modal : le formulaire de modification -->
+        <div class="modal-body">
+          <div class="container c_form" style=" padding: 10px;">
+            <!-- Table -->
+            <div class="box">
+              <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+                <div class="form-group col-md-6">
+
+                  <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
+                  <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}"
+                    class="input-group input-group-alternative mb-3">
+                    <input formControlName="prenom" type="text" class="form-control" autocomplete="on" value="{{user.prenom}} ">
+                  </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['prenom'].errors"
+                    class="text-danger">
+                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['required']">
+                      Le prenom est obligatoire!
+                    </div>
+                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['cannotContainSpace']">
+                      Espace prénom autorisé
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="prenom">Nom <span class="obligatoire">*</span></label>
+                  <div [ngClass]="{'invalid':submitted && signupForm.controls['nom'].errors}"
+                    class="input-group input-group-alternative mb-3">
+                    <input formControlName="nom" class="form-control" type="text"  [(ngModel)]="user.nom">
+                  </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['nom'].errors"
+                    class="text-danger">
+                    <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
+                      Le nom est obligatoire!
+                    </div>
+                    <div *ngIf="submitted && signupForm.controls['nom'].errors['cannotContainSpace']">
+                      Espace non autorisé
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group col-md-6" style="margin-left: 130px;">
+                  <label for="email">Email <span class="obligatoire">*</span></label>
+                  <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"
+                    class="input-group input-group-alternative mb-3">
+                    <input formControlName="email" class="form-control" type="email" value="{{user.email}} ">
+                  </div>
+                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['email'].errors"
+                    class="text-danger">
+                    <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
+                      Le mail est obligatoire!
+                    </div>
+                    <div *ngIf="submitted && signupForm.controls['email'].errors['email']">
+                      format incorrect
+                    </div>
+                  </div>
+                </div>               
+              </form>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" type="submit" >Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
               </tr>
             </tbody>
          
@@ -109,89 +187,4 @@
       </div>
     </div>
   </div>
-  <!-- Modal Update -->
-  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">MODIFICATION</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- Ici nous avons le corps de notre modal : le formulaire de modification -->
-        <div class="modal-body">
-          <div class="container c_form" style=" padding: 10px;">
-            <!-- Table -->
-            <div class="box">
-              <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
-                <div class="form-group col-md-6">
-                  <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
-                  <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}"
-                    class="input-group input-group-alternative mb-3">
-
-                    <input formControlName="prenom" type="text" class="form-control" autocomplete="on">
-                  </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['prenom'].errors"
-                    class="text-danger">
-                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['required']">
-                      Le prenom est obligatoire!
-                    </div>
-                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['cannotContainSpace']">
-                      Espace prénom autorisé
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group col-md-6">
-                  <label for="prenom">Nom <span class="obligatoire">*</span></label>
-                  <div [ngClass]="{'invalid':submitted && signupForm.controls['nom'].errors}"
-                    class="input-group input-group-alternative mb-3">
-
-                    <input formControlName="nom" class="form-control" type="text">
-                  </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['nom'].errors"
-                    class="text-danger">
-                    <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
-                      Le nom est obligatoire!
-                    </div>
-                    <div *ngIf="submitted && signupForm.controls['nom'].errors['cannotContainSpace']">
-                      Espace non autorisé
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="form-group col-md-6" style="margin-left: 130px;">
-                  <label for="email">Email <span class="obligatoire">*</span></label>
-                  <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"
-                    class="input-group input-group-alternative mb-3">
-
-                    <input formControlName="email" class="form-control" type="email">
-                  </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['email'].errors"
-                    class="text-danger">
-                    <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
-                      Le mail est obligatoire!
-                    </div>
-                    <div *ngIf="submitted && signupForm.controls['email'].errors['email']">
-                      format incorrect
-                    </div>
-                  </div>
-                </div>               
-              </form>
-            </div>
-          </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-danger" type="submit" >Modifier</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pagination -->
-  <ngb-pagination
-  [(page)]="page"
-  [pageSize]="pageSize"
-  [collectionSize]="users.length">
-</ngb-pagination>
+  

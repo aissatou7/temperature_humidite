@@ -3,6 +3,8 @@ import { UserService } from "../user.service";
 // nécessaire au controle de saisie du formulare de modification
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-table-user',
@@ -16,14 +18,15 @@ export class TableUserComponent implements OnInit {
 submitted=false;
 invalid = false;
 vide = false;
+  id: any;
 
-// pagination
-page = 4;
-public pageSize: any ;
+
+
 
   constructor(
     private userService: UserService,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private url:ActivatedRoute
   ) {
       //Crontôle de saisie du formulaire
       this.signupForm = this.formBuilder.group({
@@ -42,6 +45,11 @@ public pageSize: any ;
   ngOnInit(): void {
     //calling function which list users
     this.loadUser();
+
+    //for update
+    this.id = this.url.snapshot.params['id'];
+    console.log(this.id);
+    // this.userService.singleUser()
   }
   passeIdentique(){
 
@@ -67,10 +75,17 @@ public pageSize: any ;
 // function which list users
 loadUser(){
   this.userService.listUser().subscribe((data:any) =>{
-     this.users = data
-     this.pageSize = this.users.length
+     this.users = data;
+     
+     
   });
 }
+
+upDateUser(){
+  this.userService.updateUser(this.data.value).subscribe(data =>{
+  });
+}
+
 deleteUser(data: any){
   this.userService.deleteUser(data._id).subscribe(data => {
     

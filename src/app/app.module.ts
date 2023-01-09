@@ -13,21 +13,38 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
+import { AdminComponent } from './admin/admin.component';
+import { SystemeComponent } from './systeme/systeme.component';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     TableUserComponent,
+    SidebarComponent,
+    NavbarComponent,
+    DashbordComponent,
+ SystemeComponent,
+    AdminComponent,
+    ProfileComponent,
+
     InscriptionComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
+
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgbPaginationModule
+    NgbPaginationModule,
    
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

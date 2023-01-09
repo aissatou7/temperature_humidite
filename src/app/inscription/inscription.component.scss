@@ -1,6 +1,8 @@
 .invalid{
   border: 1px solid #dc3545;
+  border-radius: 7px;
 }
+
 .btnp{
   background-color: #172b4d;
 }
@@ -18,4 +20,11 @@ form
 }
 .obligatoire{
   color: #dc3545;
+}
+.eyes{
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  z-index: 1000;
+  cursor: pointer;
 }

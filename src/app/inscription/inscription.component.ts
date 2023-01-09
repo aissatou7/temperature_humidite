@@ -87,4 +87,5 @@ inputType_pwd_c = 1;
       console.log('type text');
     }
   }
+  
 }

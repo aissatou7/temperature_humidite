@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminComponent } from './admin/admin.component';
 import { SystemeComponent } from './systeme/systeme.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TableArchiveComponent } from './table-archive/table-archive.component';
 const routes: Routes = [
  
   {path: 'inscription', component: InscriptionComponent},
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path: 'systeme', component: SystemeComponent},
   {path: 'profile', component: ProfileComponent},
   {path: '', component: AdminComponent},
-  {path: 'inscription', component: InscriptionComponent}
+  {path: 'inscription', component: InscriptionComponent},
+  {path: 'tableArchive', component: TableArchiveComponent}
+
 
 ];
 

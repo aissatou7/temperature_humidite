@@ -9,7 +9,7 @@
           <input type="text" [(ngModel)]="term" style="margin-left:37%; height: 40px; border-radius:15px; margin-top:1% ;" placeholder="Rechercher ici ..." >
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush">
+          <table class="table align-items-center table-flush" >
            
             <thead class="card-header ">
               <tr>
@@ -21,13 +21,14 @@
                 <th scope="col"> Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 1, currentPage: p } " >
-                <td> {{user.prenom}} </td>
-                <td> {{user.nom}} </td>
+            <tbody >
+              <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 2, currentPage: p } " >
+               
+                <td> {{user.firstName}} </td>
+                <td> {{user.lastName}} </td>
                 <td> {{user.email}} </td>
                 <td> 'matricule' </td>
-                <td> {{user.role}} </td>
+                <td> {{user.profil}} </td>
                 <td>
                   <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  > <span class="material-symbols-outlined">sync_alt </span></button>
                   <button class="btn" data-bs-toggle="modal"data-bs-target="#updateModal"><span class="material-symbols-outlined">update</span></button>

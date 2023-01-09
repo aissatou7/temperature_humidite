@@ -1,10 +1,13 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+   // Http Header
+   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http:HttpClient) { }
 
@@ -24,12 +27,11 @@ export class UserService {
     return this.http.delete('http://localhost:2000/endpoint/deleteUser/'+id);
     
   }
-singleUser(id:any){
-  return this.http.put('http://localhost:2000/endpoint/user/'+id);
-}
+
 
   //Here we have user updating
- updateUser(user:any){
-    return this.http.put('http://localhost:2000/endpoint/updateUser/'+user.id,user);
+  updateUser(id: any, data: any): Observable<any> {
+    return this.http.put('http://localhost:2000/endpoint/updateUser/'+id, data, { headers: this.httpHeaders })
+      // .pipe(catchError(this.handleError));
   }
 }

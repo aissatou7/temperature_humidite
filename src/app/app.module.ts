@@ -20,6 +20,7 @@ import { DashbordComponent } from './dashbord/dashbord.component';
 import { AdminComponent } from './admin/admin.component';
 import { SystemeComponent } from './systeme/systeme.component';
 import { ProfileComponent } from './profile/profile.component';
+import {NgxPaginationModule} from 'ngx-pagination'; //pagination
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { ProfileComponent } from './profile/profile.component';
     ProfileComponent,
 
     InscriptionComponent,
+   
   ],
   imports: [
 
@@ -42,7 +44,8 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+     NgxPaginationModule
 
 
   ],

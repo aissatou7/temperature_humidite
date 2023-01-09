@@ -21,7 +21,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users  " >
+              <tr *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: p } " >
                 <td> {{user.prenom}} </td>
                 <td> {{user.nom}} </td>
                 <td> {{user.email}} </td>
@@ -118,7 +118,9 @@
          
           </table>
         </div>
-        <div class="card-footer py-4">
+        <!-- pagination -->
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <!-- <div class="card-footer py-4">
           <nav aria-label="...">
             <ul class="pagination justify-content-end mb-0">
               <li class="page-item disabled">
@@ -145,7 +147,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Button trigger modal -->
 

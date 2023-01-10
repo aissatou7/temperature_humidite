@@ -9,11 +9,14 @@ import { AdminComponent } from './admin/admin.component';
 import { SystemeComponent } from './systeme/systeme.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TableArchiveComponent } from './table-archive/table-archive.component';
+import { TableHistoriqueComponent } from './table-historique/table-historique.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
  
   {path: 'inscription', component: InscriptionComponent},
   {path: 'table', component: TableUserComponent},
-
+{path: 'historique', component: TableHistoriqueComponent},
+{path: 'login', component: LoginComponent},
 
   {path: 'tableuser', component: TableUserComponent},
   {path: 'dashbord', component: DashbordComponent},

@@ -9,9 +9,9 @@ import { TableUserComponent } from './table-user/table-user.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+/* import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap'; */
+import { LoginComponent } from './login/login.component';
+import { TableHistoriqueComponent } from './table-historique/table-historique.component';
 
 
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -33,16 +33,16 @@ import { TableArchiveComponent } from './table-archive/table-archive.component';
  SystemeComponent,
     AdminComponent,
     ProfileComponent,
-
+LoginComponent,
     InscriptionComponent,
      TableArchiveComponent,
-   
+   TableHistoriqueComponent,
   ],
   imports: [
 
     BrowserModule,
     AppRoutingModule,
-    NgbPaginationModule,
+
    
     ReactiveFormsModule,
     FormsModule,

@@ -8,9 +8,9 @@
 
       </div>
 
-      <div class=" " >
+      <div class="d-flex " >
         <a  routerLinkActive="active" [routerLink]="['/dashboard']">
-          <img src="./assets/img/icons/common/thermo.svg">
+          <img src="./assets/img/icons/common/thermo.svg" alt="image">
         </a>
 
       <h2 class="text-danger mb-5">GESTION
@@ -20,26 +20,30 @@ HUMIDITE</h2> </div>
 
       <div class="dropdown-divider mb-5"></div>
       <a routerLinkActive="active"  class="dropdown-item">
-        <img src="./assets/img/icons/common/tab.svg">
+        <img src="./assets/img/icons/common/tab.svg" alt="image">
         <span>Tableau de bord</span>
       </a>
       <a routerLinkActive="active"  class="dropdown-item mt-5">
-        <img src="./assets/img/icons/common/historique.svg">
+        <img src="./assets/img/icons/common/historique.svg" alt="image">
         <span>Historique</span>
       </a>
       <a routerLinkActive="active"  class="dropdown-item mt-5">
-        <img src="./assets/img/icons/common/activer.svg">
+        <img src="./assets/img/icons/common/activer.svg" alt="image">
         <span>liste actives </span>
       </a>
-      <a routerLinkActive="active"  class="dropdown-item mt-5">
-        <img src="./assets/img/icons/common/arch.svg">
+      <a routerLinkActive="active"  class="dropdown-item mt-5"alt="image">
+        <img src="./assets/img/icons/common/arch.svg" alt="image">
         <span>liste archivés</span>
       </a>
 
-     <!--  <a href="#!" class="dropdown-item mt-3"> --><a class="dropdown-item mt-5" routerLinkActive="active" [routerLink]="['inscription']"><!-- </a> -->
-        <img src="./assets/img/icons/common/ajouter.svg">
+   <a class="dropdown-item mt-5 mb-5"  routerLinkActive="active" [routerLink]="['inscription']">
+        <img [src]="src"  (click)="fonct()" alt="image">
         <span> Ajouter utilisateur</span>
       </a>
+
+      <div style="margin-top: 50%; margin-left: 10%;">
+        <span>DATE : {{ now | date:'dd:MM:YYYY'}}</span><br>
+               <span> HEURE : {{ now | date:'HH:mm:ss'}} </span></div>
     </div>
   </div>
 </nav>

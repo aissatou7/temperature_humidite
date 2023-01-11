@@ -15,6 +15,8 @@ import { SystemeComponent } from './systeme/systeme.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { PasswordComponent } from './password/password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
 
     InscriptionComponent,
+     DropdownComponent,
+     PasswordComponent,
   ],
   imports: [
 

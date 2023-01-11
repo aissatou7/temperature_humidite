@@ -1,5 +1,5 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { AbstractControl, ValidationErrors ,FormControl } from '@angular/forms';
+
 export class UsernameValidator {
     static cannotContainSpace(control: AbstractControl) : ValidationErrors | null
     {

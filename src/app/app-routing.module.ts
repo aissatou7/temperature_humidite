@@ -9,6 +9,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminComponent } from './admin/admin.component';
 import { SystemeComponent } from './systeme/systeme.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { PasswordComponent } from './password/password.component';
 const routes: Routes = [
 
 
@@ -18,8 +20,10 @@ const routes: Routes = [
   {path: 'sidebar', component: SidebarComponent},
   {path: 'systeme', component: SystemeComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'dropdown', component: DropdownComponent},
   {path: '', component: AdminComponent},
-  {path: 'inscription', component: InscriptionComponent}
+  {path: 'inscription', component: InscriptionComponent},
+  {path: 'password' , component: PasswordComponent}
 
 ];
 

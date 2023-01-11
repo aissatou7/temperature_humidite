@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
-
+import { UserService} from '../user.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -20,7 +21,7 @@ inputType_txt_c = 0;
 inputType_pwd_c = 1;
 
 
-  constructor( public formBuilder: FormBuilder ) {
+  constructor( public formBuilder: FormBuilder, public UserService: UserService ) {
 
     //Crontôle de saisie du formulaire
     this.signupForm = this.formBuilder.group({
@@ -30,7 +31,7 @@ inputType_pwd_c = 1;
       role:['',Validators.required],
       password:['',[Validators.required]],
       passwordConfirm: ['', Validators.required],
-      etat:[0, Validators.required],
+      etat:[true, Validators.required],
       matricule: ['']
   }
 )
@@ -55,6 +56,22 @@ inputType_pwd_c = 1;
       return;
     }
     this.submitted=false;
+
+  const user = {
+    nom:this.signupForm.value.nom,
+    prenom:this.signupForm.value.prenom,
+    email:this.signupForm.value.email,
+    password:this.signupForm.value.password,
+    role:this.signupForm.value.role,
+    etat:this.signupForm.value.etat,
+    matricule : Math.random().toString(26).slice(2),
+
+  }
+
+    this.UserService.ajout(user).subscribe(data =>{
+Swal.fire('inscription reussit'),
+window.location.reload();
+    })
 
   }
 
@@ -87,5 +104,8 @@ inputType_pwd_c = 1;
       console.log('type text');
     }
   }
-  
+
 }
+
+
+

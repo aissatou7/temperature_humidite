@@ -10,7 +10,8 @@ const app = express();
 mongoose.set('strictQuery', true);
 
 //Here we are connecting to data base mongoDb by mongoose
-mongoose.connect('mongodb+srv://aissatou7:766021841Fall@cluster0.wayru7i.mongodb.net/test',
+mongoose.connect('mongodb+srv://aissatou7:766021841Fall@cluster0.wayru7i.mongodb.net/test', 
+
 {useNewUrlParser: true,
 useUnifiedTopology: true})
 .then(() => console.log('Connexion à MongoDB réussie !'))

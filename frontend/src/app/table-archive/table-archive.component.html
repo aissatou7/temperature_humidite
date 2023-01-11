@@ -21,12 +21,12 @@
                 </tr>
               </thead>
               <tbody >
-                <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 2, currentPage: p } " >
+                <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 6, currentPage: p } " >
 
                   <td> {{user.prenom}} </td>
                   <td> {{user.nom}} </td>
                   <td> {{user.email}} </td>
-                  <td> {{user.createdAt}} </td>
+                  <td> {{user.date_archivage}} </td>
                   <td>
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  > <span class="material-symbols-outlined">delete_forever </span></button>
                   </td>

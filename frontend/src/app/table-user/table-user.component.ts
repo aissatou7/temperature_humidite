@@ -87,6 +87,9 @@ loadUser(){
   });
 }
 
+
+
+
 upDateUser(id:any, data:any){
   this.userService.updateUser(id,data).subscribe(data =>{
   });

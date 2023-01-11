@@ -95,11 +95,28 @@ changeRole=(id:any,role:any)=> {
   const user ={
    role : role
   }
-  this.userService.updateUser(id,user).subscribe(
-    data=>{
-      this.ngOnInit();
-    });
- }
+ /*  this.userService.updateUser(id,user).subscribe(
+    data=>{ */
+      Swal.fire({
+        title: 'swhitch!',
+        text: 'voulez-vous vraiment changer de role ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui',
+        cancelButtonText: 'Non',
+      }).then((result) => {
+        if (result.value) {
+      this.userService.updateUser(id,user).subscribe(
+        data=>{
+          this.ngOnInit();
+        });
+      }else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+      })
+    }
+/* } */
+
+ 
 
  getUserData(id:any,prenom:any,nom:any,email:any){
 
@@ -118,15 +135,22 @@ Archiver(id:any, etat:any){
   const user = {
    etat : etat
   }
-  this.userService.updateUser(id,user).subscribe(data =>{
-
-    this.ngOnInit();
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'archivé avec succes',
-    });window.setTimeout(function(){location.reload()},1000)
-  });
+  Swal.fire({
+    title: 'swhitch!',
+    text: 'voulez-vous vraiment archiver de role ?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui',
+    cancelButtonText: 'Non',
+  }).then((result) => {
+    if (result.value) {
+  this.userService.updateUser(id,user).subscribe(
+    data=>{
+      this.ngOnInit();
+    });
+  }else if (result.dismiss === Swal.DismissReason.cancel) {
+  }
+  })
 
 }
 

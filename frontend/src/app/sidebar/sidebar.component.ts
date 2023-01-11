@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
-
+  now:number | undefined;
+  constructor() {setInterval(() => {
+        this.now = Date.now();
+      }, 1);}
+      src="./assets/img/icons/common/ajouter.svg";
+      fonct(){
+        this.src = "./assets/img/icons/common/ajouter.svg";
+      }
   ngOnInit(): void {
   }
 

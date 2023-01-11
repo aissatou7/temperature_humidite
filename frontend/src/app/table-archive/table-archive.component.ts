@@ -79,7 +79,7 @@ loadUser(){
     this.users = this.users.filter((e:any)=> e.etat == false)
   });
 }
-// function d'archivage
+// function de déarchivage
 DeArchiver(id:any, etat:any){
 
   etat == false ? etat = true: etat = false

@@ -1,4 +1,4 @@
-<div style=" width: 16%;height: 120%; position: absolute;">
+<!-- <div style=" width: 16%;height: 120%; position: absolute;">
   <nav class=" bg-white shadow" style="height: 100%; ">
     <div>
 
@@ -37,9 +37,9 @@
           <span>liste archivés</span>
         </a>
 
-        <!--  <a href="#!" class="dropdown-item mt-3"> -->
+
         <a class="dropdown-item mt-5" routerLinkActive="active"
-          [routerLink]="['inscription']"><!-- </a> -->
+          [routerLink]="['inscription']">
           <img src="./assets/img/icons/common/ajouter.svg">
           <span> Ajouter utilisateur</span>
         </a>
@@ -48,3 +48,57 @@
   </nav>
 
 </div>
+ -->
+ <div style=" width: 16%;height: 100%; position: absolute;">
+  <nav class=" bg-white shadow" style="height: 100%; " >
+    <div >
+
+      <div >
+
+        <div >
+
+        </div>
+
+        <div class="d-flex " >
+          <a  routerLinkActive="active" [routerLink]="['/dashboard']">
+            <img src="./assets/img/icons/common/thermo.svg" alt="image">
+          </a>
+
+        <h2 class="text-danger mb-5">GESTION
+  TEMPERATURE
+  ET
+  HUMIDITE</h2> </div>
+
+        <div class="dropdown-divider mb-5"></div>
+        <a routerLinkActive="active" [routerLink]="['systeme']" class="dropdown-item">
+          <img src="./assets/img/icons/common/tab.svg">
+          <span>Tableau de bord</span>
+        </a>
+        <a routerLinkActive="active" class="dropdown-item mt-5">
+          <img src="./assets/img/icons/common/historique.svg">
+          <span>Historique</span>
+        </a>
+        <a routerLinkActive="active" [routerLink]="['table']" class="dropdown-item mt-5">
+          <img src="./assets/img/icons/common/activer.svg">
+          <span>liste actives </span>
+        </a>
+        <a routerLinkActive="active" [routerLink]="['tableArchive']" class="dropdown-item mt-5">
+          <img src="./assets/img/icons/common/arch.svg">
+          <span>liste archivés</span>
+        </a>
+
+
+        <a class="dropdown-item mt-5" routerLinkActive="active"
+          [routerLink]="['inscription']">
+          <img src="./assets/img/icons/common/ajouter.svg">
+          <span> Ajouter utilisateur</span>
+        </a>
+
+        <div style="margin-top: 50%; margin-left: 10%;">
+          <span>DATE : {{ now | date:'dd:MM:YYYY'}}</span><br>
+                 <span> HEURE : {{ now | date:'HH:mm:ss'}} </span></div>
+      </div>
+    </div>
+  </nav>
+
+  </div>

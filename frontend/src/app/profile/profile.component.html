@@ -1,11 +1,14 @@
 
-<div style="margin-right: -35%; margin-left: 35%;">
-  <div>
-    <div class="col-xl-4 mb-5 mb-xl-3">
-      <div class="card shadow">
+<div  style="margin-right: 30%; margin-left: 30%;">
+  <div class="box ">
 
 
-        <div class="card-body pt-0 pt-md-4">
+
+    <div style="position: relative;">
+      <div class="card ">
+
+
+        <div class="card-body pt-0 pt-md-4 mt-5">
 
           <div class="text-center">
             <h3>
@@ -19,32 +22,38 @@
         </div>
       </div>
     </div>
-    <div class="col-xl-4 order-xl-1">
-      <div class="card bg-secondary shadow">
-        <div class="card-header bg-white border-0">
-          <div class="row align-items-center">
-            <div class="col-8 ">
-              <h3 class="mb-0 ">Mon profile</h3>
+    <div class="row justify-content-center dd">
+      <div class="col-lg-3 order-lg-2">
+
+
+            <img src="assets/img/theme/20825.jpg" class="rounded-circle shadow"
+            style="margin-left: -32px; width: 200px; height: 200px;position: relative; margin-bottom: 0px; margin-top: -360px;">
+
+
+      </div>
+    </div>
+
+    <div class="box mt-3 shadow  rounded">
+      <div class=" shadow  p-3 pp">
+        <div class="card-header bg-white p-3 align-items-center ">
+          <div class=""  style="margin-left: 35%;">
+            <div class="">
+              <h3 class="mb-0 align-items-center">Mon profile</h3>
             </div>
 
           </div>
         </div>
         <div class="bg-white">
           <form role="form"  [formGroup]="profileForm" (ngSubmit)="profileUser()">
-            <h6 class="heading-small text-muted mb-4">Mes informations</h6>
+            <h6 style="margin-left: 32%;" class="heading-small text-muted mb-4">Modifier mes informations</h6>
             <div class="pl-md-6">
 
               <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                   <label for="prenom">Prénom</label>
                   <div [ngClass]="{'invalid':submitted && profileForm.controls['prenom'].errors}" class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend"> <span class="input-group-text bg-white">
-                      <svg width="20" height="26" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.16 9.58C14.16 11.56 12.56 13.16 10.58 13.16C8.6 13.16 7 11.56 7 9.58C7 7.6 8.6 6 10.58 6C12.56 6 14.16 7.6 14.16 9.58Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10.785 17.55C14.315 17.55 17.605 15.47 19.895 11.87C20.795 10.46 20.795 8.09 19.895 6.68C17.605 3.08 14.315 1 10.785 1C7.255 1 3.965 3.08 1.675 6.68C0.775 8.09 0.775 10.46 1.675 11.87C3.965 15.47 7.255 17.55 10.785 17.55Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-<!--                      <i class="ni ni-hat-3"></i> --> </span>
+                    <div class="input-group-prepend">
                     </div>
                     <input  formControlName="prenom"
                     type="text" class="form-control" autocomplete="on">
@@ -61,11 +70,11 @@
 
               </div>
               <div class="row">
-                <div class="col-lg-12">
-                  <label for="nom">Prénom</label>
+                <div class="col-lg-6">
+                  <label for="nom">Nom</label>
                   <div [ngClass]="{'invalid':submitted && profileForm.controls['nom'].errors}" class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
-                      <!-- <span class="input-group-text"><i class="ni ni-hat-3"></i></span> -->
+                      <i class="fa fa-home"></i>
                     </div>
                     <input  formControlName="nom"
                     type="text" class="form-control" autocomplete="on">
@@ -81,11 +90,11 @@
                 </div>
               </div>
                 <div class="row">
-                  <div class="col-lg-12">
-                    <label for="email">Prénom</label>
+                  <div class="col-lg-6">
+                    <label for="email">Email</label>
                     <div [ngClass]="{'invalid':submitted && profileForm.controls['email'].errors}" class="input-group input-group-alternative mb-3">
                       <div class="input-group-prepend">
-                     <!--    <span class="input-group-text"><i class="ni ni-hat-3"></i></span> -->
+
                       </div>
                       <input  formControlName="email"
                       type="text" class="form-control" autocomplete="on">
@@ -102,18 +111,19 @@
                 </div>
 
             </div>
-            <div class="row">
+            <div class="d-flex justify-content-center">
+            <div class="row ">
             <div class="col-md-6">
-              <button type="reset"  class="btn btn-default mt-3">Annuler</button>
+              <button type="reset"  class="btn btn-default btn-primary mt-3">Annuler</button>
           </div>
               <div class="col-md-6">
-                <button type="submit"  class="btn btn-default mt-3">Modifier</button>
-            </div></div>
-
+                <button type="submit"  class="btn btn-default btn-danger mt-3">Modifier</button>
+            </div>
+            </div>
+</div>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-

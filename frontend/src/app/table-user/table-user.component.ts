@@ -4,7 +4,7 @@ import { UserService } from "../user.service";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
 import { ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2';
 //pagination
 
 @Component({
@@ -40,7 +40,7 @@ term: any;
         role:['',Validators.required],
         password:['',[Validators.required]],
         passwordConfirm: ['', Validators.required],
-        etat:[0, Validators.required],
+        data:[0, Validators.required],
         matricule: ['']
     }
   )
@@ -80,8 +80,10 @@ term: any;
 loadUser(){
   this.userService.listUser().subscribe((data:any) =>{
      this.users = data;
-     
-     
+     //filtrer les données
+     this.users = this.users.filter((e:any)=> e.etat == true)
+
+
   });
 }
 
@@ -89,10 +91,28 @@ upDateUser(id:any, data:any){
   this.userService.updateUser(id,data).subscribe(data =>{
   });
 }
+// function d'archivage
+Archiver(id:any, etat:any){
+
+  etat == false ? etat = true: etat = false
+  const user = {
+   etat : etat
+  }
+  this.userService.updateUser(id,user).subscribe(data =>{
+
+    this.ngOnInit();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'archivé avec succes',
+    });window.setTimeout(function(){location.reload()},1000)
+  });
+
+}
 
 deleteUser(data: any){
   this.userService.deleteUser(data._id).subscribe(data => {
-    
+
   });
   this.users = this.users.filter((u:any) => u!==data)
   }

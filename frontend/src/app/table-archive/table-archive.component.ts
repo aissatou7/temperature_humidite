@@ -4,6 +4,7 @@ import { UserService } from "../user.service";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -22,13 +23,13 @@ export class TableArchiveComponent implements OnInit {
   // pagination
     p: number = 1;
   term: any;
-  
-  
+
+
 
   constructor(
     private userService: UserService,
     public formBuilder: FormBuilder
-  ) { 
+  ) {
      //Crontôle de saisie du formulaire
      this.signupForm = this.formBuilder.group({
       prenom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
@@ -47,7 +48,7 @@ export class TableArchiveComponent implements OnInit {
         //calling function which list users
         this.loadUser();
 
-    
+
   }
   passeIdentique(){
 
@@ -74,8 +75,25 @@ export class TableArchiveComponent implements OnInit {
 loadUser(){
   this.userService.listUser().subscribe((data:any) =>{
      this.users = data;
-     
-     
+    //filtrer les données
+    this.users = this.users.filter((e:any)=> e.etat == false)
+  });
+}
+// function d'archivage
+DeArchiver(id:any, etat:any){
+
+  etat == false ? etat = true: etat = false
+  const user = {
+   etat : etat
+  }
+  this.userService.updateUser(id,user).subscribe(data =>{
+
+    this.ngOnInit();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Déarchivage réussi !',
+    });window.setTimeout(function(){location.reload()},1000)
   });
 }
 

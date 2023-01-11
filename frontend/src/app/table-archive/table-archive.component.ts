@@ -86,15 +86,22 @@ DeArchiver(id:any, etat:any){
   const user = {
    etat : etat
   }
-  this.userService.updateUser(id,user).subscribe(data =>{
-
-    this.ngOnInit();
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Déarchivage réussi !',
-    });window.setTimeout(function(){location.reload()},1000)
-  });
+  Swal.fire({
+    title: 'swhitch!',
+    text: 'voulez-vous vraiment desarchiver de role ?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui',
+    cancelButtonText: 'Non',
+  }).then((result) => {
+    if (result.value) {
+  this.userService.updateUser(id,user).subscribe(
+    data=>{
+      this.ngOnInit();
+    });
+  }else if (result.dismiss === Swal.DismissReason.cancel) {
+  }
+  })
 }
 
 }

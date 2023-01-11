@@ -32,27 +32,27 @@
                   <td> {{user.email}} </td>
                   <td> {{user.createdAt}} </td>
                   <td>
-                    <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  > <span class="material-symbols-outlined">delete_forever </span></button>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  (click)="DeArchiver(user._id, user.etat)" > <span class="material-symbols-outlined">delete_forever </span></button>
                   </td>
 
                         <!-- Modal déarchivage -->
-                  <div class="modal fade" id="switchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">DEARCHIVAGE</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          Voulez-vous vraiment déarchiver ce user ?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
-                          <button type="button" class="btn btn-danger"(click)="DeArchiver(user._id, user.etat)">OUI</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    <!-- <div class="modal fade" id="switchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">DEARCHIVAGE</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Voulez-vous vraiment déarchiver ce user ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
+            <button type="button" class="btn btn-danger"(>OUI</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
                 </tr>
               </tbody>

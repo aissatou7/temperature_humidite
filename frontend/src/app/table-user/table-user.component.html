@@ -10,7 +10,7 @@
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush" >
-           
+
             <thead class="card-header ">
               <tr>
                 <th scope="col">Prenom</th>
@@ -23,7 +23,7 @@
             </thead>
             <tbody >
               <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 2, currentPage: p } " >
-               
+
                 <td> {{user.firstName}} </td>
                 <td> {{user.lastName}} </td>
                 <td> {{user.email}} </td>
@@ -84,7 +84,7 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="form-group col-md-6" style="margin-left: 130px;">
                   <label for="email">Email <span class="obligatoire">*</span></label>
                   <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"
@@ -100,7 +100,7 @@
                       format incorrect
                     </div>
                   </div>
-                </div>               
+                </div>
               </form>
             </div>
           </div>
@@ -113,21 +113,19 @@
       </div>
     </div>
   </div>
-
-
-              </tr>
+</tr>
             </tbody>
-         
+
           </table>
         </div>
         <!-- pagination -->
         <div class="card-footer py-4 d-flex" style="justify-content: right;">
            <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-          
+
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 
   <!-- Button trigger modal -->
 
@@ -169,4 +167,3 @@
       </div>
     </div>
   </div>
-  

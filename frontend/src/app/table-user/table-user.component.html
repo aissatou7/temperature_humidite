@@ -24,14 +24,14 @@
             <tbody >
               <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 2, currentPage: p } " >
                
-                <td> {{user.firstName}} </td>
-                <td> {{user.lastName}} </td>
+                <td> {{user.prenom}} </td>
+                <td> {{user.nom}} </td>
                 <td> {{user.email}} </td>
                 <td> 'matricule' </td>
-                <td> {{user.profil}} </td>
+                <td> {{user.role}} </td>
                 <td>
                   <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  > <span class="material-symbols-outlined">sync_alt </span></button>
-                  <button class="btn" data-bs-toggle="modal"data-bs-target="#updateModal"><span class="material-symbols-outlined">update</span></button>
+                  <button class="btn" data-bs-toggle="modal"data-bs-target="#updateModal"  (click)="getUserData(user._id,user.prenom,user.nom,user.email)"><span class="material-symbols-outlined">update</span></button>
                   <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"> <span class="material-symbols-outlined"> delete
                     </span></button>
                 </td>
@@ -49,37 +49,40 @@
           <div class="container c_form" style=" padding: 10px;">
             <!-- Table -->
             <div class="box">
-              <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+              <form role="form" class="row g-5"[formGroup]="updateForm" (ngSubmit)="onUpdate()">
                 <div class="form-group col-md-6">
 
                   <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
-                  <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}"
+                  <div [ngClass]="{'invalid':submitted && updateForm.controls['prenom'].errors}"
                     class="input-group input-group-alternative mb-3">
-                    <input formControlName="prenom" type="text" class="form-control" autocomplete="on" value="{{user.prenom}} ">
+                    <input formControlName="prenom" type="text" class="form-control"  >
                   </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['prenom'].errors"
+                  <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['prenom'].errors"
                     class="text-danger">
-                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['required']">
+                    <div *ngIf="submitted && updateForm.controls['prenom'].errors['required']">
                       Le prenom est obligatoire!
                     </div>
-                    <div *ngIf="submitted && signupForm.controls['prenom'].errors['cannotContainSpace']">
+                    <div *ngIf="submitted && updateForm.controls['prenom'].errors['cannotContainSpace']">
                       Espace prénom autorisé
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group col-md-6">
+                  
                   <label for="prenom">Nom <span class="obligatoire">*</span></label>
-                  <div [ngClass]="{'invalid':submitted && signupForm.controls['nom'].errors}"
+                  <div [ngClass]="{'invalid':submitted && updateForm.controls['nom'].errors}"
                     class="input-group input-group-alternative mb-3">
-                    <input formControlName="nom" class="form-control" type="text"  [(ngModel)]="user.nom">
+                    
+                    <input formControlName="nom" class="form-control" type="text"  >
                   </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['nom'].errors"
+                  <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['nom'].errors"
                     class="text-danger">
-                    <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
+                    <div *ngIf="submitted && updateForm.controls['nom'].errors['required']">
                       Le nom est obligatoire!
                     </div>
-                    <div *ngIf="submitted && signupForm.controls['nom'].errors['cannotContainSpace']">
+                    
+                    <div *ngIf="submitted && updateForm.controls['nom'].errors['cannotContainSpace']">
                       Espace non autorisé
                     </div>
                   </div>
@@ -87,33 +90,53 @@
                 
                 <div class="form-group col-md-6" style="margin-left: 130px;">
                   <label for="email">Email <span class="obligatoire">*</span></label>
-                  <div [ngClass]="{'invalid':submitted && signupForm.controls['email'].errors}"
+                  <div [ngClass]="{'invalid':submitted && updateForm.controls['email'].errors}"
                     class="input-group input-group-alternative mb-3">
-                    <input formControlName="email" class="form-control" type="email" value="{{user.email}} ">
+                    <input formControlName="email" class="form-control" type="email"  >
                   </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && signupForm.controls['email'].errors"
+                  <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['email'].errors"
                     class="text-danger">
-                    <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
+                    <div *ngIf="submitted && updateForm.controls['email'].errors['required']">
                       Le mail est obligatoire!
                     </div>
-                    <div *ngIf="submitted && signupForm.controls['email'].errors['email']">
+                    <div *ngIf="submitted && updateForm.controls['email'].errors['email']">
                       format incorrect
                     </div>
                   </div>
-                </div>               
+                </div> 
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
+                  <button type="button" class="btn btn-danger"  type="submit"  >Modifier</button>
+                </div>              
               </form>
             </div>
           </div>
 
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-danger" type="submit" >Modifier</button>
-        </div>
+        
       </div>
     </div>
   </div>
 
+
+  <!-- Modal Switch -->
+  <div class="modal fade" id="switchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CHANGEMENT DE ROLE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Voulez-vous vraiment modifier le role de ce user ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
+          <button  class="btn btn-danger" (click)="changeRole(user._id, user.role)" data-bs-dismiss="modal" >OUI</button>
+        </div>
+      </div>
+    </div>
+  </div> 
 
               </tr>
             </tbody>
@@ -132,24 +155,6 @@
   <!-- Button trigger modal -->
 
 
-  <!-- Modal Switch -->
-  <div class="modal fade" id="switchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">CHANGEMENT DE ROLE</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Voulez-vous vraiment modifier le role de ce user ?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
-          <button type="button" class="btn btn-danger">OUI</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Modal archivage -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

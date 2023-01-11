@@ -4,6 +4,7 @@ import { UserService } from "../user.service";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 //pagination
 
@@ -15,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TableUserComponent implements OnInit {
   public users:any = [];
 // nécessaire au controle de saisie du formulare de modification
-  signupForm: FormGroup;
+  
 submitted=false;
 invalid = false;
 vide = false;
@@ -23,6 +24,7 @@ vide = false;
 // pagination
   p: number = 1;
 term: any;
+updateForm: FormGroup;
 
 
 
@@ -33,15 +35,11 @@ term: any;
     private url:ActivatedRoute
   ) {
       //Crontôle de saisie du formulaire
-      this.signupForm = this.formBuilder.group({
+      this.updateForm = this.formBuilder.group({
         prenom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
         nom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
         email:['',[Validators.required,Validators.email]],
-        role:['',Validators.required],
-        password:['',[Validators.required]],
-        passwordConfirm: ['', Validators.required],
-        etat:[0, Validators.required],
-        matricule: ['']
+       
     }
   )
    }
@@ -57,7 +55,7 @@ term: any;
   }
   passeIdentique(){
 
-    if ( (this.signupForm.value.password != this.signupForm.value.passwordConfirm ) || (this.signupForm.value.passwordConfirm == '')) {
+    if ( (this.updateForm.value.password != this.updateForm.value.passwordConfirm ) || (this.updateForm.value.passwordConfirm == '')) {
       this.invalid = true;
     }
     else{
@@ -68,7 +66,7 @@ term: any;
   registerUser(){
     this.submitted = true;
     this.passeIdentique();
-    if(this.signupForm.invalid){
+    if(this.updateForm.invalid){
       return;
     }
     this.submitted=false;
@@ -84,11 +82,60 @@ loadUser(){
      
   });
 }
+//switch
 
-upDateUser(id:any, data:any){
-  this.userService.updateUser(id,data).subscribe(data =>{
-  });
+changeRole=(id:any,role:any)=> {
+  role == "Admin" ? role ="user": role = "Admin"
+  const user ={
+   role : role
+  }
+  this.userService.updateUser(id,user).subscribe(
+    data=>{
+      this.ngOnInit();
+    });
+ }
+
+ getUserData(id:any,prenom:any,nom:any,email:any){
+
+  this.updateForm = this.formBuilder.group({
+      id:[id],
+      prenom: [prenom, [Validators.required,UsernameValidator.cannotContainSpace]],
+      nom: [nom, [Validators.required, UsernameValidator.cannotContainSpace]],
+      email: [email, [Validators.required, Validators.email]],
+    });
+  console.log(id)
 }
+
+ onUpdate(){
+  if (this.updateForm.value.prenom.lenght) {
+    
+  } else {
+    const id =  this.updateForm.value.id;
+    const data ={
+     prenom: this.updateForm.value.prenom,
+     nom : this.updateForm.value.nom,
+     email: this.updateForm.value.email
+    }
+    this.submitted = true;
+    if(this.updateForm.invalid){
+      return;
+    }
+   
+      this.userService.updateUser(id, data).subscribe(
+        data=>{
+          this.ngOnInit();
+          Swal.fire('Modification',
+                    'Réussie !',
+                    'success');
+          //window.location.reload();
+          window.setTimeout(function(){location.reload()},1500)
+        });
+  }
+
+}
+ 
+
+
 
 deleteUser(data: any){
   this.userService.deleteUser(data._id).subscribe(data => {

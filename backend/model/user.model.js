@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
     matricule: {type: String, required: false},
     password: {type: String, required: false},
     role: {type: String, required: false},
-    etat: {type: Number, required: false}
+    etat: {type: Boolean, required: false}
 },
 {
     collection: 'books'

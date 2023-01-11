@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
-import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-password',
+  templateUrl: './password.component.html',
+  styleUrls: ['./password.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class PasswordComponent implements OnInit {
 
 profileForm!:FormGroup
 
@@ -34,12 +33,8 @@ invalid = false;
     if(this.profileForm.invalid){
       return;
     }
+
     this.submitted=false;
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Modification réussi !',
-    });window.setTimeout(function(){location.reload()},1000)
 
   }
 

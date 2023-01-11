@@ -6,9 +6,16 @@
       <div class="card shadow">
         <div class="thead-light border-0 d-flex">
           <h3 class="m-3">Table des actives</h3>
-          <input type="text" [(ngModel)]="term"
+        <!--   <input type="text"
             style="margin-left:37%; height: 40px; border-radius:15px; margin-top:1% ;" placeholder="Rechercher ici ...">
+
+ -->
+
+        <div class="search"  style="margin-left: 75%;">
+          <input class="inp"  [(ngModel)]="term" type="search">
+          <button class="btns btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill=#fff><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --> <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z "/></svg></button>
         </div>
+      </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
 
@@ -24,7 +31,7 @@
             </thead>
             <tbody >
               <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 6, currentPage: p } " >
-               
+
                 <td> {{user.prenom}} </td>
                 <td> {{user.nom}} </td>
                 <td> {{user.email}} </td>
@@ -71,11 +78,11 @@
 
 
                 <div class="form-group col-md-6">
-                  
+
                   <label for="prenom">Nom <span class="obligatoire">*</span></label>
                   <div [ngClass]="{'invalid':submitted && updateForm.controls['nom'].errors}"
                     class="input-group input-group-alternative mb-3">
-                    
+
                     <input formControlName="nom" class="form-control" type="text"  >
                   </div>
                   <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['nom'].errors"
@@ -83,13 +90,13 @@
                     <div *ngIf="submitted && updateForm.controls['nom'].errors['required']">
                       Le nom est obligatoire!
                     </div>
-                    
+
                     <div *ngIf="submitted && updateForm.controls['nom'].errors['cannotContainSpace']">
                       Espace non autorisé
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="form-group col-md-6" style="margin-left: 130px;">
                   <label for="email">Email <span class="obligatoire">*</span></label>
                   <div [ngClass]="{'invalid':submitted && updateForm.controls['email'].errors}"
@@ -105,17 +112,17 @@
                       format incorrect
                     </div>
                   </div>
-                </div> 
+                </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
                   <button type="button" class="btn btn-danger"  type="submit"  >Modifier</button>
-                </div>              
+                </div>
               </form>
             </div>
           </div>
 
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -171,7 +178,7 @@
       </div>
     </div>
   </div> -->
-              
+
 
 
               </tr>

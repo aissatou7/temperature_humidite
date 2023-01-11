@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -25,7 +25,7 @@ export class UserService {
   //Here we have user deleting
   deleteUser(id:any){
     return this.http.delete('http://localhost:2000/endpoint/deleteUser/'+id);
-    
+
   }
 
 

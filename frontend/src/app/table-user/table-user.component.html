@@ -6,11 +6,12 @@
       <div class="card shadow">
         <div class="thead-light border-0 d-flex">
           <h3 class="m-3">Table des actives</h3>
-          <input type="text" [(ngModel)]="term" style="margin-left:37%; height: 40px; border-radius:15px; margin-top:1% ;" placeholder="Rechercher ici ..." >
+          <input type="text" [(ngModel)]="term"
+            style="margin-left:37%; height: 40px; border-radius:15px; margin-top:1% ;" placeholder="Rechercher ici ...">
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush" >
-           
+          <table class="table align-items-center table-flush">
+
             <thead class="card-header ">
               <tr>
                 <th scope="col">Prenom</th>
@@ -68,6 +69,7 @@
                   </div>
                 </div>
 
+
                 <div class="form-group col-md-6">
                   
                   <label for="prenom">Nom <span class="obligatoire">*</span></label>
@@ -117,6 +119,38 @@
       </div>
     </div>
   </div>
+                 <!--  <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"> <span
+                      class="material-symbols-outlined">sync_alt </span></button>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#updateModal"><span
+                      class="material-symbols-outlined">update</span></button>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"> <span
+                      class="material-symbols-outlined"> delete
+                    </span></button>
+                </td> -->
+
+                <!-- Modal archivage -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ARCHIVAGE</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Voulez-vous vraiment archiver ce user ?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">NON</button>
+                        <button data-bs-dismiss="modal" type="button" class="btn btn-danger"
+                          (click)="Archiver(user._id, user.etat)">OUI</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
 
 
   <!-- Modal Switch -->
@@ -136,45 +170,23 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>
+              
 
 
-  <!-- Modal archivage -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">ARCHIVAGE</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </tr>
+            </tbody>
+
+          </table>
         </div>
-        <div class="modal-body">
-          Voulez-vous vraiment archiver ce user ?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
-          <button type="button" class="btn btn-danger">OUI</button>
+        <!-- pagination -->
+        <div class="card-footer py-4 d-flex" style="justify-content: right;">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
         </div>
       </div>
     </div>
   </div>
 
-
-              </tr>
-            </tbody>
-         
-          </table>
-        </div>
-        <!-- pagination -->
-        <div class="card-footer py-4 d-flex" style="justify-content: right;">
-           <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-          
-        </div>
-      </div>
-    </div>
-  </div> 
-
   <!-- Button trigger modal -->
 
-
-
-  

@@ -39,7 +39,11 @@ updateForm: FormGroup;
         prenom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
         nom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
         email:['',[Validators.required,Validators.email]],
-       
+        role:['',Validators.required],
+        password:['',[Validators.required]],
+        passwordConfirm: ['', Validators.required],
+        data:[0, Validators.required],
+        matricule: ['']
     }
   )
    }
@@ -78,8 +82,10 @@ updateForm: FormGroup;
 loadUser(){
   this.userService.listUser().subscribe((data:any) =>{
      this.users = data;
-     
-     
+     //filtrer les données
+     this.users = this.users.filter((e:any)=> e.etat == true)
+
+
   });
 }
 //switch
@@ -104,6 +110,24 @@ changeRole=(id:any,role:any)=> {
       email: [email, [Validators.required, Validators.email]],
     });
   console.log(id)
+}
+// function d'archivage
+Archiver(id:any, etat:any){
+
+  etat == false ? etat = true: etat = false
+  const user = {
+   etat : etat
+  }
+  this.userService.updateUser(id,user).subscribe(data =>{
+
+    this.ngOnInit();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'archivé avec succes',
+    });window.setTimeout(function(){location.reload()},1000)
+  });
+
 }
 
  onUpdate(){
@@ -139,7 +163,7 @@ changeRole=(id:any,role:any)=> {
 
 deleteUser(data: any){
   this.userService.deleteUser(data._id).subscribe(data => {
-    
+
   });
   this.users = this.users.filter((u:any) => u!==data)
   }

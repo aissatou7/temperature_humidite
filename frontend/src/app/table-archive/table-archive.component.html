@@ -10,7 +10,7 @@
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush" >
-             
+
               <thead class="card-header ">
                 <tr>
                   <th scope="col">Prenom</th>
@@ -22,34 +22,16 @@
               </thead>
               <tbody >
                 <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 2, currentPage: p } " >
-                 
-                  <td> {{user.firstName}} </td>
-                  <td> {{user.lastName}} </td>
+
+                  <td> {{user.prenom}} </td>
+                  <td> {{user.nom}} </td>
                   <td> {{user.email}} </td>
                   <td> {{user.createdAt}} </td>
                   <td>
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  > <span class="material-symbols-outlined">delete_forever </span></button>
                   </td>
-  
-  
-                </tr>
-              </tbody>
-           
-            </table>
-          </div>
-          <!-- pagination -->
-          <div class="card-footer py-4 d-flex" style="justify-content: right;">
-             <pagination-controls (pageChange)="p = $event" ></pagination-controls>
-            
-          </div>
-        </div>
-      </div>
-    </div> 
-  
-    <!-- Button trigger modal -->
-  
-  
-    <!-- Modal déarchivage -->
+
+                        <!-- Modal déarchivage -->
     <div class="modal fade" id="switchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -62,10 +44,28 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">NON</button>
-            <button type="button" class="btn btn-danger">OUI</button>
+            <button type="button" class="btn btn-danger"(click)="DeArchiver(user._id, user.etat)">OUI</button>
           </div>
         </div>
       </div>
     </div>
-  
-   
+
+                </tr>
+              </tbody>
+
+            </table>
+          </div>
+          <!-- pagination -->
+          <div class="card-footer py-4 d-flex" style="justify-content: right;">
+             <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+
+
+

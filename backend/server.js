@@ -1,10 +1,10 @@
 express = require('express');
-createError = require('http-errors');
-path = require('path');
+path = require ('path');
 mongoose = require('mongoose');
+createError = require('http-errors')
 cors = require('cors');
-bodyParser = require('body-parser');
-
+bodyParser =require('body-parser');
+const app = express();
 
 //Here we will avoid Mongoose warming (strictQuery will be 'false')
 mongoose.set('strictQuery', true);
@@ -17,7 +17,7 @@ useUnifiedTopology: true})
 .catch(() => console.log('Connexion à MongoDB échoué !'));
 
 //Here are adding the constant 'app' using express
-const app = express();
+
 //Here are managing body requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -25,6 +25,7 @@ extended: false
 }));
 //Here are managing CORS sécurity
 app.use(cors());
+
 
 //Here we are managing endpoint for access to user model
 const userRoute = require('./routes/user.route');

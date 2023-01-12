@@ -1,10 +1,7 @@
 const express = require('express');
-const app = express();
-let UserSchema = require("../model/user.model");
+let UserSchema = require("../model/user.model")
 
-//Here we are going to create a function(middelware) that can get user
-const userExpressRoute = express.Router();
-
+const userExpressRoute = express.Router(); 
 // This middelware show all users
 userExpressRoute.route('/').get((req,res) =>{
     UserSchema.find((error,data) =>{
@@ -30,16 +27,10 @@ userExpressRoute.route('/user/:id').get((req,res) => {
 });
 
 //This middelware create an user 
-userExpressRoute.route('/addUser').post((req,res,next) => {
-    UserSchema.create(req.body,(error,data) => {
-        if (error) {
-            return next(error);
-        } else {
-            res.json(data);
-            
-        }
-    })
-});
+
+
+
+
 
 //This middelware delete one user
 userExpressRoute.route('/deleteUser/:id').delete((req,res) => {

@@ -47,9 +47,7 @@ const cle = "MIIEowIBAAKCAQEA0pJxfpy9WqcVEI0FhRb6GqyILM4Fgwp/aC32IMIuGjigD"; // 
         console.log(err);
       return next(error);
     }
-    res
-      .status(200)
-      .json({
+    res.status(200).json({
         success: true,
         data: {
           userId: existingUser.id,
@@ -90,6 +88,47 @@ userExpressRoute.route('/user/:id').get((req,res) => {
 });
 
 //This middelware create an user 
+
+userExpressRoute.route('/post').post(  async(req, res) => {
+
+    const { nom, prenom, email, matricule, password,role, etat} = req.body;
+    
+   /*  const users = [];
+     */
+    const newUser = UserSchema ({
+        nom,
+        prenom, 
+        email,
+        matricule,
+        password, 
+        role,
+        etat,
+      
+       
+    });
+    
+    try {
+    
+        const oldUser = await UserSchema.findOne({ email });
+    
+        if (oldUser) {
+          return res.status(409).send("Email Already Exist. Please Login");
+        }
+    
+        const hash = await bcrypt.hash(newUser.password, 10);
+        newUser.password = hash;
+       /*  users.push(newUser); */
+        // res.json(newUser);
+        await newUser.save();
+    
+        res.status(201).json(newUser);
+    
+    } catch(error) {
+        res.status(400).json({message: "inscription echouer"})
+    }
+    
+    })
+
 
 
 

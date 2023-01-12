@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +45,9 @@ logout() {
     return this.http.delete('http://localhost:2000/endpoint/deleteUser/'+id);
 
   }
-
+  ajout(user:User){
+    return this.http.post('http://localhost:2000/endpoint/post',user);
+  }
 
   //Here we have user updating
   updateUser(id: any, data: any): Observable<any> {

@@ -133,7 +133,8 @@ Archiver(id:any, etat:any){
 
   etat == false ? etat = true: etat = false
   const user = {
-   etat : etat
+   etat : etat,
+   dateArchivage : 'vbv'
   }
   Swal.fire({
     title: 'Archivage!',
@@ -148,6 +149,7 @@ Archiver(id:any, etat:any){
     data=>{
       this.ngOnInit();
     });
+    
   }else if (result.dismiss === Swal.DismissReason.cancel) {
   }
   })

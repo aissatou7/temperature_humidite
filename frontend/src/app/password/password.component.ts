@@ -12,13 +12,14 @@ profileForm!:FormGroup
 
 submitted=false;
 invalid = false;
+ 
 
   constructor(  public formBuilder: FormBuilder ) {
 
     this.profileForm = this.formBuilder.group({
-      prenom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
-      nom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
-      email:['',[Validators.required,Validators.email]],
+     
+      password1:['',[Validators.required ]],
+      password:['12345678',[Validators.required]],
 
   }
   )

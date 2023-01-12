@@ -32,7 +32,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 2, currentPage: p } ">
+              <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 6, currentPage: p } ">
 
                 <td> {{user.prenom}} </td>
                 <td> {{user.nom}} </td>
@@ -129,7 +129,7 @@
       </div>
     </div>
   </div>
-            
+
 
 
               </tr>

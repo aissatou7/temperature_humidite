@@ -76,7 +76,7 @@ loadUser(){
   this.userService.listUser().subscribe((data:any) =>{
      this.users = data;
     //filtrer les données
-    this.users = this.users.filter((e:any)=> e.etat == false)
+    this.users = this.users.filter((e:any)=> e.etat == 'false')
   });
 }
 // function de déarchivage

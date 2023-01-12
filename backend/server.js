@@ -3,8 +3,10 @@ path = require ('path');
 mongoose = require('mongoose');
 createError = require('http-errors')
 cors = require('cors');
-bodyParser =require('body-parser');
-const app = express();
+bodyParser = require('body-parser');
+
+
+ const app = express();
 
 //Here we will avoid Mongoose warming (strictQuery will be 'false')
 mongoose.set('strictQuery', true);
@@ -28,8 +30,10 @@ extended: false
 app.use(cors());
 
 
+
 //Here we are managing endpoint for access to user model
 const userRoute = require('./routes/user.route');
+const { emit } = require('process');
 app.use('/endpoint',userRoute);
 
 //Here we are managing server's port (using which are giving by the system or 3000)
@@ -52,4 +56,6 @@ app.use((err,req,res,next) =>{
     if (!err.statusCode) ErrorEvent.statusCode = 500;
     res.status(err.statutsCode).send(err.message);
 });
+
+
 

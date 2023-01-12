@@ -10,16 +10,15 @@ import Swal from 'sweetalert2';
 export class ProfileComponent implements OnInit {
 
 profileForm!:FormGroup
-
 submitted=false;
 invalid = false;
 
   constructor(  public formBuilder: FormBuilder ) {
 
     this.profileForm = this.formBuilder.group({
-      prenom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
-      nom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
-      email:['',[Validators.required,Validators.email]],
+      prenom:['astou',[Validators.required , UsernameValidator.cannotContainSpace]],
+      nom:['diop',[Validators.required , UsernameValidator.cannotContainSpace]],
+      email:['astou@gmail.com',[Validators.required,Validators.email]],
 
   }
   )

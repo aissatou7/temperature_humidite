@@ -136,7 +136,7 @@ Archiver(id:any, etat:any){
    etat : etat
   }
   Swal.fire({
-    title: 'swhitch!',
+    title: 'Archivage!',
     text: 'voulez-vous vraiment archiver de role ?',
     icon: 'warning',
     showCancelButton: true,

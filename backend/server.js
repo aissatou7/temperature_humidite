@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 extended: false
 }));
 //Here are managing CORS sécurity
-app.use(cors());
+app.use(cors({origin: "*"}));
 
 
 //Here we are managing endpoint for access to user model

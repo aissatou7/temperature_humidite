@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{UserService} from '../user.service'
 
 
 
@@ -12,11 +13,13 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 affiche: string = ''
 open: boolean = false
-  constructor() {}
+  constructor(
+    private UserService: UserService,
+  ) { }
 
-
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+  }
 afficher(){
 this.affiche='d-block'
 if(this.open == true) {
@@ -32,4 +35,7 @@ cacher(){
   this.affiche=''
 
   }
+deconnexion(){
+  this.UserService.logout();
+}
 }

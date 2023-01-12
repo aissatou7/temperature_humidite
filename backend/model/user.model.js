@@ -1,4 +1,3 @@
-
 const mongoose = require ('mongoose');
 /* var uniqueValidator = require('mongoose-unique-validator'); */
 const userSchema = mongoose.Schema(
@@ -19,12 +18,9 @@ etat: { type:Boolean},
 
 /* {
 collection:'books'
-
 } */ );
 /* userSchema.plugin(uniqueValidator , { message: "email exite deja"}); */
 
 
 
 module.exports = mongoose.model('User', userSchema);
-
-

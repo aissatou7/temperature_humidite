@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <app-navbar></app-navbar>
@@ -7,4 +8,21 @@
 <router-outlet></router-outlet>
 
 </div>
+=======
+<div *ngIf="isLogin;else other">
+    <app-login></app-login>
+</div>
+<ng-template #other>
+    <app-navbar></app-navbar>
+    <app-sidebar></app-sidebar>
+    <app-dashbord></app-dashbord>
+    <div style="margin-left:330px; margin-right:30px; margin-top: 0px;">
+    <router-outlet></router-outlet>
+    
+    </div> 
+</ng-template>
+
+
+
+>>>>>>> 3ca8740a (ok)
 

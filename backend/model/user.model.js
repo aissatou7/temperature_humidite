@@ -10,17 +10,17 @@ email: { type:String},
 matricule: { type:String},
 password: { type:String},
 role: { type:String},
-etat: { type:String},
+etat: { type:Boolean},
 
 },
 
 {
-collection:'utilisateur'
+collection:'books'
 
 }
 
 
 );
 
-module.exports = mongoose.model('Model' , userSchema);
+module.exports = mongoose.model('User' , userSchema);
 

@@ -1,17 +1,35 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-   // Http Header
-   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+  
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient,
+    private route:Router
+    ) {
+    
+   }
 
+//CONNEXION
+login(user:any){
+  return this.http.post('http://localhost:2000/endpoint/test',user)
+}
 
+// DECONNEXION
+logout() {
+  //remove user from localStorage
+  localStorage.clear(); //delete all user connected information, into token
+  this.route.navigate(['/'])
+  // this.currentUserSubject.next(null);
+}
   //Here we have user adding
   addUser(user:any){
        return this.http.post('http://localhost:2000/endpoint/addUser', user);

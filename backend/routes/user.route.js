@@ -17,7 +17,7 @@ const cle = "MIIEowIBAAKCAQEA0pJxfpy9WqcVEI0FhRb6GqyILM4Fgwp/aC32IMIuGjigD"; // 
     if (!existingUser) {
         let code = 'noEmail';
         console.log(code);
-        return res.status(404).send("email doesn't exist...!");
+        return res.status(200).json({message:"email doesn't exist...!"});
     }else if(existingUser.etat == false){
         let code = 'archiver';
         console.log(code);
@@ -39,6 +39,7 @@ const cle = "MIIEowIBAAKCAQEA0pJxfpy9WqcVEI0FhRb6GqyILM4Fgwp/aC32IMIuGjigD"; // 
         // process.env.JWT_SECRET,
           cle,
         { expiresIn: "1h" }
+    
       );
     } catch (err) {
         const error = new Error("Erreur! Quelque chose s'est mal passée.");

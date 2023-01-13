@@ -29,12 +29,11 @@ invalid = false;
 
   profileUser(){
     this.submitted = true;
-
     if(this.profileForm.invalid){
       return;
     }
-
     this.submitted=false;
+    
 
   }
 

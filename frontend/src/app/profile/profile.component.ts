@@ -12,13 +12,16 @@ export class ProfileComponent implements OnInit {
 profileForm!:FormGroup
 submitted=false;
 invalid = false;
+prenom = localStorage.getItem('prenom')
+nom = localStorage.getItem('nom')
+email = localStorage.getItem('email')
 
   constructor(  public formBuilder: FormBuilder ) {
 
     this.profileForm = this.formBuilder.group({
-      prenom:['astou',[Validators.required , UsernameValidator.cannotContainSpace]],
-      nom:['diop',[Validators.required , UsernameValidator.cannotContainSpace]],
-      email:['astou@gmail.com',[Validators.required,Validators.email]],
+      prenom:[this.prenom,[Validators.required , UsernameValidator.cannotContainSpace]],
+      nom:[this.nom,[Validators.required , UsernameValidator.cannotContainSpace]],
+      email:[this.email,[Validators.required,Validators.email]],
 
   }
   )

@@ -1,11 +1,12 @@
 <div style="position: relative;">
   <div class="container c_form " style="margin-top: 50px; padding: 10px; position: relative;">
     <!-- Table -->
-    <div class="box">
+    <div class="box shadow">
 
               <h2 class="text-center" style="padding-top: 10px;">Inscription</h2>
-
+              <div class="text-danger text-center" *ngIf="changeMail">mail existe déja</div>
             <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+
               <div class="form-group col-md-6">
                 <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
                 <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}" class="input-group input-group-alternative mb-3">
@@ -131,11 +132,10 @@
 
             </div>
             <div  style="text-align:center;">
-                <button type="submit"  class="btn btn-outline-danger my-4">Inscrire</button>
+                <button type="submit"  class="btn btn-primary btnp">Inscrire</button>
             </div>
             </form>
           </div>
         </div>
 
 </div>
-

@@ -20,7 +20,7 @@
                   <th scope="col">Prenom</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Date d'archivage</th>
+                  <th scope="col">Matricule</th>
                   <th scope="col"> Actions</th>
                 </tr>
               </thead>
@@ -30,7 +30,7 @@
                   <td> {{user.prenom}} </td>
                   <td> {{user.nom}} </td>
                   <td> {{user.email}} </td>
-                  <td> {{user.createdAt}} </td>
+                 <td> {{user.matricule}} </td>
                   <td>
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  (click)="DeArchiver(user._id, user.etat)" > <span class="material-symbols-outlined">delete_forever </span></button>
                   </td>

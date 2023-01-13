@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { Router } from '@angular/router';
->>>>>>> 3ca8740a (ok)
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,9 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'temperature_humidite';
-<<<<<<< HEAD
-=======
   isLogin = false;
+
   constructor(
     private route:Router
   ){
@@ -24,5 +20,4 @@ export class AppComponent {
       }
     });
   }
->>>>>>> 3ca8740a (ok)
 }

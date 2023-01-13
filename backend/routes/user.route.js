@@ -1,9 +1,4 @@
 const express = require('express');
-<<<<<<< HEAD
-let UserSchema = require("../model/user.model")
-
-const userExpressRoute = express.Router(); 
-=======
 const app = express();
 let UserSchema = require("../model/user.model");
 const bcrypt = require('bcrypt');
@@ -70,7 +65,6 @@ const cle = "MIIEowIBAAKCAQEA0pJxfpy9WqcVEI0FhRb6GqyILM4Fgwp/aC32IMIuGjigD"; // 
 })
 
 
->>>>>>> 3ca8740a (ok)
 // This middelware show all users
 userExpressRoute.route('/').get((req,res) =>{
     UserSchema.find((error,data) =>{
@@ -98,7 +92,45 @@ userExpressRoute.route('/user/:id').get((req,res) => {
 //This middelware create an user 
 
 
+userExpressRoute.route('/post').post(  async(req, res) => {
 
+    const { nom, prenom, email, matricule, password,role, etat} = req.body;
+    
+   /*  const users = [];
+     */
+    const newUser = UserSchema ({
+        nom,
+        prenom, 
+        email,
+        matricule,
+        password, 
+        role,
+        etat,
+      
+       
+    });
+    
+    try {
+    
+        const oldUser = await UserSchema.findOne({ email });
+    
+        if (oldUser) {
+          return res.status(200).json({message:"Email Already Exist. Please Login",emailExiste:true});
+        }
+    
+        const hash = await bcrypt.hash(newUser.password, 10);
+        newUser.password = hash;
+       /*  users.push(newUser); */
+        // res.json(newUser);
+        await newUser.save();
+    
+        res.status(201).json(newUser);
+    
+    } catch(error) {
+        res.status(400).json({message: "inscription echouer"})
+    }
+    
+    })
 
 
 //This middelware delete one user

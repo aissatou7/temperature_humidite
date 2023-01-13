@@ -25,11 +25,7 @@ const routes: Routes = [
   {path: 'sidebar', component: SidebarComponent},
   {path: 'systeme', component: SystemeComponent},
   {path: 'profile', component: ProfileComponent},
-<<<<<<< HEAD
   {path: '', component: AdminComponent},
-=======
-  {path: '', component: AdminComponent}, 
->>>>>>> 3ca8740a (ok)
   {path: 'inscription', component: InscriptionComponent},
   {path: 'tableArchive', component: TableArchiveComponent},
   {path: 'password', component: PasswordComponent}

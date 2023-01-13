@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'table', component: TableUserComponent},
 {path: 'historique', component: TableHistoriqueComponent},
-{path: 'login', component: LoginComponent},
+
 
   {path: 'tableuser', component: TableUserComponent},
   {path: 'dashbord', component: DashbordComponent},
@@ -25,8 +25,8 @@ const routes: Routes = [
   {path: 'sidebar', component: SidebarComponent},
   {path: 'systeme', component: SystemeComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: '', component: AdminComponent}, 
- 
+  {path: '', component: AdminComponent},
+
   {path: 'tableArchive', component: TableArchiveComponent},
   {path: 'password', component: PasswordComponent}
 

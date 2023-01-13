@@ -1,0 +1,62 @@
+<div class="bg-gradient-danger" style="height: 45%; width: 100%; position: absolute;">
+  <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+
+    <div class="container-fluid">
+  <a  href="/" class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" ></a>
+
+  <!-- Brand -->
+ 
+
+
+<div class="d-flex">
+      <div class="dropdown">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#fff"><path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"/></svg>
+        </span>
+        <div class="dropdown-menu">
+          <a routerLinkActive="active" routerLink="profile" class="dropdown-item">
+            <i class="ni ni-single-02"></i>
+            <span>Mon profile</span></a>
+          <a routerLinkActive="" routerLink="password"  class="dropdown-item">
+            <i class="ni ni-settings-gear-65"></i>
+            <span>Modifier password</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a (click)="deconnexion()" class="dropdown-item">
+            <i class="ni ni-user-run"></i>
+            <span>Deconnexion</span>
+          </a>
+        </div>
+      </div>
+
+
+
+
+
+
+     <!--  <div class="dropdown show " style="margin-right:10px;">
+      <button class=" btn shadow" (mouseenter)="afficher()"    href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span>
+          <img src="./assets/img/icons/common/menu.svg" alt="photo" class="bg-white rounded-circle">
+        </span>
+      </button>
+      <div *ngIf="affiche != '' && open" class="dropdown-menu d-block" aria-labelledby="dropdownMenuLink">
+        <a routerLinkActive="active" routerLink="profile" class="dropdown-item">
+          <i class="ni ni-single-02"></i>
+          <span>Mon profile</span>
+        </a>
+        <a routerLinkActive="" routerLink="" class="dropdown-item">
+          <i class="ni ni-settings-gear-65"></i>
+          <span>Modifier password</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item">
+          <i class="ni ni-user-run"></i>
+          <span (click)="deconnexion()">Deconnexion</span>
+        </a>
+      </div>
+    </div> -->
+    <div class="mt-3"><span><h5 class="text-white">{{identifiant}}</h5></span></div></div>
+  </div>
+</nav>
+</div>

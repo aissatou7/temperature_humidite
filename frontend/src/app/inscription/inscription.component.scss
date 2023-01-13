@@ -1,0 +1,32 @@
+.invalid{
+  border: 1px solid #dc3545;
+  border-radius: 7px;
+}
+
+.btnp{
+  background-color: #172b4d;
+}
+
+.box{
+  background-color: #fff;
+  width: 55%;
+  margin: auto;
+  border-radius: 7px;
+  box-shadow: 6px 5px 5px #f56036;
+  border:1px solid #dc3545;
+}
+
+form
+{
+  padding: 20px;
+}
+.obligatoire{
+  color: #dc3545;
+}
+.eyes{
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  z-index: 1000;
+  cursor: pointer;
+}

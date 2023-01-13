@@ -37,6 +37,10 @@ email = localStorage.getItem('email')
       return;
     }
     this.submitted=false;
+    //d'abord on vérifie si le mail à changer
+   if (this.email != this.profileForm.value.email) {
+    
+   }
     Swal.fire({
       position: 'center',
       icon: 'success',

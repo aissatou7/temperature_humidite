@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, EmailValidator } from '@angular/forms';
 import { UsernameValidator } from '../username.validator';
 import { UserService} from '../user.service';
 import Swal from 'sweetalert2';
@@ -19,6 +19,8 @@ inputType_pwd = 1;
 inputType_c:any = "password";
 inputType_txt_c = 0;
 inputType_pwd_c = 1;
+message:any
+changeMail:any = false;
 
 
   constructor( public formBuilder: FormBuilder, public UserService: UserService ) {
@@ -49,6 +51,7 @@ inputType_pwd_c = 1;
     }
 
   }
+
   registerUser(){
     this.submitted = true;
     this.passeIdentique();
@@ -69,8 +72,17 @@ inputType_pwd_c = 1;
   }
 
     this.UserService.ajout(user).subscribe(data =>{
-Swal.fire('inscription reussit'),
-window.location.reload();
+
+      this.message = data;
+      if (this.message.emailExiste == true) {
+        this.changeMail = true;
+
+      } else {
+          Swal.fire('inscription reussit'),
+           window.location.reload();
+      }
+
+
     })
 
   }
@@ -106,6 +118,5 @@ window.location.reload();
   }
 
 }
-
 
 

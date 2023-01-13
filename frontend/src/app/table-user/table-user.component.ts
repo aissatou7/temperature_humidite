@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class TableUserComponent implements OnInit {
   public users:any = [];
 // nécessaire au controle de saisie du formulare de modification
-  
+
 submitted=false;
 invalid = false;
 vide = false;
@@ -116,7 +116,7 @@ changeRole=(id:any,role:any)=> {
     }
 /* } */
 
- 
+
 
  getUserData(id:any,prenom:any,nom:any,email:any){
 
@@ -158,7 +158,7 @@ Archiver(id:any, etat:any){
 
  onUpdate(){
   if (this.updateForm.value.prenom.lenght) {
-    
+
   } else {
     const id =  this.updateForm.value.id;
     const data ={
@@ -170,7 +170,7 @@ Archiver(id:any, etat:any){
     if(this.updateForm.invalid){
       return;
     }
-   
+
       this.userService.updateUser(id, data).subscribe(
         data=>{
           this.ngOnInit();
@@ -183,7 +183,7 @@ Archiver(id:any, etat:any){
   }
 
 }
- 
+
 
 
 

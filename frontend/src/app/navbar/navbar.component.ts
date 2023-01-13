@@ -13,14 +13,18 @@ import{UserService} from '../user.service'
 export class NavbarComponent implements OnInit {
 affiche: string = ''
 open: boolean = false
+<<<<<<< HEAD
  identifiant = localStorage.getItem('prenom') + ' ' + localStorage.getItem('nom');
  
+=======
+identifiant = localStorage.getItem('prenom') + ' ' + localStorage.getItem('nom');
+>>>>>>> origin/MHDLamine3
   constructor(
     private UserService: UserService,
   ) { }
 
   ngOnInit(): void {
-   
+
   }
 afficher(){
 this.affiche='d-block'

@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'systeme', component: SystemeComponent},
   {path: 'profile', component: ProfileComponent},
   {path: '', component: AdminComponent},
-
+  {path: 'inscription', component: InscriptionComponent},
   {path: 'tableArchive', component: TableArchiveComponent},
   {path: 'password', component: PasswordComponent}
 

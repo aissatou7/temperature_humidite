@@ -30,7 +30,9 @@
                   <td> {{user.prenom}} </td>
                   <td> {{user.nom}} </td>
                   <td> {{user.email}} </td>
-                  <td> {{user.matricule}} </td>
+
+                 <td> {{user.matricule}} </td>
+
                   <td>
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  (click)="DeArchiver(user._id, user.etat)" > <span class="material-symbols-outlined">delete_forever </span></button>
                   </td>

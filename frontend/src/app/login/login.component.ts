@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   registerForm: FormGroup;
   errMsg: any;
   submitted = false;
- 
+
   constructor(
     public formBuilder: FormBuilder,
     private userService: UserService,
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             localStorage.setItem('nom', tmp.data.nom);
             localStorage.setItem('role', tmp.data.role);
             localStorage.setItem('matricule', tmp.data.matricule);
+            localStorage.setItem('email', tmp.data.email);
             console.log(localStorage.getItem('prenom'))
             if (tmp.data.role.includes( 'Admin')) {
               this.router.navigate(['/systeme'])

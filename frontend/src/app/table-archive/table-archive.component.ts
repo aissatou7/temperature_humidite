@@ -87,7 +87,7 @@ DeArchiver(id:any, etat:any){
    etat : etat
   }
   Swal.fire({
-    title: 'swhitch!',
+    title: 'DESARCHIVER!',
     text: 'voulez-vous vraiment desarchiver de role ?',
     icon: 'warning',
     showCancelButton: true,

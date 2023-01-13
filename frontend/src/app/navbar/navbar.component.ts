@@ -13,6 +13,8 @@ import{UserService} from '../user.service'
 export class NavbarComponent implements OnInit {
 affiche: string = ''
 open: boolean = false
+ identifiant = localStorage.getItem('prenom') + ' ' + localStorage.getItem('nom');
+ 
   constructor(
     private UserService: UserService,
   ) { }

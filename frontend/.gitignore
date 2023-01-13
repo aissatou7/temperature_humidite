@@ -7,11 +7,7 @@
 /bazel-out
 
 # Node
-<<<<<<< HEAD
-/node_modules
-=======
 node_modules
->>>>>>> 3ca8740a (ok)
 npm-debug.log
 yarn-error.log
 
@@ -33,11 +29,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-<<<<<<< HEAD
-/.angular/cache
-=======
 .angular/cache
->>>>>>> 3ca8740a (ok)
 .sass-cache/
 /connect.lock
 /coverage

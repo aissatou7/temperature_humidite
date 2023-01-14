@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  role = localStorage.getItem('role')
 
   now:number | undefined;
   constructor() {setInterval(() => {
@@ -16,6 +17,8 @@ export class SidebarComponent implements OnInit {
         this.src = "./assets/img/icons/common/ajouter.svg";
       }
   ngOnInit(): void {
+   
   }
 
 }
+

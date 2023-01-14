@@ -78,6 +78,7 @@
           <img src="./assets/img/icons/common/historique.svg">
           <span>Historique</span>
         </a>
+        <span *ngIf="role != 'Utilisateur'">
         <a routerLinkActive="active" [routerLink]="['table']" class="dropdown-item mt-5">
           <img src="./assets/img/icons/common/activer.svg">
           <span>liste actives </span>
@@ -90,10 +91,10 @@
 
         <a class="dropdown-item mt-5" routerLinkActive="active"
           [routerLink]="['inscription']">
-          <img src="./assets/img/icons/common/ajouter.svg">
+          <img src="../assets/img/icons/common/ajouter.svg">
           <span> Ajouter utilisateur</span>
         </a>
-
+</span>
         <div style="margin-top: 50%; margin-left: 10%;">
           <span>DATE : {{ now | date:'dd:MM:YYYY'}}</span><br>
                  <span> HEURE : {{ now | date:'HH:mm:ss'}} </span></div>

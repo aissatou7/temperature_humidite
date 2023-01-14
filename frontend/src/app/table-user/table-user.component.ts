@@ -91,7 +91,7 @@ loadUser(){
 //switch
 
 changeRole=(id:any,role:any)=> {
-  role == "Admin" ? role ="user": role = "Admin"
+  role == "Administrateur" ? role ="Utilisateur": role = "Administrateur"
   const user ={
    role : role
   }
@@ -149,7 +149,7 @@ Archiver(id:any, etat:any){
     data=>{
       this.ngOnInit();
     });
-    
+
   }else if (result.dismiss === Swal.DismissReason.cancel) {
   }
   })

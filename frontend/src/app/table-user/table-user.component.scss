@@ -4,7 +4,7 @@ ngb-pagination li {
       span {
         display: none;
       }
-     
+
     }
   }
 
@@ -56,4 +56,10 @@ ngb-pagination li {
 .search:hover > .btns{
 
   background-color: #f56036 ;
+}
+.search > .inp:focus{
+  width: 240px;
+  padding: 0 6px;
+  top: 50px;
+  
 }

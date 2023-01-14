@@ -70,34 +70,50 @@
   HUMIDITE</h2> </div>
 
         <div class="dropdown-divider mb-5"></div>
-        <a routerLinkActive="active" [routerLink]="['systeme']" class="dropdown-item">
-          <img src="./assets/img/icons/common/tab.svg">
+
+          <a routerLinkActive="active" [routerLink]="['systeme']" class="dropdown-item e">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="j" fill="#f5365c"><path d="M6 42V6h36v36Zm3-25h30V9H9Zm11 11h8v-8h-8Zm0 11h8v-8h-8ZM9 28h8v-8H9Zm22 0h8v-8h-8ZM9 39h8v-8H9Zm22 0h8v-8h-8Z"/></svg>
           <span>Tableau de bord</span>
         </a>
-        <a routerLinkActive="active" [routerLink]="['historique']"  class="dropdown-item mt-5">
-          <img src="./assets/img/icons/common/historique.svg">
+
+
+        <a routerLinkActive="active" [routerLink]="['historique']"  class="dropdown-item mt-5 e mb-5">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="j" fill="#f5365c"><path d="M23.85 42q-7.45 0-12.65-5.275T6 23.95h3q0 6.25 4.3 10.65T23.85 39q6.35 0 10.75-4.45t4.4-10.8q0-6.2-4.45-10.475Q30.1 9 23.85 9q-3.4 0-6.375 1.55t-5.175 4.1h5.25v3H7.1V7.25h3v5.3q2.6-3.05 6.175-4.8Q19.85 6 23.85 6q3.75 0 7.05 1.4t5.775 3.825q2.475 2.425 3.9 5.675Q42 20.15 42 23.9t-1.425 7.05q-1.425 3.3-3.9 5.75-2.475 2.45-5.775 3.875Q27.6 42 23.85 42Zm6.4-9.85-7.7-7.6v-10.7h3v9.45L32.4 30Z"/></svg>
           <span>Historique</span>
         </a>
         <span *ngIf="role != 'Utilisateur'">
-        <a routerLinkActive="active" [routerLink]="['table']" class="dropdown-item mt-5">
-          <img src="./assets/img/icons/common/activer.svg">
+
+          <div style="margin-left: 15px;" class="dropdown mb-5">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="j" fill="#f5365c" ><path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"/></svg>
+              <span>listes        </span>
+            </span>
+            <div class="dropdown-menu">
+        <a routerLinkActive="active" [routerLink]="['table']" class="dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="j" fill="#f5365c" ><path d="M1.9 40v-4.7q0-1.75.9-3.175Q3.7 30.7 5.3 30q3.65-1.6 6.575-2.3Q14.8 27 17.9 27q3.1 0 6 .7t6.55 2.3q1.6.7 2.525 2.125.925 1.425.925 3.175V40Zm35 0v-4.7q0-3.15-1.6-5.175t-4.2-3.275q3.45.4 6.5 1.175t4.95 1.775q1.65.95 2.6 2.35.95 1.4.95 3.15V40Zm-19-16.05q-3.3 0-5.4-2.1-2.1-2.1-2.1-5.4 0-3.3 2.1-5.4 2.1-2.1 5.4-2.1 3.3 0 5.4 2.1 2.1 2.1 2.1 5.4 0 3.3-2.1 5.4-2.1 2.1-5.4 2.1Zm18-7.5q0 3.3-2.1 5.4-2.1 2.1-5.4 2.1-.55 0-1.225-.075T25.95 23.6q1.2-1.25 1.825-3.075.625-1.825.625-4.075t-.625-3.975Q27.15 10.75 25.95 9.3q.55-.15 1.225-.25t1.225-.1q3.3 0 5.4 2.1 2.1 2.1 2.1 5.4ZM4.9 37h26v-1.7q0-.8-.475-1.55T29.25 32.7q-3.6-1.6-6.05-2.15-2.45-.55-5.3-.55-2.85 0-5.325.55T6.5 32.7q-.7.3-1.15 1.05-.45.75-.45 1.55Zm13-16.05q1.95 0 3.225-1.275Q22.4 18.4 22.4 16.45q0-1.95-1.275-3.225Q19.85 11.95 17.9 11.95q-1.95 0-3.225 1.275Q13.4 14.5 13.4 16.45q0 1.95 1.275 3.225Q15.95 20.95 17.9 20.95Zm0 16.05Zm0-20.55Z"/></svg>
           <span>liste actives </span>
         </a>
-        <a routerLinkActive="active" [routerLink]="['tableArchive']" class="dropdown-item mt-5">
-          <img src="./assets/img/icons/common/arch.svg">
+        <a routerLinkActive="active" [routerLink]="['tableArchive']" class="dropdown-item">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="j" fill="#f5365c" ><path d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V12.85q0-.75.15-1.275.15-.525.55-.975l2.8-3.8q.4-.45.925-.625T11.65 6h24.7q.7 0 1.2.175t.9.625l2.85 3.8q.4.45.55.975.15.525.15 1.275V39q0 1.2-.9 2.1-.9.9-2.1.9Zm.85-30.7H38.1L36.3 9H11.65Zm-.85 3V39h30V14.3Zm15 20.2 7.8-7.8-2-2-4.3 4.3V18.95h-3V29l-4.3-4.3-2 2ZM9 39h30H9Z"/></svg>
           <span>liste archivés</span>
         </a>
 
+</div>
 
-        <a class="dropdown-item mt-5" routerLinkActive="active"
+
+        </div>
+
+ <a class="dropdown-item e" routerLinkActive="active"
           [routerLink]="['inscription']">
-          <img src="../assets/img/icons/common/ajouter.svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="j" fill="#f5365c" ><path d="M23.7 23.7q1.3-1.6 1.925-3.3.625-1.7.625-3.95t-.625-3.95Q25 10.8 23.7 9.2q3.8-.85 6.675 1.15t2.875 6.1q0 4.1-2.875 6.1T23.7 23.7ZM34.5 40v-4.7q0-2.55-1.3-4.75t-4.5-3.7q8.65 1.1 11.825 3.2 3.175 2.1 3.175 5.25V40ZM40 25.55v-5h-5v-3h5v-5h3v5h5v3h-5v5Zm-24.25-1.6q-3.3 0-5.4-2.1-2.1-2.1-2.1-5.4 0-3.3 2.1-5.4 2.1-2.1 5.4-2.1 3.3 0 5.4 2.1 2.1 2.1 2.1 5.4 0 3.3-2.1 5.4-2.1 2.1-5.4 2.1ZM0 40v-4.7q0-1.75.925-3.175Q1.85 30.7 3.4 30q3.6-1.6 6.425-2.3 2.825-.7 5.925-.7 3.1 0 5.9.7 2.8.7 6.4 2.3 1.55.7 2.5 2.125t.95 3.175V40Zm15.75-19.05q1.95 0 3.225-1.275Q20.25 18.4 20.25 16.45q0-1.95-1.275-3.225Q17.7 11.95 15.75 11.95q-1.95 0-3.225 1.275Q11.25 14.5 11.25 16.45q0 1.95 1.275 3.225Q13.8 20.95 15.75 20.95ZM3 37h25.5v-1.7q0-.8-.4-1.5t-1.25-1.1Q23.4 31.1 21 30.55 18.6 30 15.75 30t-5.225.55Q8.15 31.1 4.6 32.7q-.75.35-1.175 1.075Q3 34.5 3 35.3Zm12.75-20.55Zm0 20.55Z"/></svg>
+
           <span> Ajouter utilisateur</span>
         </a>
+
 </span>
-        <div style="margin-top: 50%; margin-left: 10%;">
-          <span>DATE : {{ now | date:'dd:MM:YYYY'}}</span><br>
-                 <span> HEURE : {{ now | date:'HH:mm:ss'}} </span></div>
+        <div class="e heure" style="margin-top: 81%; ">
+          <span>{{ now | date:'dd:MM:YYYY'}}</span><br>
+                 <span> {{ now | date:'HH:mm:ss'}} </span></div>
       </div>
     </div>
   </nav>

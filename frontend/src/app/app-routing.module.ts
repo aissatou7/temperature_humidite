@@ -12,6 +12,7 @@ import { TableArchiveComponent } from './table-archive/table-archive.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
 import { LoginComponent } from './login/login.component';
 import { PasswordComponent } from './password/password.component';
+
 const routes: Routes = [
 
   {path: 'inscription', component: InscriptionComponent},
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path: '', component: AdminComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'tableArchive', component: TableArchiveComponent},
-  {path: 'password', component: PasswordComponent}
+  {path: 'password', component: PasswordComponent},
+
+
 
 
 ];

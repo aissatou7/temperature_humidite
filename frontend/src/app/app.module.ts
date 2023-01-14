@@ -23,7 +23,8 @@ import { ProfileComponent } from './profile/profile.component';
 import {NgxPaginationModule} from 'ngx-pagination'; //pagination
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TableArchiveComponent } from './table-archive/table-archive.component';
-import { PasswordComponent } from './password/password.component'; //recherche
+import { PasswordComponent } from './password/password.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,12 +40,13 @@ LoginComponent,
      TableArchiveComponent,
    TableHistoriqueComponent,
    PasswordComponent,
+
   ],
   imports: [
 
     BrowserModule,
     AppRoutingModule,
-   
+
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,

@@ -63,6 +63,13 @@ mailExiste:any = ''
             }
             this.userService.updateUser(this.id, data).subscribe(
               data=>{
+                localStorage.removeItem('prenom');
+                localStorage.removeItem('nom');
+                localStorage.removeItem('email');
+
+                localStorage.setItem('prenom',  this.profileForm.value.prenom);
+                localStorage.setItem('nom', this.profileForm.value.nom,);
+                localStorage.setItem('email',  this.profileForm.value.email);
                 Swal.fire({
                   position: 'center',
                   icon: 'success',

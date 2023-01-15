@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.UserService.isLoggedIn !== true) {
+    if (this.UserService.isLoggedIn !== true && localStorage.getItem('token') == null) {
   
 Swal.fire('Veuillez-vous connecter !')
       this.router.navigate([''])

@@ -25,9 +25,9 @@ mailExiste:any = ''
     private userService: UserService, ) {
 
     this.profileForm = this.formBuilder.group({
-      prenom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
-      nom:['',[Validators.required , UsernameValidator.cannotContainSpace]],
-      email:['',[Validators.required,Validators.email]],
+      prenom:[this.prenom,[Validators.required , UsernameValidator.cannotContainSpace]],
+      nom:[this.nom,[Validators.required , UsernameValidator.cannotContainSpace]],
+      email:[this.email,[Validators.required,Validators.email]],
 
   }
   )
@@ -37,7 +37,24 @@ mailExiste:any = ''
    console.log( this.role);
 
   }
+  //fonction qui prend en paramètre les données à modifier sous format json
+  modificatio_reussie(data){
+    this.userService.updateUser(this.id, data).subscribe(
+      data=>{
+        localStorage.removeItem('prenom');
+        localStorage.removeItem('nom');
+        localStorage.removeItem('email');
 
+        localStorage.setItem('prenom',  this.profileForm.value.prenom);
+        localStorage.setItem('nom', this.profileForm.value.nom,);
+        localStorage.setItem('email',  this.profileForm.value.email);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Modification réussi !',
+        });window.setTimeout(function(){location.reload()},1000)
+      })
+  }
   profileUser(){
     this.submitted = true;
 
@@ -45,6 +62,14 @@ mailExiste:any = ''
       return;
     }
     this.submitted=false;
+    if (this.email == this.profileForm.value.email) {
+      const data = {
+        nom:this.profileForm.value.nom,
+        prenom:this.profileForm.value.prenom,
+      }
+      this.modificatio_reussie(data);
+     }
+     
     //d'abord on vérifie si le mail à changer
    if (this.email != this.profileForm.value.email) {
       this.userService.listUser().subscribe((data:any) =>{
@@ -54,6 +79,7 @@ mailExiste:any = ''
 
           if (this.users.length >= 1) {
             this.mailExiste = 'le mail existe déja'
+
           }
           else{
             const data = {
@@ -61,23 +87,7 @@ mailExiste:any = ''
               prenom:this.profileForm.value.prenom,
               email:this.profileForm.value.email,
             }
-            this.userService.updateUser(this.id, data).subscribe(
-              data=>{
-                localStorage.removeItem('prenom');
-                localStorage.removeItem('nom');
-                localStorage.removeItem('email');
-
-                localStorage.setItem('prenom',  this.profileForm.value.prenom);
-                localStorage.setItem('nom', this.profileForm.value.nom,);
-                localStorage.setItem('email',  this.profileForm.value.email);
-                Swal.fire({
-                  position: 'center',
-                  icon: 'success',
-                  title: 'Modification réussi !',
-                });window.setTimeout(function(){location.reload()},1000)
-              })
-
-
+            this.modificatio_reussie(data)
           }
 
     })

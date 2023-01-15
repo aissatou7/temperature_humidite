@@ -22,7 +22,13 @@ export class UserService {
 login(user:any){
   return this.http.post('http://localhost:2000/endpoint/test',user)
 }
-
+getToken() {
+  return localStorage.getItem('access_token');
+}
+get isLoggedIn(): boolean {
+  let authToken = localStorage.getItem('access_token');
+  return authToken !== null ? true : false;
+}
 // DECONNEXION
 logout() {
   //remove user from localStorage

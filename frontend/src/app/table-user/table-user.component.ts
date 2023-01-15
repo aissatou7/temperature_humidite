@@ -25,6 +25,9 @@ vide = false;
   p: number = 1;
 term: any;
 updateForm: FormGroup;
+  code: any;
+  showcode: boolean;
+  message: string;
 
 
 
@@ -170,9 +173,12 @@ Archiver(id:any, etat:any){
     if(this.updateForm.invalid){
       return;
     }
-   
-      this.userService.updateUser(id, data).subscribe(
-        data=>{
+    this.userService.updateUser(id, data).subscribe(data=>{
+          this.code = data.code;
+                if(this.code == "true"){
+                  this.showcode = true;
+                  htmlStr: this.message = "L'email saisie n'existe pas !";
+                }
           this.ngOnInit();
           Swal.fire('Modification',
                     'Réussie !',

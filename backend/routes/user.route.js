@@ -150,15 +150,18 @@ userExpressRoute.route('/deleteUser/:id').delete((req,res) => {
 });
 
 //This middelware update one user
-userExpressRoute.route('/updateUser/:id').put((req,res) => {
-    UserSchema.findByIdAndUpdate(req.params.id,{$set: req.body},(error,data) => {
-        if (error) {
-            return next(error);
-        } else {
+userExpressRoute.route('/updateUser/:id').put(async (req,res,next)=> {
+
+   /// email = req.body
+    //existeEmail = await UserSchema.findOne({email: email})
+    // if (! existeEmail) {
+    //     res.status(200).json({message: "email existe dèjà",codeA: "true"});
+    // }
+    UserSchema.findByIdAndUpdate(req.params.id,{$set: req.body},async (data) => {
             res.json(data);
             console.log('updated successfully !')
             
-        }
+        
     });
 });
 

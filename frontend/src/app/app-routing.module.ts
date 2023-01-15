@@ -12,23 +12,24 @@ import { TableArchiveComponent } from './table-archive/table-archive.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
 import { LoginComponent } from './login/login.component';
 import { PasswordComponent } from './password/password.component';
+import { AuthGuard } from './shared/auth.guard';
 const routes: Routes = [
 
-  {path: 'inscription', component: InscriptionComponent},
-  {path: 'table', component: TableUserComponent},
-{path: 'historique', component: TableHistoriqueComponent},
-{path: 'login', component: LoginComponent},
+  {path: 'inscription', component: InscriptionComponent, canActivate: [AuthGuard]},
+  {path: 'table', component: TableUserComponent, canActivate: [AuthGuard]},
+{path: 'historique', component: TableHistoriqueComponent, canActivate: [AuthGuard]},
+{path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
 
-  {path: 'tableuser', component: TableUserComponent},
-  {path: 'dashbord', component: DashbordComponent},
-  {path: 'navbar', component: NavbarComponent},
-  {path: 'sidebar', component: SidebarComponent},
+  {path: 'tableuser', component: TableUserComponent, canActivate: [AuthGuard]},
+  {path: 'dashbord', component: DashbordComponent, canActivate: [AuthGuard]},
+  {path: 'navbar', component: NavbarComponent, canActivate: [AuthGuard]},
+  {path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard]},
   {path: 'systeme', component: SystemeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: '', component: AdminComponent}, 
  
-  {path: 'tableArchive', component: TableArchiveComponent},
-  {path: 'password', component: PasswordComponent}
+  {path: 'tableArchive', component: TableArchiveComponent, canActivate: [AuthGuard]},
+  {path: 'password', component: PasswordComponent, canActivate: [AuthGuard]}
 
 
 ];

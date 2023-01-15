@@ -46,15 +46,27 @@ export class LoginComponent implements OnInit, OnDestroy {
           if(this.code == "noEmail"){
             this.showcode = true;
             htmlStr: this.message = "L'email saisie n'existe pas !";
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
           }else if (this.code == "compteNoActive"){
             this.showcode = true;
             htmlStr: this.message = "Ce compte a été déactivé !";
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
           }else if (this.code == "noPassword"){
             this.showcode = true;
             htmlStr: this.message = "Mots de passe incorrect !";
+            setTimeout(() => {
+              window.location.reload();
+            }, 3000);
           }else if (this.code == "erreur"){
             this.showcode = true;
             htmlStr: this.message = "Une erreur c'est produite, !";
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
           } else{          
           localStorage.setItem('token', tmp.data.token);
           localStorage.setItem('id', tmp.data.userId);

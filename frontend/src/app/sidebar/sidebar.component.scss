@@ -142,16 +142,20 @@ height: 10%;
       $numeric-font: "Open Sans";
 
       .heure {
+        display: block;
+        justify-content: center;
         background-color: #f5365c;
         color: #fff;
         font-family: $numeric-font;
         font-feature-settings: "tnum";
         border: 1px solid #f3f0f0;
+        position:static;
       }
 
       .heure:hover { border: 1px solid #ff5757;
-        color:#f5365c;
+        color:#f31944;
         background-color: #fff;
+        font-size: 40px;
 
 
         transition-delay: 0.3s;

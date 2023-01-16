@@ -35,12 +35,16 @@
                 <td> {{user.prenom}} </td>
                 <td> {{user.nom}} </td>
                 <td> {{user.email}} </td>
+<<<<<<< HEAD
                 <td> {{user.matricule}} </td>
+=======
+                <td> {{user.matricule}}</td>
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
                 <td> {{user.role}} </td>
                 <td>
                   <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"   (click)="changeRole(user._id, user.role)" > <span class="material-symbols-outlined">sync_alt </span></button>
                   <button class="btn" data-bs-toggle="modal"data-bs-target="#updateModal"  (click)="getUserData(user._id,user.prenom,user.nom,user.email)"><span class="material-symbols-outlined">update</span></button>
-                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  (click)="Archiver(user._id, user.etat)"> <span class="material-symbols-outlined"> delete
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  (click)="Archiver(user._id, user.etat)"> <span class="material-symbols-outlined"> archive
                     </span></button>
                 </td>
 

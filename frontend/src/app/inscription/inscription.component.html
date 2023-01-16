@@ -4,8 +4,14 @@
     <div class="box shadow">
 
               <h2 class="text-center" style="padding-top: 10px;">Inscription</h2>
+<<<<<<< HEAD
 
             <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+=======
+              <div class="text-danger text-center" *ngIf="changeMail">mail existe déja</div>
+            <form role="form" class="row g-5" [formGroup]="signupForm" (ngSubmit)="registerUser()">
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
               <div class="form-group col-md-6">
                 <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
                 <div [ngClass]="{'invalid':submitted && signupForm.controls['prenom'].errors}" class="input-group input-group-alternative mb-3">
@@ -139,4 +145,7 @@
 
 </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411

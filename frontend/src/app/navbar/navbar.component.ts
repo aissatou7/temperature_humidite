@@ -13,14 +13,22 @@ import{UserService} from '../user.service'
 export class NavbarComponent implements OnInit {
 affiche: string = ''
 open: boolean = false
+<<<<<<< HEAD
  identifiant = localStorage.getItem('prenom') + ' ' + localStorage.getItem('nom');
  
+=======
+identifiant = localStorage.getItem('prenom') + ' ' + localStorage.getItem('nom');
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
   constructor(
     private UserService: UserService,
   ) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
   }
 afficher(){
 this.affiche='d-block'

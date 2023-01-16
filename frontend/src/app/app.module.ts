@@ -23,9 +23,14 @@ import { ProfileComponent } from './profile/profile.component';
 import {NgxPaginationModule} from 'ngx-pagination'; //pagination
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TableArchiveComponent } from './table-archive/table-archive.component';
+<<<<<<< HEAD
 import { PasswordComponent } from './password/password.component'; //recherche
 import { HTTP_INTERCEPTORS } from '@angular/common/http'; //intersepteurs
 import { AuthInterceptor } from './authconfig.interceptor';
+=======
+import { PasswordComponent } from './password/password.component';
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,12 +46,20 @@ LoginComponent,
      TableArchiveComponent,
    TableHistoriqueComponent,
    PasswordComponent,
+<<<<<<< HEAD
+=======
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
   ],
   imports: [
 
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -56,6 +69,7 @@ LoginComponent,
 
 
   ],
+<<<<<<< HEAD
   
   providers: [
     {
@@ -64,6 +78,9 @@ LoginComponent,
       multi: true
     }
   ],
+=======
+  providers: [],
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
   bootstrap: [AppComponent]
 
 })

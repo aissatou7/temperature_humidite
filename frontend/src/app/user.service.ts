@@ -2,20 +2,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import {User} from './user';
 
-import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  
 
   constructor(
     private http:HttpClient,
     private route:Router
     ) {
-    
    }
 
 //CONNEXION

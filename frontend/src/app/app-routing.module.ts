@@ -12,6 +12,7 @@ import { TableArchiveComponent } from './table-archive/table-archive.component';
 import { TableHistoriqueComponent } from './table-historique/table-historique.component';
 import { LoginComponent } from './login/login.component';
 import { PasswordComponent } from './password/password.component';
+<<<<<<< HEAD
 import { AuthGuard } from './shared/auth.guard';
 const routes: Routes = [
 
@@ -30,6 +31,28 @@ const routes: Routes = [
  
   {path: 'tableArchive', component: TableArchiveComponent, canActivate: [AuthGuard]},
   {path: 'password', component: PasswordComponent, canActivate: [AuthGuard]}
+=======
+
+const routes: Routes = [
+
+  {path: 'inscription', component: InscriptionComponent},
+  {path: 'table', component: TableUserComponent},
+{path: 'historique', component: TableHistoriqueComponent},
+
+
+  {path: 'tableuser', component: TableUserComponent},
+  {path: 'dashbord', component: DashbordComponent},
+  {path: 'navbar', component: NavbarComponent},
+  {path: 'sidebar', component: SidebarComponent},
+  {path: 'systeme', component: SystemeComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: '', component: AdminComponent},
+  {path: 'inscription', component: InscriptionComponent},
+  {path: 'tableArchive', component: TableArchiveComponent},
+  {path: 'password', component: PasswordComponent},
+
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
 
 
 ];

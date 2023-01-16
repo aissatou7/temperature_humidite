@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'temperature_humidite';
   isLogin = false;
+<<<<<<< HEAD
+=======
+
+>>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
   constructor(
     private route:Router
   ){

@@ -9,6 +9,8 @@ import {User} from './user';
   providedIn: 'root'
 })
 export class UserService {
+  endpoint: any;
+  httpClient: any;
 
   constructor(
     private http:HttpClient,
@@ -57,5 +59,16 @@ logout() {
   updateUser(id: any, data: any): Observable<any> {
     return this.http.put('http://localhost:2000/endpoint/updateUser/'+id, data)
       // .pipe(catchError(this.handleError));
+  }
+
+  updatePassword(id: any, data: any): Observable<any> {
+    console.log(id);
+
+    console.log(data);
+
+    let API_URL = `${this.endpoint}/updateUser/${id}`;
+
+    return this.http.patch(`http://localhost:2000/endpoint/updateUser/${id}`, {"actuelPass": data.actuelPass,
+  "newPass":data.newPass})
   }
 }

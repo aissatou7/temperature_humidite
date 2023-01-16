@@ -45,10 +45,7 @@
         <div class="bg-white white" style="padding:10px;">
           <form role="form"  [formGroup]="profileForm" (ngSubmit)="profileUser()">
             <h6 style="text-align:center;" class="heading-small text-muted mb-1">Modifier mes informations</h6>
-<<<<<<< HEAD
-=======
             <p *ngIf="mailExiste != ''" class="text-danger" style="text-align: center; ">Le mail existe déja</p>
->>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
             <div class="pl-md-6">
 
               <div class="row">
@@ -120,11 +117,7 @@
             <div class="d-flex justify-content-center">
             <div class="row ">
             <div class="col-md-6">
-<<<<<<< HEAD
-              <button type="button"  class="btn btn-default btn-primary mt-3">Annuler</button>
-=======
               <button type="button"  class="btn btn-default btn-primary mt-3" (click)="reset();">Annuler</button>
->>>>>>> bb13590f7844c0a1928b114420cb39ba50b9d411
           </div>
               <div class="col-md-6">
                 <button type="submit"  class="btn btn-default btn-danger mt-3">Modifier</button>

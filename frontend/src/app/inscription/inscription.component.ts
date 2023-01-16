@@ -79,7 +79,7 @@ changeMail:any = false;
 
       } else {
           Swal.fire('inscription reussit'),
-           window.location.reload();
+           setTimeout(()=>{ window.location.reload();}, 1000)
       }
 
 

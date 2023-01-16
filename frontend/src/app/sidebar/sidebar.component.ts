@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit {
         this.src = "./assets/img/icons/common/ajouter.svg";
       }
   ngOnInit(): void {
+   
   }
 
 }

@@ -58,7 +58,7 @@ changeMail:any = false;
     if(this.signupForm.invalid){
       return;
     }
-    this.submitted=false;
+  this.submitted=false;
 
   const user = {
     nom:this.signupForm.value.nom,

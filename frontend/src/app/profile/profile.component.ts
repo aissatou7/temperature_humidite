@@ -24,6 +24,10 @@ mailExiste:any = ''
   constructor(  public formBuilder: FormBuilder,
     private userService: UserService, ) {
 
+
+  }
+
+  ngOnInit(): void {
     this.profileForm = this.formBuilder.group({
       prenom:[this.prenom,[Validators.required , UsernameValidator.cannotContainSpace]],
       nom:[this.nom,[Validators.required , UsernameValidator.cannotContainSpace]],
@@ -31,10 +35,6 @@ mailExiste:any = ''
 
   }
   )
-  }
-
-  ngOnInit(): void {
-   console.log( this.role);
 
   }
   //fonction qui prend en paramètre les données à modifier sous format json
@@ -55,6 +55,11 @@ mailExiste:any = ''
         });window.setTimeout(function(){location.reload()},1000)
       })
   }
+
+  reset(){
+    this.ngOnInit();
+  }
+
   profileUser(){
     this.submitted = true;
 
@@ -69,7 +74,7 @@ mailExiste:any = ''
       }
       this.modificatio_reussie(data);
      }
-     
+
     //d'abord on vérifie si le mail à changer
    if (this.email != this.profileForm.value.email) {
       this.userService.listUser().subscribe((data:any) =>{

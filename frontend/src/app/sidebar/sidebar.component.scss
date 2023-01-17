@@ -29,3 +29,138 @@
   padding-top: (2rem );
   padding-bottom: (2rem );
 }
+
+
+.navbar {
+  border-width: 0 0 1px 0;
+  border-style: solid;
+}
+
+.dropup .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-light {
+  background-color:light;
+  border-color: light;
+}
+
+
+.navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: block;
+  text-align: center;
+  padding-top: (2rem );
+  padding-bottom: (2rem );
+}
+
+
+
+.bg-gradient-danger {
+  background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
+}
+
+.dropdown {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 18rem;
+  padding: .5rem 0;
+  margin: .125rem 0 0;
+  font-size: 1rem;
+  color: #f37f51;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(248, 113, 51, 0.15);
+  border-radius: .25rem;
+  box-shadow: #f5365c;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+
+.e {margin: 10px;
+  outline: none;
+  padding: 0.5rem 0.5rem;
+  font-size: 18px;
+box-shadow: #f37f51;
+
+    color: #050505;
+    text-transform: uppercase;
+width: 90%;
+height: 10%;
+      cursor: pointer;
+      transition: all 0.2s;
+      overflow: hidden;
+      border-radius: 10px;  }
+
+      .e:hover  { border: 1px solid #ff5757;
+        color: #fff;
+        background-color: #f5365c;
+        fill: #fff;
+        box-shadow: 2 0 10px #f03372;
+        transition-delay: 0.3s;
+        text-transform: uppercase;
+      }
+
+      .e:focus  { border: 1px solid #ff5757;
+        color: #fff;
+        background-color: #f5365c;
+        fill: #fff;
+        box-shadow: 2 0 10px #f03372;
+        transition-delay: 0.3s;
+        text-transform: uppercase;
+      }
+
+      .j:hover {
+
+     fill: #fff;
+      }
+      .j:focus-visible {
+
+        fill: #fff;
+         }
+      $numeric-font: "Open Sans";
+
+      .heure {
+        display: block;
+        justify-content: center;
+        background-color: #f5365c;
+        color: #fff;
+        font-family: $numeric-font;
+        font-feature-settings: "tnum";
+        border: 1px solid #f3f0f0;
+        position:static;
+      }
+
+      .heure:hover { border: 1px solid #ff5757;
+        color:#f31944;
+        background-color: #fff;
+        font-size: 40px;
+
+
+        transition-delay: 0.3s;
+
+      }
+
+
+

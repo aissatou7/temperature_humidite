@@ -94,7 +94,7 @@ loadUser(){
 //switch
 
 changeRole=(id:any,role:any)=> {
-  role == "Admin" ? role ="user": role = "Admin"
+  role == "Administrateur" ? role ="Utilisateur": role = "Administrateur"
   const user ={
    role : role
   }
@@ -173,12 +173,9 @@ Archiver(id:any, etat:any){
     if(this.updateForm.invalid){
       return;
     }
-    this.userService.updateUser(id, data).subscribe(data=>{
-          this.code = data.code;
-                if(this.code == "true"){
-                  this.showcode = true;
-                  htmlStr: this.message = "L'email saisie n'existe pas !";
-                }
+
+      this.userService.updateUser(id, data).subscribe(
+        data=>{
           this.ngOnInit();
           Swal.fire('Modification',
                     'Réussie !',
@@ -189,7 +186,6 @@ Archiver(id:any, etat:any){
   }
 
 }
- 
 
 
 

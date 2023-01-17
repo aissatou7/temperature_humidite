@@ -6,58 +6,53 @@ import { Observable } from 'rxjs';
 import { User } from './user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-  
+  constructor(private http: HttpClient, private route: Router) {}
 
-  constructor(
-    private http:HttpClient,
-    private route:Router
-    ) {
-    
-   }
-
-//CONNEXION
-login(user:any){
-  return this.http.post('http://localhost:2000/endpoint/test',user)
-}
-getToken() {
-  return localStorage.getItem('access_token');
-}
-get isLoggedIn(): boolean {
-  let authToken = localStorage.getItem('access_token');
-  return authToken !== null ? true : false;
-}
-// DECONNEXION
-logout() {
-  //remove user from localStorage
-  localStorage.clear(); //delete all user connected information, into token
-  this.route.navigate(['/'])
-  // this.currentUserSubject.next(null);
-}
+  //CONNEXION
+  login(user: any) {
+    return this.http.post('http://localhost:2000/endpoint/test', user);
+  }
+  getToken() {
+    return localStorage.getItem('token');
+  }
+  get isLoggedIn(): boolean {
+    let authToken = localStorage.getItem('token');
+    return authToken !== null ? true : false;
+  }
+  // DECONNEXION
+  logout() {
+    //remove user from localStorage
+    localStorage.clear(); //delete all user connected information, into token
+    this.route.navigate(['/']);
+    // this.currentUserSubject.next(null);
+  }
   //Here we have user adding
-  addUser(user:any){
-       return this.http.post('http://localhost:2000/endpoint/addUser', user);
+  addUser(user: any) {
+    return this.http.post('http://localhost:2000/endpoint/addUser', user);
   }
 
   //Here we have user listing
-  listUser(){
+  listUser() {
     return this.http.get('http://localhost:2000/endpoint/ ');
   }
 
   //Here we have user deleting
-  deleteUser(id:any){
-    return this.http.delete('http://localhost:2000/endpoint/deleteUser/'+id);
-
+  deleteUser(id: any) {
+    return this.http.delete('http://localhost:2000/endpoint/deleteUser/' + id);
   }
-  ajout(user:User){
-    return this.http.post('http://localhost:2000/endpoint/post',user);
+  ajout(user: User) {
+    return this.http.post('http://localhost:2000/endpoint/post', user);
   }
 
   //Here we have user updating
   updateUser(id: any, data: any): Observable<any> {
-    return this.http.put('http://localhost:2000/endpoint/updateUser/'+id, data)
-      // .pipe(catchError(this.handleError));
+    return this.http.put(
+      'http://localhost:2000/endpoint/updateUser/' + id,
+      data
+    );
+    // .pipe(catchError(this.handleError));
   }
 }

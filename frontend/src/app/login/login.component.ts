@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   showcode = false;
   code;
   message;
- 
+
   constructor(
     public formBuilder: FormBuilder,
     private userService: UserService,
@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.userService.login(this.registerForm.value).subscribe(
         (data:any) => {
           console.log(data);
-          
-        
+
+
           let tmp = data;
           this.code = data.code;
           if(this.code == "noEmail"){
@@ -67,13 +67,14 @@ export class LoginComponent implements OnInit, OnDestroy {
             setTimeout(() => {
               window.location.reload();
             }, 2000);
-          } else{          
+          } else{
           localStorage.setItem('token', tmp.data.token);
           localStorage.setItem('id', tmp.data.userId);
           localStorage.setItem('prenom', tmp.data.prenom);
           localStorage.setItem('nom', tmp.data.nom);
           localStorage.setItem('role', tmp.data.role);
           localStorage.setItem('matricule', tmp.data.matricule);
+          localStorage.setItem('email', tmp.data.email);
           if (tmp.data.role == 'Administrateur') {
               this.router.navigate(['/systeme'])
             }

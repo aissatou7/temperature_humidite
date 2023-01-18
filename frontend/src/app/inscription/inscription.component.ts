@@ -51,11 +51,14 @@ changeMail:any = false;
     }
 
   }
+
   registerUser(){
     this.submitted = true;
     this.passeIdentique();
-    this.submitted=false;
-
+    if(this.signupForm.invalid){
+      return;
+    }
+  this.submitted=false;
 
   const user = {
     nom:this.signupForm.value.nom,
@@ -115,5 +118,4 @@ changeMail:any = false;
   }
 
 }
-
 

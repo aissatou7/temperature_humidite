@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {}
   ngOnDestroy() {}
 
-  loginUser(){
+  loginUser() {
     this.submitted = true;
     if (this.registerForm.invalid) {
       return;
@@ -75,13 +75,14 @@ export class LoginComponent implements OnInit, OnDestroy {
           localStorage.setItem('role', tmp.data.role);
           localStorage.setItem('matricule', tmp.data.matricule);
           localStorage.setItem('email', tmp.data.email);
-          if (tmp.data.role == 'Administrateur') {
+          if ((tmp.data.role == 'Administrateur')||(tmp.data.role == 'Utilisateur')) {
               this.router.navigate(['/systeme'])
             }
-            else{
+        /*     else{
               this.router.navigate(['/tableArchive'])
-            }
+            } */
         }
       });
         }
-}
+      }
+

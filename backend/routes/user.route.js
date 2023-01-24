@@ -3,6 +3,9 @@ const app = express();
 let UserSchema = require("../model/user.model");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
+
+
+
 //Here we are going to create a function(middelware) that can get user
 const userExpressRoute = express.Router();
 
@@ -75,6 +78,12 @@ userExpressRoute.route('/').get((req, res) => {
         }
     })
 });
+//température et humidity en temps réél
+userExpressRoute.route('/tempHum').get((req, res) => {
+    let tempHum = require('../server')
+    res.json(tempHum);
+    console.log(tempHum);
+    })
 
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req, res) => {

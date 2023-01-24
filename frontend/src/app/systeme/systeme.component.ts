@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
-
+import{ UserService } from '../user.service'
 @Component({
   selector: 'app-systeme',
   templateUrl: './systeme.component.html',
@@ -13,9 +13,9 @@ import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
 
 
 export class SystemeComponent implements OnInit {
+donnee:any
 
-
-  constructor() {
+  constructor(private UserService: UserService) {
 
   }
   open: boolean = true
@@ -33,6 +33,15 @@ export class SystemeComponent implements OnInit {
 
 
   ngOnInit(): void {
+     window.setInterval(()=>{this.TempHumListe()}, 100)
+  /*  this.TempHumListe(); */
   }
 
+
+   TempHumListe(){
+     this.UserService.TempHum().subscribe((data:any) =>{
+      console.log(data);
+      this.donnee = data;
+    });
+  }
 }

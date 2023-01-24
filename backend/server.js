@@ -52,3 +52,38 @@ app.use((err,req,res,next) =>{
     res.status(err.statutsCode).send(err.message);
 });
 
+
+
+
+//données
+var Serialport = require('serialport');
+var Readline = Serialport.parsers.Readline;
+
+var portserial = new Serialport('/dev/ttyUSB0', {
+    baudRate: 9600
+});
+// On lit les donnees par ligne telles quelles apparaissent
+var parser = portserial.pipe(new Readline({ delimiter: '\r\n' }));
+parser.on('open', function() {
+    console.log('Connexion ouverte');
+});
+
+
+
+parser.on('data', function(data) {
+    console.log('-------DONNES_BRUTE----');
+    
+    /* module.exports = data; */
+    
+  
+    //decoupe des donnees venant de la carte Arduino
+    var temperature = data.slice(0, 2); //decoupe de la temperature
+    console.log('-------TEMPERATURE:----');
+    console.log(temperature);
+    var humidite = data.slice(5, 7); //decoupe de l'humidite
+    //calcul de la date et l'heure 
+    console.log('-------HUMIDITIE:----');
+    console.log(humidite);
+    module.exports = {"temperature": temperature, "humidite": humidite};
+
+});

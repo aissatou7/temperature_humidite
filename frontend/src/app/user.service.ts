@@ -40,10 +40,10 @@ export class UserService {
   listUser() {
     return this.http.get('http://localhost:2000/endpoint/ ');
   }
-
+/*
   TempHum() {
     return this.http.get('http://localhost:2000/endpoint/tempHum ');
-  }
+  } */
   //Here we have user deleting
   deleteUser(id: any) {
     return this.http.delete('http://localhost:2000/endpoint/deleteUser/' + id);

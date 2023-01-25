@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
-import{ UserService } from '../user.service'
+import { RealtimeService } from '../realtime.service';
 @Component({
   selector: 'app-systeme',
   templateUrl: './systeme.component.html',
@@ -14,8 +14,9 @@ import{ UserService } from '../user.service'
 
 export class SystemeComponent implements OnInit {
 donnee:any
-
-  constructor(private UserService: UserService) {
+temperature:any
+humidity:any
+  constructor(private RealtimeService: RealtimeService) {
 
   }
   open: boolean = true
@@ -33,15 +34,14 @@ donnee:any
 
 
   ngOnInit(): void {
-     window.setInterval(()=>{this.TempHumListe()}, 100)
-  /*  this.TempHumListe(); */
+    this.RealtimeService.getTemp().subscribe((data) =>{
+/*     console.log('donnée '+ data); */
+     this.donnee = data
+
+    })
+
   }
 
 
-   TempHumListe(){
-     this.UserService.TempHum().subscribe((data:any) =>{
-      console.log(data);
-      this.donnee = data;
-    });
-  }
+
 }

@@ -3,12 +3,13 @@
     <div class="col-xl-8  ">
       <div class="card bg-gradient-default shadow">
         <div class="card-header bg-transparent">
-          <div class="row align-items-center" style="position: relative;">
-            <h1 style="position: absolute; right:15px;top: 40px; font-size: 5rem; width: auto;color: white;backdrop-filter: blur(5px);box-sizing: border-box;padding: 0px 0px;">
-              {{donnee.temperature + '°C '+ donnee.humidite + ' % '}}
+          <div class="row align-items-center" style="position: relative">
+             <h1 style="position: absolute; right:15px;top: 40px; font-size: 5rem; width: auto;color: white;backdrop-filter: blur(5px);box-sizing: border-box;padding: 0px 0px;">
+              {{donnee}}
             </h1>
-            <img *ngIf="donnee.humidite > 50 || donnee.temperature == 'na' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
-            <img *ngIf="donnee.humidite <= 50"src="./assets/img/brand/chaud.jpg" class="col-xl-12" alt="image">
+              <!--<img *ngIf="donnee.humidite > 50 || donnee.temperature == 'na' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">-->
+            <img  src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
+            <!-- <img *ngIf="donnee.humidite <= 50"src="./assets/img/brand/chaud.jpg" class="col-xl-12" alt="image"> -->
           </div>
         </div>
 

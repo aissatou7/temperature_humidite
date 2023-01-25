@@ -79,11 +79,11 @@ userExpressRoute.route('/').get((req, res) => {
     })
 });
 //température et humidity en temps réél
-userExpressRoute.route('/tempHum').get((req, res) => {
+/* userExpressRoute.route('/tempHum').get((req, res) => {
     let tempHum = require('../server')
     res.json(tempHum);
     console.log(tempHum);
-    })
+    }) */
 
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req, res) => {

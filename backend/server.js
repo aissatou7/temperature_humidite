@@ -6,6 +6,7 @@ cors = require('cors');
 bodyParser =require('body-parser');
 const app = express();
 
+
 //Here we will avoid Mongoose warming (strictQuery will be 'false')
 mongoose.set('strictQuery', true);
 
@@ -38,6 +39,15 @@ const server = app.listen(port,() => {
     console.log('Port connected to: ' + port)
 });
 
+//initialisation socket
+/* var io = require("socket.io")(server); */
+const io = require('socket.io')(server, 
+    {     cors: 
+        {origin: "*",
+        methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"],
+        credentials: false     }   
+    });
+
 //this middelware catch errors when the URL for endpoint is not correct and send them to the next
 app.use((req,res,next) =>{
     next( (404))
@@ -52,18 +62,26 @@ app.use((err,req,res,next) =>{
     res.status(err.statutsCode).send(err.message);
 });
 
-
-
+/* app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    next(); 
+})
+ */
 
 //données
-var Serialport = require('serialport');
-var Readline = Serialport.parsers.Readline;
+ var {SerialPort} = require('serialport');
+// var {Readline} = Serialport.parsers.Readline;
 
-var portserial = new Serialport('/dev/ttyUSB0', {
-    baudRate: 9600
-});
+// var portserial = new Serialport('/dev/ttyUSB0', {
+//     baudRate: 9600
+// });
+const { ReadlineParser } = require('@serialport/parser-readline');
+
+const portserie = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 14400 })
 // On lit les donnees par ligne telles quelles apparaissent
-var parser = portserial.pipe(new Readline({ delimiter: '\r\n' }));
+var parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 parser.on('open', function() {
     console.log('Connexion ouverte');
 });
@@ -72,8 +90,8 @@ parser.on('open', function() {
 
 parser.on('data', function(data) {
     console.log('-------DONNES_BRUTE----');
-    
-    /* module.exports = data; */
+    io.emit('temp', data);
+  /*    module.exports = data;  */
     
   
     //decoupe des donnees venant de la carte Arduino
@@ -84,6 +102,9 @@ parser.on('data', function(data) {
     //calcul de la date et l'heure 
     console.log('-------HUMIDITIE:----');
     console.log(humidite);
-    module.exports = {"temperature": temperature, "humidite": humidite};
-
+   /*  module.exports = {
+                      "temperature": temperature, 
+                      "humidite": humidite
+                     }; */
+                    
 });

@@ -38,6 +38,10 @@ export class UserService {
   listUser() {
     return this.http.get('http://localhost:2000/endpoint/ ');
   }
+  //Here we have user température et pression
+  listTempHum() {
+    return this.http.get('http://localhost:2000/endpoint/temp ');
+  }
 
   //Here we have user deleting
   deleteUser(id: any) {
@@ -55,4 +59,5 @@ export class UserService {
     );
     // .pipe(catchError(this.handleError));
   }
+  
 }

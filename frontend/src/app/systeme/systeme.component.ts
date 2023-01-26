@@ -24,7 +24,12 @@ export class SystemeComponent implements OnInit {
     texteBouton = 'ALLUMER';
     changeImage() {
 
-     if(this.src == "./assets/img/brand/ventilo.jpeg" && this.texteBouton == 'ALLUMER'){this.src="./assets/img/brand/ventilo.gif"; this.style="background-color: red;";this.texteBouton = 'ETEINDRE';}
+     if(this.src == "./assets/img/brand/ventilo.jpeg" && this.texteBouton == 'ALLUMER'){
+      this.src="./assets/img/brand/ventilo.gif";
+       this.style="background-color: red;";
+       this.texteBouton = 'ETEINDRE';
+      
+    }
      else{this.src="./assets/img/brand/ventilo.jpeg";this.style="background-color: green;";this.texteBouton = 'ALLUMER';}
     }
 

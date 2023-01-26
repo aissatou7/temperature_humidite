@@ -1,8 +1,14 @@
 const express = require('express');
+
 const app = express();
 let UserSchema = require("../model/user.model");
+let tempSchema = require("../model/user.model2");
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+
+
+
 //Here we are going to create a function(middelware) that can get user
 const userExpressRoute = express.Router();
 
@@ -75,6 +81,34 @@ userExpressRoute.route('/').get((req,res) =>{
         }
     })
 });
+// This middelware show all users
+userExpressRoute.route('/temp').get((req,res) =>{
+    tempSchema.find((error,data) =>{
+        if (error) {
+            return next(error);
+        } else {
+           
+
+                res.json(data);
+            
+            
+        }
+    })
+});
+// This middelware show temperature and humidite
+// userExpressRoute.route('/tempHum').get((req,res) =>{
+
+//         parser.on('data', (data)=>{
+//             io.emit('temp',data)
+//             res.json(data)
+//         })
+                
+    
+       
+            
+        
+    
+// });
 
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req,res) => {
@@ -161,6 +195,11 @@ userExpressRoute.route('/updateUser/:id').put((req,res) => {
         }
     });
 });
+
+
+//const Readline = SerialPort.parsers.Readline;
+
+
 
 
 module.exports = userExpressRoute;

@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 })
 export class TableUserComponent implements OnInit {
   public users:any = [];
+ 
 // nécessaire au controle de saisie du formulare de modification
   
 submitted=false;
@@ -91,6 +92,7 @@ loadUser(){
 
   });
 }
+
 //switch
 
 changeRole=(id:any,role:any)=> {

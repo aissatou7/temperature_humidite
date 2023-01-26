@@ -6,11 +6,19 @@ cors = require('cors');
 bodyParser =require('body-parser');
 const app = express();
 
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+
+
 //Here we will avoid Mongoose warming (strictQuery will be 'false')
 mongoose.set('strictQuery', true);
 
 //Here we are connecting to data base mongoDb by mongoose
-mongoose.connect('mongodb+srv://aissatou7:766021841Fall@cluster0.wayru7i.mongodb.net/test',
+//mongoose.connect('mongodb+srv://aissatou7:766021841Fall@cluster0.wayru7i.mongodb.net/test',
+mongoose.connect( "mongodb+srv://papa:2605@cluster0.wepa2rr.mongodb.net/homestead?retryWrites=true&w=majority", 
 {useNewUrlParser: true,
 useUnifiedTopology: true})
 .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -34,7 +42,7 @@ app.use('/endpoint',userRoute);
 //Here we are managing server's port (using which are giving by the system or 3000)
 const port = process.env.PORT || 2000;
 // const port = 8000;
-const server = app.listen(port,() => {
+ server.listen(port,() => {
     console.log('Port connected to: ' + port)
 });
 
@@ -51,4 +59,22 @@ app.use((err,req,res,next) =>{
     if (!err.statusCode) ErrorEvent.statusCode = 500;
     res.status(err.statutsCode).send(err.message);
 });
+
+//température et humidité
+const {SerialPort} = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline');
+
+const portserie = new SerialPort({ path: '/dev/ttyACM1', baudRate: 14400 })
+const parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }))
+
+io.on('connection', () => {
+    console.log('a user connected');
+  });
+parser.on('data', (data)=>{
+    console.log(data);
+    io.emit('temp',data)
+})
+
+ 
+
 

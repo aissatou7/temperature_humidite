@@ -11,7 +11,7 @@ matricule: { type:String},
 password: { type:String},
 role: { type:String},
 etat: { type:Boolean}
-/* dateArchivage: { type: Date} */
+/* dateArchivage: { type: Date}  */
 
 
 },

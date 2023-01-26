@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
 import { RealtimeService } from '../realtime.service';
+import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-systeme',
   templateUrl: './systeme.component.html',
@@ -7,12 +9,14 @@ import { RealtimeService } from '../realtime.service';
 })
 
 export class SystemeComponent implements OnInit {
+
 donnee:any
 temperature:any
 humidity:any = 'default';
   constructor(private RealtimeService: RealtimeService) {
 
   }
+
   open: boolean = true
     src="./assets/img/brand/ventilo.jpeg";
     style="background-color: green;";
@@ -24,8 +28,8 @@ humidity:any = 'default';
        this.style="background-color: red;";
        this.texteBouton = 'ETEINDRE';
 
-      
-      
+
+
     }
      else{this.src="./assets/img/brand/ventilo.jpeg";this.style="background-color: green;";this.texteBouton = 'ALLUMER';}
     }
@@ -35,15 +39,18 @@ humidity:any = 'default';
 
 
   ngOnInit(): void {
+
     this.RealtimeService.getTemp().subscribe((data) =>{
     console.log(data);
      this.donnee = data
      this.temperature = this.donnee[0] + this.donnee[1];
       this.humidity = this.donnee[5] + this.donnee[6];
-      
+
     })
+   
 
   }
+
 
 
 

@@ -15,7 +15,7 @@ import { RealtimeService } from '../realtime.service';
 export class SystemeComponent implements OnInit {
 donnee:any
 temperature:any
-humidity:any
+humidity:any = 'default';
   constructor(private RealtimeService: RealtimeService) {
 
   }

@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
-
+import { RealtimeService } from '../realtime.service';
 @Component({
   selector: 'app-systeme',
   templateUrl: './systeme.component.html',
@@ -13,9 +13,10 @@ import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
 
 
 export class SystemeComponent implements OnInit {
-
-
-  constructor() {
+donnee:any
+temperature:any
+humidity:any
+  constructor(private RealtimeService: RealtimeService) {
 
   }
   open: boolean = true
@@ -38,6 +39,15 @@ export class SystemeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.RealtimeService.getTemp().subscribe((data) =>{
+    console.log(data);
+     this.donnee = data
+     this.temperature = this.donnee[0] + this.donnee[1];
+      this.humidity = this.donnee[5] + this.donnee[6];
+    })
+
   }
+
+
 
 }

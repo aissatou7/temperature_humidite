@@ -46,6 +46,15 @@ const port = process.env.PORT || 2000;
     console.log('Port connected to: ' + port)
 });
 
+//initialisation socket
+/* var io = require("socket.io")(server); */
+io = require('socket.io')(server, 
+    {     cors: 
+        {origin: "*",
+        methods: ["PUT", "GET", "POST", "DELETE", "OPTIONS"],
+        credentials: false     }   
+    });
+
 //this middelware catch errors when the URL for endpoint is not correct and send them to the next
 app.use((req,res,next) =>{
     next( (404))
@@ -78,3 +87,47 @@ parser.on('data', (data)=>{
  
 
 
+/* app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
+    next(); 
+})
+ */
+
+//données
+ var {SerialPort} = require('serialport');
+// var {Readline} = Serialport.parsers.Readline;
+
+// var portserial = new Serialport('/dev/ttyUSB0', {
+//     baudRate: 9600
+// });
+const { ReadlineParser } = require('@serialport/parser-readline');
+
+// On lit les donnees par ligne telles quelles apparaissent
+parser.on('open', function() {
+    console.log('Connexion ouverte');
+});
+
+
+
+parser.on('data', function(data) {
+    console.log('-------DONNES_BRUTE----');
+    io.emit('temp', data);
+  /*    module.exports = data;  */
+    
+  
+    //decoupe des donnees venant de la carte Arduino
+    var temperature = data.slice(0, 2); //decoupe de la temperature
+    console.log('-------TEMPERATURE:----');
+    console.log(temperature);
+    var humidite = data.slice(5, 7); //decoupe de l'humidite
+    //calcul de la date et l'heure 
+    console.log('-------HUMIDITIE:----');
+    console.log(humidite);
+   /*  module.exports = {
+                      "temperature": temperature, 
+                      "humidite": humidite
+                     }; */
+                    
+});

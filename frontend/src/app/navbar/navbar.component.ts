@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{UserService} from '../user.service'
+import{ UserService } from '../user.service'
 
 
 
@@ -13,14 +13,17 @@ import{UserService} from '../user.service'
 export class NavbarComponent implements OnInit {
 affiche: string = ''
 open: boolean = false
+
  identifiant = localStorage.getItem('prenom') + ' ' + localStorage.getItem('nom');
- 
+
   constructor(
     private UserService: UserService,
   ) { }
 
   ngOnInit(): void {
-   
+
+
+
   }
 afficher(){
 this.affiche='d-block'
@@ -40,4 +43,7 @@ cacher(){
 deconnexion(){
   this.UserService.logout();
 }
+
+
+
 }

@@ -46,7 +46,7 @@ LoginComponent,
 
     BrowserModule,
     AppRoutingModule,
-   
+
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -56,12 +56,13 @@ LoginComponent,
 
 
   ],
-  
+
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
+   
     }
   ],
   bootstrap: [AppComponent]

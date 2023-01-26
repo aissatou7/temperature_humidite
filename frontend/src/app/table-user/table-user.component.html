@@ -131,14 +131,15 @@
 
           </table>
         </div>
-        <!-- pagination -->
-        <div class="card-footer py-4 d-flex" style="justify-content: right;">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-        </div>
+      
       </div>
     </div>
   </div>
+    <!-- pagination -->
+    <div class="card-footer py-4 d-flex pagination fixed-bottom " style="justify-content: right;">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
 
   <!-- Button trigger modal -->
 

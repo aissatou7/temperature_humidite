@@ -35,9 +35,10 @@ humidity:any
 
   ngOnInit(): void {
     this.RealtimeService.getTemp().subscribe((data) =>{
-/*     console.log('donnée '+ data); */
+    console.log(data);
      this.donnee = data
-
+     this.temperature = this.donnee[0] + this.donnee[1];
+      this.humidity = this.donnee[5] + this.donnee[6];
     })
 
   }

@@ -6,16 +6,10 @@ import { RealtimeService } from '../realtime.service';
   styleUrls: ['./systeme.component.scss']
 })
 
-
-
-
-
-
-
 export class SystemeComponent implements OnInit {
 donnee:any
 temperature:any
-humidity:any
+humidity:any = 'default'
   constructor(private RealtimeService: RealtimeService) {
 
   }
@@ -25,10 +19,12 @@ humidity:any
     texteBouton = 'ALLUMER';
     changeImage() {
 
-     if(this.src == "./assets/img/brand/ventilo.jpeg" && this.texteBouton == 'ALLUMER'){
+     if((this.src == "./assets/img/brand/ventilo.jpeg" && this.texteBouton == 'ALLUMER') || this.temperature >= 54){
       this.src="./assets/img/brand/ventilo.gif";
        this.style="background-color: red;";
        this.texteBouton = 'ETEINDRE';
+
+      
       
     }
      else{this.src="./assets/img/brand/ventilo.jpeg";this.style="background-color: green;";this.texteBouton = 'ALLUMER';}
@@ -44,6 +40,7 @@ humidity:any
      this.donnee = data
      this.temperature = this.donnee[0] + this.donnee[1];
       this.humidity = this.donnee[5] + this.donnee[6];
+      
     })
 
   }

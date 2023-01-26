@@ -9,7 +9,7 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+
 
 
 
@@ -73,7 +73,7 @@ app.use((err,req,res,next) =>{
 const {SerialPort} = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 
-const portserie = new SerialPort({ path: '/dev/ttyACM1', baudRate: 14400 })
+const portserie = new SerialPort({ path: '/dev/ttyACM0', baudRate: 14400 })
 const parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }))
 
 io.on('connection', () => {
@@ -85,49 +85,6 @@ parser.on('data', (data)=>{
 })
 
  
-
-
-/* app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','*');
-    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
-    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
-    next(); 
-})
- */
-
-//données
- var {SerialPort} = require('serialport');
-// var {Readline} = Serialport.parsers.Readline;
-
-// var portserial = new Serialport('/dev/ttyUSB0', {
-//     baudRate: 9600
-// });
-const { ReadlineParser } = require('@serialport/parser-readline');
-
-// On lit les donnees par ligne telles quelles apparaissent
-parser.on('open', function() {
-    console.log('Connexion ouverte');
-});
-
-
-
-parser.on('data', function(data) {
-    console.log('-------DONNES_BRUTE----');
-    io.emit('temp', data);
-  /*    module.exports = data;  */
-    
-  
-    //decoupe des donnees venant de la carte Arduino
-    var temperature = data.slice(0, 2); //decoupe de la temperature
-    console.log('-------TEMPERATURE:----');
-    console.log(temperature);
-    var humidite = data.slice(5, 7); //decoupe de l'humidite
-    //calcul de la date et l'heure 
-    console.log('-------HUMIDITIE:----');
-    console.log(humidite);
-   /*  module.exports = {
-                      "temperature": temperature, 
-                      "humidite": humidite
-                     }; */
+ 
                     
-});
+

@@ -69,9 +69,9 @@ var port2 = new Serialport('/dev/ttyACM0', {
 //  console.log(parser);
 parser.on("data", (data)=>{
     console.log(data);
-    let tempé = data.split('/')
-     let température = tempé[0]
-    let humidité = tempé[1]
+    let tempy = data.split('/')
+     let temperer = tempy[0]
+    let humidy = tempy[1]
  
 const Data = temper;
   //calcul de la date et l'heure 
@@ -93,12 +93,12 @@ const Data = temper;
 
 if ( sec == 00 ) {
     console.log('IL EST 8H');  
-  /*   var tempe = parseInt(température);
-    var humi = parseInt(humidité); */
+  /*   var tempe = parseInt(temperer);
+    var humi = parseInt(humidy); */
   
     //l'objet qui contient la temperature, humidite et la date
-     var tempEtHum =('data', { temperature8h : température,
-    humidite8h: humidité,
+     var tempEtHum =('data', { temperature8h : temperer,
+    humidite8h: humidy,
     temperature12h : 00,
     humidite12h :00,
     temperature18h: 00,
@@ -122,7 +122,7 @@ if ( sec == 00 ) {
 
     if  ( sec == 10 )  {
          console.log('IL EST 12H');
-    Data.updateOne({date: datei}, { $set: {temperature12h :température, humidite12h :humidité,} }, (err, data) => {
+    Data.updateOne({date: datei}, { $set: {temperature12h :temperer, humidite12h :humidy,} }, (err, data) => {
         if (err) {
             console.log(err);
         } else { 
@@ -134,9 +134,9 @@ if ( sec == 00 ) {
 } 
 
 
- if  ( sec == 30 ) {
+ if  ( sec == 20 ) {
     console.log('IL EST 18H');
-Data.updateOne({date: datei}, { $set: {temperature18h :température, humidite18h :humidité,} }, (err, data) => {
+Data.updateOne({date: datei}, { $set: {temperature18h :temperer, humidite18h :humidy,} }, (err, data) => {
    if (err) {
        console.log(err);
    } else { 
@@ -151,7 +151,7 @@ Data.updateOne({date: datei}, { $set: {temperature18h :température, humidite18h
 
 
 /*   var res; */
-if  ( sec == 50 ) {
+if  ( sec == 3600 ) {
     console.log('LA MOYENNE DE LA JOURNÉE');
   Data.findOne({date: datei}, (err, data) => {
     if (err) {
@@ -187,24 +187,12 @@ if  ( sec == 50 ) {
   }
 
 
-/* 
-
-    console.log('JE SUIS DEDANSM');
-Data.updateOne({date: datei}, { $set: {temperatureM :température, humiditeM :humidité,} }, (err, data) => {
-   if (err) {
-       console.log(err);
-   } else { */
-  /*      res.json(data); */
- /*       console.log('updated successfully !')
-
-   }
-}); 
- */
 
 
 
 
-   // module.exports = {"température":température, "humidité":humidité};
+
+   // module.exports = {"temperer":temperer, "humidy":humidy};
   
     
 });

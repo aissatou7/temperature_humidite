@@ -41,10 +41,7 @@ export class UserService {
     return this.http.get('http://localhost:2000/endpoint/ ');
   }
 
-    //Here we have user listing
-    temphumUser() {
-      return this.http.get('http://localhost:2000/endpoint/temp ');
-    }
+  
 
   //Here we have user deleting
   deleteUser(id: any) {

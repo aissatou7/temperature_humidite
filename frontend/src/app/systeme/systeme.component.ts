@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef , OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-systeme',
@@ -16,7 +16,7 @@ import { UserService } from '../user.service';
 export class SystemeComponent implements OnInit {
 
 
-  constructor(private UserService: UserService) {
+  constructor() {
 
   }
   open: boolean = true
@@ -34,12 +34,8 @@ export class SystemeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.temper()
+    
   }
-temper(){
-  this.UserService.temphumUser().subscribe((data:any)=>{
-console.log(data)
-  })
-}
+
 
 }

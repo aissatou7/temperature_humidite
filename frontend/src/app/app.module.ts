@@ -52,7 +52,8 @@ LoginComponent,
     BrowserAnimationsModule,
     HttpClientModule,
      NgxPaginationModule,
-     Ng2SearchPipeModule
+     Ng2SearchPipeModule,
+    
 
 
   ],

@@ -45,6 +45,8 @@ export class UserService {
     return this.http.get('http://localhost:2000/endpoint/temp ');
   }
 
+  
+
   //Here we have user deleting
   deleteUser(id: any) {
     return this.http.delete('http://localhost:2000/endpoint/deleteUser/' + id);

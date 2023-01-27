@@ -9,6 +9,8 @@ const bodyParser = require('body-parser');
 
 
 
+
+const TemperahumSchema = require('../model/temphum.model')
 //Here we are going to create a function(middelware) that can get user
 const userExpressRoute = express.Router();
 
@@ -110,6 +112,13 @@ userExpressRoute.route('/temp').get((req,res) =>{
     
 // });
 
+//middelware show all temphum
+userExpressRoute.route('/temp').get((req, res) => {
+let temp = require('../server')
+res.json(temp)
+
+});
+
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req, res) => {
     UserSchema.findById(req.params.id, (error, data) => {
@@ -163,6 +172,23 @@ userExpressRoute.route('/post').post(async (req, res) => {
     }
 
 })
+
+
+
+
+//This middelware update one tempethum
+userExpressRoute.route('/updateTemp/:date').get((req, res, next) => {
+    console.log(req.params);
+    TemperahumSchema.findOne({date: req.params.date}, (error, data) => {
+        if (error) {
+            return next(error);
+        } else {
+            res.json(data);
+            console.log('updated successfully !')
+
+        }
+    });
+});
 
 
 
@@ -239,10 +265,7 @@ userExpressRoute.patch('/updateUser/:id', async(req, res) => {
           
           
           
-    //   }
-    //   catch (error) {
-    //       res.status(400).json({ message: error.message })
-    //   }
+    //
   
      
   

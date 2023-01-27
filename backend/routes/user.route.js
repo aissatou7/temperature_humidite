@@ -2,7 +2,6 @@ const express = require('express');
 
 const app = express();
 let UserSchema = require("../model/user.model");
-let tempSchema = require("../model/user.model2");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');

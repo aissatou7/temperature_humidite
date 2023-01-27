@@ -91,7 +91,7 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( heur == 09 && min == 44 && sec == 00 ) {
+if ( heur == 18 && min == 54 && sec == 00 ) {
     console.log('IL EST 8H');  
   /*   var tempe = parseInt(temperer);
     var humi = parseInt(humidy); */
@@ -103,8 +103,8 @@ if ( heur == 09 && min == 44 && sec == 00 ) {
     humidite12h :00,
     temperature18h: 00,
     humidite18h : 00,
-    temperatureM: 00,
-    humiditeM : 00,
+    temperatureM: temperer,
+    humiditeM : humidy,
      date : datei,
      heure : heurei    
              });  
@@ -115,76 +115,115 @@ if ( heur == 09 && min == 44 && sec == 00 ) {
             console.log(err)
         }else{
             console.log('les données de 8H sont inserées');
+
+
+
+       
+
+
+
         }
     });
    }  
   
 
-    if  (heur == 09 && min == 45 && sec == 00 )  {
+    if  (heur == '19' && min == '17' && sec == '00' )  {
          console.log('IL EST 12H');
-    Data.updateOne({date: datei}, { $set: {temperature12h :temperer, humidite12h :humidy,} }, (err, data) => {
+  
+       /*      res.json(data); */
+           
+             Data.findOne({date: datei}, (err, data) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                 
+                 
+                    console.log(data.temperature8h);
+            
+                    temperatureSomme1 =  (data.temperature8h + parseFloat(temperer) );
+                    temperatureM1  = temperatureSomme1/2
+                   // console.log(temperatureM);
+            
+                    humiditeSomme1 = (data.humidite8h + parseFloat(humidy));
+                    humiditeM1  = humiditeSomme1/2
+                   // console.log(humiditeM);
+            
+                   
+                    Data.updateOne({date: datei}, { $set:  {temperature12h :temperer, humidite12h :humidy, temperatureM :temperatureM1, humiditeM :humiditeM1,} }, (err, data) => {
+                       if (err) {
+                           console.log(err);
+                       } else { 
+                      /*      res.json(data); */
+
+                      console.log('les données de 12H sont inserées')
+
+                          console.log('les données moyennes sont inserées')
+                    
+                       }
+                    }); 
+            
+              
+            
+            
+                }
+            }); 
+
+
+
+
+} 
+
+
+ if  ( heur == 19 && min == 22 && sec == 00 ) {
+    console.log('IL EST 18H');
+
+  /*      res.json(data); */
+     
+
+       Data.findOne({date: datei}, (err, data) => {
         if (err) {
             console.log(err);
         } else { 
-       /*      res.json(data); */
-             console.log('les données de 12H sont inserées')
-
-        }
-    }); 
-} 
-
-
- if  ( heur == 09 && min == 46 && sec == 00 ) {
-    console.log('IL EST 18H');
-Data.updateOne({date: datei}, { $set: {temperature18h :temperer, humidite18h :humidy,} }, (err, data) => {
-   if (err) {
-       console.log(err);
-   } else { 
-  /*      res.json(data); */
-      console.log('les données de 18H sont inserées')
-
-   }
-}); 
-} 
-
-
-
-
-/*   var res; */
-if  ( heur == 09 && min == 47 && sec == 00 ) {
-    console.log('LA MOYENNE DE LA JOURNÉE');
-  Data.findOne({date: datei}, (err, data) => {
-    if (err) {
-        console.log(err);
-    } else {
-    
-        //console.log(data.humidite18h);
-
-        temperatureSomme =(  data.temperature8h +  data.temperature12h + data.temperature18h );
-        temperatureM  = temperatureSomme/3
-       // console.log(temperatureM);
-
-        humiditeSomme = (data.humidite8h +  data.humidite12h + data.humidite18h);
-        humiditeM  = humiditeSomme/3
-       // console.log(humiditeM);
-
-       
-        Data.updateOne({date: datei}, { $set: {temperatureM :temperatureM, humiditeM :humiditeM,} }, (err, data) => {
-           if (err) {
-               console.log(err);
-           } else { 
-          /*      res.json(data); */
-              console.log('les données moyennes sont inserées')
         
-           }
-        }); 
+         
+            //console.log(data.humidite18h);
+    
+            temperatureSomme2 =(  data.temperature8h +  data.temperature12h  + parseFloat(temperer) );
+            temperatureM2  = temperatureSomme2/3
+           // console.log(temperatureM);
+    
+            humiditeSomme2 = (data.humidite8h  +  data.humidite8h  + parseFloat(humidy));
+            humiditeM2  = humiditeSomme2/3
+           // console.log(humiditeM);
+    
+           
+            Data.updateOne({date: datei}, { $set: {temperature18h :temperer, humidite18h :humidy, tempereratureM :temperatureM2, humiditeM :humiditeM2,} }, (err, data) => {
+               if (err) {
+                   console.log(err);
+               } else { 
+              /*      res.json(data); */
+
+              console.log('les données de 18H sont inserées')
+                  console.log('les données moyennes sont inserées')
+            
+               }
+            }); 
+    
+      
+    
+    
+       }
+    }); 
 
 
 
+  
 
-    }
-});
-  }
+
+} 
+
+
+
 
 
 

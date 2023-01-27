@@ -91,7 +91,7 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( sec == 00 ) {
+if ( heur == 09 && min == 44 && sec == 00 ) {
     console.log('IL EST 8H');  
   /*   var tempe = parseInt(temperer);
     var humi = parseInt(humidy); */
@@ -120,7 +120,7 @@ if ( sec == 00 ) {
    }  
   
 
-    if  ( sec == 10 )  {
+    if  (heur == 09 && min == 45 && sec == 00 )  {
          console.log('IL EST 12H');
     Data.updateOne({date: datei}, { $set: {temperature12h :temperer, humidite12h :humidy,} }, (err, data) => {
         if (err) {
@@ -134,7 +134,7 @@ if ( sec == 00 ) {
 } 
 
 
- if  ( sec == 20 ) {
+ if  ( heur == 09 && min == 46 && sec == 00 ) {
     console.log('IL EST 18H');
 Data.updateOne({date: datei}, { $set: {temperature18h :temperer, humidite18h :humidy,} }, (err, data) => {
    if (err) {
@@ -151,7 +151,7 @@ Data.updateOne({date: datei}, { $set: {temperature18h :temperer, humidite18h :hu
 
 
 /*   var res; */
-if  ( sec == 3600 ) {
+if  ( heur == 09 && min == 47 && sec == 00 ) {
     console.log('LA MOYENNE DE LA JOURNÉE');
   Data.findOne({date: datei}, (err, data) => {
     if (err) {

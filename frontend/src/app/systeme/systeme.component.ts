@@ -42,9 +42,6 @@ serial: NgxSerial;
        this.style="background-color: red;";
        this.texteBouton = 'ETEINDRE';
 
-       if(this.port)
-      this.serial.sendData("22222"); //L1\n
-      console.log("port     1");
     }
      else{this.src="./assets/img/brand/ventilo.jpeg";this.style="background-color: green;";this.texteBouton = 'ALLUMER';}
     }

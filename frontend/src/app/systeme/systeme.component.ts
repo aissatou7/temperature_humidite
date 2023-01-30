@@ -37,8 +37,8 @@ humidity:any = 'default';
      this.RealtimeService.getTemp().subscribe((data) =>{
      console.log(data);
      this.donnee = data
-     this.temperature = this.donnee[0] + this.donnee[1]+ ',' +this.donnee[2] + this.donnee[3];
-     this.humidity = this.donnee[5] + this.donnee[6]+ ',' +this.donnee[7] + this.donnee[8];
+     this.temperature = this.donnee[0] + this.donnee[1];
+     this.humidity = this.donnee[6] + this.donnee[7];
     })
 
   }

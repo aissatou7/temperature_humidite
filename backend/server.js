@@ -79,7 +79,7 @@ app.use((err,req,res,next) =>{
 // });
 const { ReadlineParser } = require('@serialport/parser-readline');
 
-const portserie = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 14400 })
+const portserie = new SerialPort({ path: '/dev/ttyACM0', baudRate: 14400 })
 // On lit les donnees par ligne telles quelles apparaissent
 var parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }));
 parser.on('open', function() {

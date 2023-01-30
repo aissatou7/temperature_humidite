@@ -262,6 +262,9 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
 
 
+
+
+
    // module.exports = {"temperer":temperer, "humidy":humidy};
   
     

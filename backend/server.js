@@ -64,7 +64,7 @@ var serialport=`require('serialport')`;
 var port2 = new Serialport('/dev/ttyACM0', {
     baudRate: 9600
 });
-
+//émèttre les données après la réception d'un délimiteur de saut de ligne et de les afficher ligne par ligne
  const parser = port2.pipe(new Readline({ delimiter: '\r\n' }))
 //  console.log(parser);
 parser.on("data", (data)=>{
@@ -116,17 +116,11 @@ if ( heur == '08' && min == '18' && sec == '00' ) {
         }else{
             console.log('les données de 8H sont inserées');
 
-
-
-       
-
-
-
         }
     });
    }  
   
-
+        //l'insertion de la temperature et de l'humidite à 12h
     if  (heur == '08' && min == '19' && sec == '00' )  {
          console.log('IL EST 12H');
   
@@ -171,7 +165,7 @@ if ( heur == '08' && min == '18' && sec == '00' ) {
 
 
 
-} 
+}           //l'insertion de la temperature et de l'humidite à 8h
 
 
  if  ( heur == '08' && min == '20' && sec == '00' ) {
@@ -208,9 +202,6 @@ if ( heur == '08' && min == '18' && sec == '00' ) {
             
                }
             }); 
-    
-      
-    
     
        }
     }); 

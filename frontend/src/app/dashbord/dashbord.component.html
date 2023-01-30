@@ -1,18 +1,26 @@
 <div style="margin-left:330px; margin-right:30px; margin-top: 0px;">
   <div style=" margin-bottom: 20px; padding-top: 130px;">
     <div class="">
+
       <div class="header-body" >
         <!-- Card stats -->
         <div class="row">
 
-          <div class="col-xl-3 col-lg-6 ">
-            <div class="card card-stats mb-4 mb-xl-0">
+          <div  *ngFor="let i   of index" class="col-xl-3 col-lg-6">
+            <div class="card card-stats mb-4 mb-xl-0" *ngFor="let data of dat ">
               <div class="card-body ch">
-                <div class="row">
+            <div class="row">
                   <div class="col ">
-                    <h5 class="h1 card-title text-uppercase text-muted mb-0">8h:00</h5>
-                    <div class="h2 font-weight-bold mb-0">Temperature:</div>
-                    <div class="h2 font-weight-bold mb-0">Humidite:</div>
+                    <table  class="table table align-items-center table-flush">
+
+                        <tbody>
+ <th>  <h5 class="h2 card-title text-uppercase text-muted mb-0">{{i ==1 ? "8h:00": i == 2 ? "12h:00": i == 3 ? "18h:00": "Moyenne"}}</h5> </th>
+  </tbody>
+  <tbody>
+                        <td>  <div class="h3 font-weight-bold mb-0">Temperature: {{i ==1 ? data.temperature8h : i == 2 ? data.temperature12h: i == 3 ? data.temperature18h: data.temperatureM | number: '1.1-2'}}</div> </td> </tbody>
+                 <tbody>       <td>  <div class="h3 font-weight-bold mb-0">Humidity: {{i ==1 ? data.humidite8h : i == 2 ? data.humidite12h: i == 3 ? data.humidite18h: data.humiditeM | number: '1.1-2'}} </div></td></tbody>
+                        </table>
+
                   </div>
 
                 </div>
@@ -20,52 +28,12 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="h1 card-title text-uppercase text-muted mb-0">12h:00</h5>
-                    <div class="h2 font-weight-bold mb-0">Temperature:</div>
-                    <div class="h2 font-weight-bold mb-0">Humidite:</div>
-                  </div>
 
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="h1 card-title text-uppercase text-muted mb-0">19h:00</h5>
-                    <div class="h2 font-weight-bold mb-0">Temperature:</div>
-                    <div class="h2 font-weight-bold mb-0">Humidite:</div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-3 col-lg-6">
-            <div class="card card-stats mb-4 mb-xl-0">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col">
-                    <h5 class="h1 card-title text-uppercase text-muted mb-0">Moyenne</h5>
-                    <div class="h2 font-weight-bold mb-0">Temperature:</div>
-                    <div class="h2 font-weight-bold mb-0">Humidite:</div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
+
+
+
+  <div> </div>

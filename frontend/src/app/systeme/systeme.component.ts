@@ -59,7 +59,7 @@ serial: NgxSerial;
      this.donnee = data
      this.temperature = this.donnee[0] + this.donnee[1];
       this.humidity = this.donnee[6] + this.donnee[7];
-      
+
     })
 
   }

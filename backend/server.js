@@ -86,6 +86,7 @@ var port2 = new Serialport('/dev/ttyACM0', {
 //  console.log(parser);
 parser.on("data", (data)=>{
     console.log(data);
+io.emit("temp", data)
     let tempy = data.split('/')
      let temperer = tempy[0]
     let humidy = tempy[1]
@@ -182,7 +183,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
 
 
-}           //l'insertion de la temperature et de l'humidite à 8h
+}           //l'insertion de la temperature et de l'humidite à 18h
 
 
  if  ( heur == '13' && min == '47' && sec == '35' ) {

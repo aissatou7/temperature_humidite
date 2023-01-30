@@ -15,8 +15,9 @@ import Swal from 'sweetalert2';
 })
 export class TableUserComponent implements OnInit {
   public users:any = [];
+ 
 // nécessaire au controle de saisie du formulare de modification
-  
+
 submitted=false;
 invalid = false;
 vide = false;
@@ -86,11 +87,12 @@ loadUser(){
   this.userService.listUser().subscribe((data:any) =>{
      this.users = data;
      //filtrer les données
-     this.users = this.users.filter((e:any)=> e.etat == true)
+     this.users = this.users.filter((e:any)=> e.etat == true && e.email != localStorage.getItem('email'))
 
 
   });
 }
+
 //switch
 
 changeRole=(id:any,role:any)=> {
@@ -119,7 +121,7 @@ changeRole=(id:any,role:any)=> {
     }
 /* } */
 
- 
+
 
  getUserData(id:any,prenom:any,nom:any,email:any){
 
@@ -152,7 +154,7 @@ Archiver(id:any, etat:any){
     data=>{
       this.ngOnInit();
     });
-    
+
   }else if (result.dismiss === Swal.DismissReason.cancel) {
   }
   })
@@ -161,7 +163,7 @@ Archiver(id:any, etat:any){
 
  onUpdate(){
   if (this.updateForm.value.prenom.lenght) {
-    
+
   } else {
     const id =  this.updateForm.value.id;
     const data ={

@@ -19,15 +19,15 @@ monidentity = localStorage.getItem('prenom') + ''+ localStorage.getItem('nom')
  password = localStorage.getItem('password')
 id = localStorage.getItem('id')
   pass: string;
-  constructor( 
+  constructor(
     private userService: UserService,
      public formBuilder: FormBuilder ) {
 
     this.profileForm = this.formBuilder.group({
-     
+
       actuelPass:['',[Validators.required ]],
       newPass:['',[Validators.required]],
-     newPasswordconfirm:['', [Validators.required]], 
+     newPasswordconfirm:['', [Validators.required]],
   }
   )
   }
@@ -46,7 +46,7 @@ id = localStorage.getItem('id')
   }
 
   onSubmite(){
-   
+
     this.submitted = true;
     this.passeIdentique();
     if(this.profileForm.invalid){
@@ -73,9 +73,9 @@ id = localStorage.getItem('id')
      }
      ,(err)=>{
       this.pass= " mot_de_passe incorrect"
-      
+
      })
-     
+
 
     /* this.submitted=false;
     const donnees= {
@@ -86,7 +86,7 @@ id = localStorage.getItem('id')
 /* console.log(this.profileForm.value.currentPassword);
 
     const auth =  bcrypt.compare(this.password , this.profileForm.value.currentPassword)
-    if(auth ){    
+    if(auth ){
        console.log("valid");
     }
     else{
@@ -96,7 +96,7 @@ id = localStorage.getItem('id')
  /*    this.userService.login(donnees).subscribe(
       (data:any) => {
         console.log(data);
-       
+
   }) */
   }
 }

@@ -1,8 +1,14 @@
 const express = require('express');
+
 const app = express();
 let UserSchema = require("../model/user.model");
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+
+
+
+
 const TemperahumSchema = require('../model/temphum.model')
 //Here we are going to create a function(middelware) that can get user
 const userExpressRoute = express.Router();
@@ -76,13 +82,35 @@ userExpressRoute.route('/').get((req, res) => {
         }
     })
 });
+// This middelware show all users
+userExpressRoute.route('/temp').get((req,res) =>{
+    TemperahumSchema.find((error,data) =>{
+        if (error) {
+            return next(error);
+        } else {
+           
 
-//middelware show all temphum
-userExpressRoute.route('/temp').get((req, res) => {
-let temp = require('../server')
-res.json(temp)
-
+                res.json(data);
+            
+            
+        }
+    })
 });
+// This middelware show temperature and humidite
+// userExpressRoute.route('/tempHum').get((req,res) =>{
+
+//         parser.on('data', (data)=>{
+//             io.emit('temp',data)
+//             res.json(data)
+//         })
+                
+    
+       
+            
+        
+    
+// });
+
 
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req, res) => {

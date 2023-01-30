@@ -46,22 +46,24 @@ LoginComponent,
 
     BrowserModule,
     AppRoutingModule,
-   
+
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
      NgxPaginationModule,
-     Ng2SearchPipeModule
+     Ng2SearchPipeModule,
+    
 
 
   ],
-  
+
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
+   
     }
   ],
   bootstrap: [AppComponent]

@@ -120,6 +120,9 @@ height: 10%;
         box-shadow: 2 0 10px #f03372;
         transition-delay: 0.3s;
         text-transform: uppercase;
+          .j{
+            fill: #fff;
+          }
       }
 
       .e:focus  { border: 1px solid #ff5757;
@@ -131,10 +134,11 @@ height: 10%;
         text-transform: uppercase;
       }
 
-      .j:hover {
+    /*   .j:hover {
 
-     fill: #fff;
-      }
+      fill: #fff;
+
+      } */
       .j:focus-visible {
 
         fill: #fff;

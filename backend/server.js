@@ -91,12 +91,12 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( heur == 18 && min == 54 && sec == 00 ) {
+if ( heur == '08' && min == '18' && sec == '00' ) {
     console.log('IL EST 8H');  
   /*   var tempe = parseInt(temperer);
     var humi = parseInt(humidy); */
   
-    //l'objet qui contient la temperature, humidite et la date
+    //l'objet qui contient la temperature, humidite et la date +l'insertion de la temperature et de l'humidite à 8h
      var tempEtHum =('data', { temperature8h : temperer,
     humidite8h: humidy,
     temperature12h : 00,
@@ -127,7 +127,7 @@ if ( heur == 18 && min == 54 && sec == 00 ) {
    }  
   
 
-    if  (heur == '19' && min == '17' && sec == '00' )  {
+    if  (heur == '08' && min == '19' && sec == '00' )  {
          console.log('IL EST 12H');
   
        /*      res.json(data); */
@@ -138,7 +138,7 @@ if ( heur == 18 && min == 54 && sec == 00 ) {
                 } else {
                  
                  
-                    console.log(data.temperature8h);
+                 /*    console.log(data.temperature8h); */
             
                     temperatureSomme1 =  (data.temperature8h + parseFloat(temperer) );
                     temperatureM1  = temperatureSomme1/2
@@ -174,7 +174,7 @@ if ( heur == 18 && min == 54 && sec == 00 ) {
 } 
 
 
- if  ( heur == 19 && min == 22 && sec == 00 ) {
+ if  ( heur == '08' && min == '20' && sec == '00' ) {
     console.log('IL EST 18H');
 
   /*      res.json(data); */

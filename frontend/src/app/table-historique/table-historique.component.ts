@@ -27,7 +27,7 @@ loadTempHum(){
      
     this.tempHums = this.tempHums.filter((e:any) =>
      
-    e.date != this.date
+    e.date == this.date
     )
 
   });

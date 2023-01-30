@@ -8,7 +8,7 @@ export class RealtimeService {
 /*  socket = io('http://localhost:2000'); */
 
   constructor() {
-    this.socket = io('ws://localhost:2000');
+    this.socket = io('ws://localhost:3000');
    }
   private socket: Socket;
 

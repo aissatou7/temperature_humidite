@@ -84,7 +84,7 @@ userExpressRoute.route('/').get((req, res) => {
 });
 // This middelware show all users
 userExpressRoute.route('/temp').get((req,res) =>{
-    tempSchema.find((error,data) =>{
+    TemperahumSchema.find((error,data) =>{
         if (error) {
             return next(error);
         } else {
@@ -111,12 +111,6 @@ userExpressRoute.route('/temp').get((req,res) =>{
     
 // });
 
-//middelware show all temphum
-userExpressRoute.route('/temp').get((req, res) => {
-let temp = require('../server')
-res.json(temp)
-
-});
 
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req, res) => {

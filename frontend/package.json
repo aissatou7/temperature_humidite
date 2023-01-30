@@ -26,6 +26,7 @@
     "ngx-serial": "^1.0.1",
     "ngx-socket-io": "^4.4.0",
     "rxjs": "~7.5.0",
+    "serialport": "^10.5.0",
     "socket.io": "^4.5.4",
     "socket.io-client": "^4.5.4",
     "sweetalert2": "^11.4.8",

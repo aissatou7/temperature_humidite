@@ -2,10 +2,14 @@ const express = require('express');
 
 const app = express();
 let UserSchema = require("../model/user.model");
-/* let tempSchema = require("../model/user.model2"); */
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
-const tempSchema = require('../model/temphum.model')
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+
+
+
+
+const TemperahumSchema = require('../model/temphum.model')
 //Here we are going to create a function(middelware) that can get user
 const userExpressRoute = express.Router();
 
@@ -80,7 +84,7 @@ userExpressRoute.route('/').get((req, res) => {
 });
 // This middelware show all users
 userExpressRoute.route('/temp').get((req,res) =>{
-    tempSchema.find((error,data) =>{
+    TemperahumSchema.find((error,data) =>{
         if (error) {
             return next(error);
         } else {
@@ -107,12 +111,6 @@ userExpressRoute.route('/temp').get((req,res) =>{
     
 // });
 
-//middelware show all temphum
-userExpressRoute.route('/temp').get((req, res) => {
-let temp = require('../server')
-res.json(temp)
-
-});
 
 //This middelware show one user
 userExpressRoute.route('/user/:id').get((req, res) => {

@@ -32,13 +32,18 @@ change(){
 temperature:any
 humidity:any = 'default';
   constructor(private RealtimeService: RealtimeService) {
-    this.socket = io('ws://localhost:2000');
+    this.socket = io('ws://localhost:3000');
   }
   private socket: Socket;
   open: boolean = true
     src="./assets/img/brand/ventilo.jpeg";
     style="background-color: green;";
     texteBouton = 'ALLUMER';
+
+    dataHandler(data: string) {
+      console.log("From arduino -> " + data);
+    }
+
     changeImage() {
 
      if((this.src == "./assets/img/brand/ventilo.jpeg" && this.texteBouton == 'ALLUMER')){

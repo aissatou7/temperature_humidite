@@ -78,7 +78,7 @@ humidity:any = 'default';
         this.style="background-color: red;";
         this.texteBouton = 'ETEINDRE';
 
-      } else if (this.temperature < 30 && this.temoin == 2){
+      } else if (this.temperature < 30 && this.temoin == 2){
 
        this.src="./assets/img/brand/ventilo.jpeg";this.style="background-color: green;";this.texteBouton = 'ALLUMER';
       }

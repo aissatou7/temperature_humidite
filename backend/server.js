@@ -101,6 +101,20 @@ var port2 = new Serialport('/dev/ttyACM0', {
 
  const parser = port2.pipe(new Readline({ delimiter: '\r\n' }))
 //  console.log(parser);
+
+var temoin = '0';
+io.on('connection', (socket) => {
+    console.log('vent connected!');
+    socket.on('vent', (arg)=>{ 
+        
+        temoin = arg;
+         /* if(arg==1){
+        io.emit('recu', '1');
+        } else { io.emit('recu', '0');}  */
+    console.log(arg) 
+       
+    })
+  });
 parser.on("data", (data)=>{
     console.log(data);
     let tempy = data.split('/')
@@ -269,20 +283,9 @@ io.emit('temp', data);
 if (sec == 10 || sec == 030 || sec == 50){io.emit('value', false);} */
 
 
-io.on('connection', (socket) => {
-    console.log('vent connected!');
-    socket.on('vent', (arg)=>{ 
-        
-      
-         /* if(arg==1){
-        io.emit('recu', '1');
-        } else { io.emit('recu', '0');}  */
-    console.log(arg) 
-       
-    })
-  });
-  port2.write('1')
-
+ 
+ port2.write(temoin)
+ console.log(temoin);
    // module.exports = {"température":température, "humidité":humidité};
    
 /* io.on("value", (data)=> {

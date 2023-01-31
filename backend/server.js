@@ -150,7 +150,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
         }else{
             console.log('les données de 8H sont inserées');
 
-
+            io.emit('Heure', true);
 
        
 
@@ -192,6 +192,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
                       console.log('les données de 12H sont inserées')
 
                           console.log('les données moyennes sont inserées')
+                          io.emit('Heure', true);
                     
                        }
                     }); 
@@ -239,6 +240,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
               console.log('les données de 18H sont inserées')
                   console.log('les données moyennes sont inserées')
+                  io.emit('Heure', true);
             
                }
             }); 

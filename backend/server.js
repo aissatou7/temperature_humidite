@@ -86,7 +86,7 @@ var port2 = new Serialport('/dev/ttyACM0', {
 //  console.log(parser);
 parser.on("data", (data)=>{
     console.log(data);
-io.emit("temp", data)
+    io.emit("temp", data)
     let tempy = data.split('/')
      let temperer = tempy[0]
     let humidy = tempy[1]

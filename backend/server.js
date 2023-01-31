@@ -115,6 +115,7 @@ io.on('connection', (socket) => {
        
     })
   });
+  
 parser.on("data", (data)=>{
     console.log(data);
     let tempy = data.split('/')

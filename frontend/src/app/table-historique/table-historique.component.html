@@ -19,8 +19,8 @@ table, th, td {
     <th colspan="2" >18h</th>
   </tr>
   <tr>
-  
-   
+
+
     <td> tempre</td>
     <td>humi</td>
     <td> tempre</td>
@@ -28,11 +28,11 @@ table, th, td {
     <td> tempre</td>
     <td>humi</td>
 
-    
-    
+
+
   </tr>
   <tr>
-  
+
      <td colspan="2" > 17/12/2022</td>
      <td>26°C</td>
      <td>30%</td>
@@ -40,11 +40,11 @@ table, th, td {
      <td>40%</td>
      <td>25°C</td>
      <td>35%</td>
- 
-     
-     
+
+
+
    </tr>
-  
+
 </table>
 </div>
 </body>
@@ -67,13 +67,13 @@ table, th, td {
                 <th colspan="2">8h</th>
                 <th colspan="2">12h</th>
                 <th colspan="2">18h</th>
-               
+
               </tr>
-         
+
             </thead>
             <tbody>
               <tr  >
-              
+
                 <td colspan="2"   ></td>
                 <td> temperature</td>
                 <td>humidité</td>
@@ -83,24 +83,24 @@ table, th, td {
                 <td>humidité</td>
               </tr>
               <tr *ngFor="let tempHum of tempHums | paginate: { itemsPerPage: 6, currentPage: p } " >
-  
+
                 <td colspan="2">{{tempHum.date}}</td>
                 <td>{{tempHum.temperature8h}}</td>
-                <td>{{tempHum.humidity8h}}</td>
+                <td>{{tempHum.humidite8h}}</td>
                 <td>{{tempHum.temperature12h}}</td>
-                <td>{{tempHum.humidity12h}}</td>
+                <td>{{tempHum.humidite12h}}</td>
                 <td>{{tempHum.temperature18h}}</td>
-                <td>{{tempHum.humidity18h}}</td>
+                <td>{{tempHum.humidite18h}}</td>
             </tr>
             </tbody>
           </table>
         </div>
         <div class="card-footer py-4">
-         
+
           <!-- pagination -->
           <div class="card-footer py-4 d-flex" style="justify-content: right;">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        
+
           </div>
         </div>
       </div>

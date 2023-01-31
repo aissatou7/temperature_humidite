@@ -18,8 +18,8 @@ const { Server } = require("socket.io");
 mongoose.set('strictQuery', true);
 
 //Here we are connecting to data base mongoDb by mongoose
-//mongoose.connect('mongodb+srv://aissatou7:766021841Fall@cluster0.wayru7i.mongodb.net/test',
-mongoose.connect( "mongodb+srv://papa:2605@cluster0.wepa2rr.mongodb.net/homestead?retryWrites=true&w=majority", 
+mongoose.connect('mongodb+srv://aissatou7:766021841Fall@cluster0.wayru7i.mongodb.net/test',
+//mongoose.connect( "mongodb+srv://papa:2605@cluster0.wepa2rr.mongodb.net/homestead?retryWrites=true&w=majority", 
 {useNewUrlParser: true,
 useUnifiedTopology: true})
 .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -92,7 +92,7 @@ parser.on("data", (data)=>{
  
 const Data = temper;
   //calcul de la date et l'heure 
- 
+ var dataa 
   var datHeure = new Date();
   var min = datHeure.getMinutes();
   var heur = datHeure.getHours(); //heure
@@ -108,12 +108,9 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( sec == 00 ) {
+/* if ( sec == 00 ) {
     console.log('IL EST 8H');  
-  /*   var tempe = parseInt(température);
-    var humi = parseInt(humidité); */
-  
-    //l'objet qui contient la temperature, humidite et la date
+
      var tempEtHum =('data', { temperature8h : température,
     humidite8h: humidité,
     temperature12h : 00,
@@ -125,7 +122,7 @@ if ( sec == 00 ) {
      date : datei,
      heure : heurei    
              });  
-    // insertion Temperature et humidite
+   
    const newData = new Data(tempEtHum);   
     newData.save((err)=>{
         if(err) {
@@ -137,13 +134,13 @@ if ( sec == 00 ) {
    }  
   
 
-    if  ( sec == 10 )  {
+    if  ( sec == 42 )  {
          console.log('IL EST 12H');
     Data.updateOne({date: datei}, { $set: {temperature12h :température, humidite12h :humidité,} }, (err, data) => {
         if (err) {
             console.log(err);
         } else { 
-       /*      res.json(data); */
+      
              console.log('les données de 12H sont inserées')
 
         }
@@ -151,13 +148,13 @@ if ( sec == 00 ) {
 } 
 
 
- if  ( sec == 30 ) {
+ if  ( sec == 45 ) {
     console.log('IL EST 18H');
 Data.updateOne({date: datei}, { $set: {temperature18h :température, humidite18h :humidité,} }, (err, data) => {
    if (err) {
        console.log(err);
    } else { 
-  /*      res.json(data); */
+
       console.log('les données de 18H sont inserées')
 
    }
@@ -167,32 +164,32 @@ Data.updateOne({date: datei}, { $set: {temperature18h :température, humidite18h
 
 
 
-/*   var res; */
-if  ( sec == 50 ) {
+
+if  ( sec == 47 ) {
     console.log('LA MOYENNE DE LA JOURNÉE');
   Data.findOne({date: datei}, (err, data) => {
     if (err) {
         console.log(err);
     } else {
     
-        //console.log(data.humidite18h);
+       
 
         temperatureSomme =(  data.temperature8h +  data.temperature12h + data.temperature18h );
         temperatureM  = temperatureSomme/3
-       // console.log(temperatureM);
+      
 
         humiditeSomme = (data.humidite8h +  data.humidite12h + data.humidite18h);
         humiditeM  = humiditeSomme/3
-       // console.log(humiditeM);
+      
 
        
         Data.updateOne({date: datei}, { $set: {temperatureM :temperatureM, humiditeM :humiditeM,} }, (err, data) => {
            if (err) {
                console.log(err);
            } else { 
-          /*      res.json(data); */
+      
               console.log('les données moyennes sont inserées')
-        
+        io.emit('18h',true)
            }
         }); 
 
@@ -202,7 +199,7 @@ if  ( sec == 50 ) {
     }
 });
   }
-
+ */
 
 /* 
 
@@ -219,15 +216,44 @@ Data.updateOne({date: datei}, { $set: {temperatureM :température, humiditeM :hu
  */
 
 
+io.emit('temp', data);
+/* if (sec == 00 || sec == 020 || sec == 40){io.emit('value', true);}
+if (sec == 10 || sec == 030 || sec == 50){io.emit('value', false);} */
 
+
+io.on('connection', (socket) => {
+    console.log('vent connected!');
+    socket.on('vent', (arg)=>{ 
+        
+      
+         /* if(arg==1){
+        io.emit('recu', '1');
+        } else { io.emit('recu', '0');}  */
+    console.log(arg) 
+       
+    })
+  });
+  port2.write('1')
 
    // module.exports = {"température":température, "humidité":humidité};
-  
-    
+   
+/* io.on("value", (data)=> {
+    console.log(data + 'ff');
+     port2.write(data)
+    port2.drain((err) => {
+        console.log(err);
+    }) 
+}); 
+ */
+
+
 });
 
 
- 
- 
+/* on('18h', data => {
+    observer.next(data);
+  });
+});
+  */
                     
 

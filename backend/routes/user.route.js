@@ -2,10 +2,10 @@ const express = require('express');
 
 const app = express();
 let UserSchema = require("../model/user.model");
-let tempSchema = require("../model/user.model2");
+/* let tempSchema = require("../model/user.model2"); */
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const TemperahumSchema = require('../model/temphum.model')
+const tempSchema = require('../model/temphum.model')
 //Here we are going to create a function(middelware) that can get user
 const userExpressRoute = express.Router();
 

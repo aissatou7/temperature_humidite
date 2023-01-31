@@ -93,7 +93,7 @@ parser.on("data", (data)=>{
  
 const Data = temper;
   //calcul de la date et l'heure 
- 
+ var dataa 
   var datHeure = new Date();
   var min = datHeure.getMinutes();
   var heur = datHeure.getHours(); //heure
@@ -126,13 +126,19 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
      date : datei,
      heure : heurei    
              });  
-    // insertion Temperature et humidite
+   
    const newData = new Data(tempEtHum);   
     newData.save((err)=>{
         if(err) {
             console.log(err)
         }else{
             console.log('les données de 8H sont inserées');
+
+            io.emit('Heure', true);
+
+       
+
+
 
         }
     });
@@ -170,6 +176,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
                       console.log('les données de 12H sont inserées')
 
                           console.log('les données moyennes sont inserées')
+                          io.emit('Heure', true);
                     
                        }
                     }); 
@@ -217,6 +224,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
               console.log('les données de 18H sont inserées')
                   console.log('les données moyennes sont inserées')
+                  io.emit('Heure', true);
             
                }
             }); 
@@ -237,18 +245,44 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
 
 
+io.emit('temp', data);
+/* if (sec == 00 || sec == 020 || sec == 40){io.emit('value', true);}
+if (sec == 10 || sec == 030 || sec == 50){io.emit('value', false);} */
+
+
+io.on('connection', (socket) => {
+    console.log('vent connected!');
+    socket.on('vent', (arg)=>{ 
+        
+      
+         /* if(arg==1){
+        io.emit('recu', '1');
+        } else { io.emit('recu', '0');}  */
+    console.log(arg) 
+       
+    })
+  });
+  port2.write('1')
+
+   // module.exports = {"température":température, "humidité":humidité};
+   
+/* io.on("value", (data)=> {
+    console.log(data + 'ff');
+     port2.write(data)
+    port2.drain((err) => {
+        console.log(err);
+    }) 
+}); 
+ */
 
 
 
-   // module.exports = {"temperer":temperer, "humidy":humidy};
-  
-    
-});
 
 
+/* io.on('18h', data => {
+    observer.next(data);
+  });
+ */
 
-
- 
- 
                     
-
+});

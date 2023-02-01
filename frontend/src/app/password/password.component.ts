@@ -18,7 +18,7 @@ monidentity = localStorage.getItem('prenom') + ''+ localStorage.getItem('nom')
  monmail =   localStorage.getItem('email')
  password = localStorage.getItem('password')
 id = localStorage.getItem('id')
-  pass: string;
+  pass: string = '';
   constructor(
     private userService: UserService,
      public formBuilder: FormBuilder ) {
@@ -73,7 +73,9 @@ id = localStorage.getItem('id')
      }
      ,(err)=>{
       this.pass= " mot_de_passe incorrect"
-
+      setTimeout(() => {
+        this.pass = ""
+      }, 2000);
      })
 
 

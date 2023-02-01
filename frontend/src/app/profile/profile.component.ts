@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  reset() {
+  reset() {//pour annuler les modifications
     this.ngOnInit();
   }
 

@@ -95,7 +95,7 @@ var Serialport = require('serialport');
 const { error } = require('console');
 var Readline = Serialport.parsers.Readline;
  var serialport=`require('serialport')`;
-var port2 = new Serialport('/dev/ttyUSB0', {
+var port2 = new Serialport('/dev/ttyACM0', {
      baudRate: 9600
 });
 
@@ -111,7 +111,7 @@ io.on('connection', (socket) => {
          /* if(arg==1){
         io.emit('recu', '1');
         } else { io.emit('recu', '0');}  */
-        console.log(arg) 
+    console.log(arg) 
        
     })
   });

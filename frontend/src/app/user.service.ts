@@ -45,7 +45,7 @@ export class UserService {
     return this.http.get('http://localhost:3000/endpoint/temp ');
   }
 
-  
+
 
   //Here we have user deleting
   deleteUser(id: any) {
@@ -58,7 +58,7 @@ export class UserService {
   //Here we have user updating
   updateUser(id: any, data: any): Observable<any> {
     return this.http.put(
-      'http://localhost:"3000/endpoint/updateUser/' + id,
+      'http://localhost:3000/endpoint/updateUser/' + id,
       data
     );
     // .pipe(catchError(this.handleError));

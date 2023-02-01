@@ -23,9 +23,7 @@
     "bootstrap": "^5.2.3",
     "ng2-search-filter": "^0.5.1",
     "ngx-pagination": "^6.0.3",
-    
-
-    
+    "ngx-serial": "^1.0.1",
     "rxjs": "~7.5.0",
     "serialport": "^10.5.0",
     "socket.io": "^4.5.4",

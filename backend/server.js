@@ -111,7 +111,7 @@ io.on('connection', (socket) => {
          /* if(arg==1){
         io.emit('recu', '1');
         } else { io.emit('recu', '0');}  */
-    console.log(arg) 
+        console.log(arg) 
        
     })
   });

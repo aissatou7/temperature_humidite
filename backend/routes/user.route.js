@@ -204,16 +204,16 @@ userExpressRoute.route('/deleteUser/:id').delete((req, res) => {
 });
 
 //This middelware update one user
-userExpressRoute.route('/updateUser/:id').put(async (req, res) => {
+userExpressRoute.route('/updateUser/:id').put( (req, res) => {
     UserSchema.findByIdAndUpdate(req.params.id, { $set: req.body }, (error, data) => {
-        const email = req.body.email;
-        const oldUser = UserSchema.findOne({ email });
-        if (oldUser) {
+    /*     const email = req.body.email;
+        const oldUser = UserSchema.findOne({ email }); */
+       /*  if (oldUser) {
             return res.status(200).json({ message: "Email Already Exist. Please Login", emailExiste: true });
-        }
-        /* if (error) {
+        } */
+         if (error) {
             return next(error);
-        } */ else {
+        }  else {
             res.json(data);
             console.log('updated successfully !')
 

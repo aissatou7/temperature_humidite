@@ -121,7 +121,7 @@ parser.on("data", (data)=>{
     let tempy = data.split('/')
      let temperer = tempy[0]
     let humidy = tempy[1]
- 
+ console.log(humidy);
 const Data = temper;
   //calcul de la date et l'heure 
  var dataa 
@@ -140,7 +140,7 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( heur == '13' && min == '47' && sec == '00' ) {
+if ( heur == '10' && min == '48' && sec == '00' ) {
     console.log('IL EST 8H');  
   /*   var tempe = parseInt(temperer);
     var humi = parseInt(humidy); */
@@ -176,7 +176,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
    }  
   
 
-    if  (heur == '13' && min == '47' && sec == '30' )  {
+    if  (heur == '10' && min == '49' && sec == '00' )  {
          console.log('IL EST 12H');
   
        /*      res.json(data); */
@@ -224,7 +224,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 } 
 
 
- if  ( heur == '13' && min == '47' && sec == '35' ) {
+ if  ( heur == '10' && min == '50' && sec == '00' ) {
     console.log('IL EST 18H');
 
   /*      res.json(data); */

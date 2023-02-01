@@ -38,9 +38,9 @@
                 <td> {{user.matricule}}</td>
                 <td> {{user.role}} </td>
                 <td>
-                  <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"   (click)="changeRole(user._id, user.role)" > <span class="material-symbols-outlined">sync_alt </span></button>
-                  <button class="btn" data-bs-toggle="modal"data-bs-target="#updateModal"  (click)="getUserData(user._id,user.prenom,user.nom,user.email)"><span class="material-symbols-outlined">update</span></button>
-                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal"  (click)="Archiver(user._id, user.etat)"> <span class="material-symbols-outlined"> archive
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#switchModal"  data-toggle="tooltip" data-placement="top" title="Switcher" (click)="changeRole(user._id, user.role)" > <span class="material-symbols-outlined">sync_alt </span></button>
+                  <button class="btn" id="modifier" data-bs-toggle="modal"data-bs-target="#updateModal" title="modification" (click)="getUserData(user._id,user.prenom,user.nom,user.email)"><span class="material-symbols-outlined">update</span></button>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#deleteModal" title="archiver"  (click)="Archiver(user._id, user.etat)"> <span class="material-symbols-outlined"> archive
                     </span></button>
                 </td>
 
@@ -52,18 +52,23 @@
           <h5 class="modal-title" id="exampleModalLabel">MODIFICATION</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div *ngIf="errMsg" class="alert alert-danger" role="alert">
+          <strong> Erreur </strong> Email déjà existant !
+        </div>
         <!-- Ici nous avons le corps de notre modal : le formulaire de modification -->
         <div class="modal-body">
           <div class="container c_form" style=" padding: 10px;">
             <!-- Table -->
             <div class="box">
+             
               <form role="form" class="row g-5"[formGroup]="updateForm" (ngSubmit)="onUpdate()">
+                
                 <div class="form-group col-md-6">
-
+                 
                   <label for="prenom">Prénom <span class="obligatoire">*</span> </label>
                   <div [ngClass]="{'invalid':submitted && updateForm.controls['prenom'].errors}"
                     class="input-group input-group-alternative mb-3">
-                    <input formControlName="prenom" type="text" class="form-control"  >
+                    <input formControlName="prenom"  type="text" class="form-control"  >
                   </div>
                   <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['prenom'].errors"
                     class="text-danger">
@@ -83,7 +88,7 @@
                   <div [ngClass]="{'invalid':submitted && updateForm.controls['nom'].errors}"
                     class="input-group input-group-alternative mb-3">
 
-                    <input formControlName="nom" class="form-control" type="text"  >
+                    <input formControlName="nom"  class="form-control" type="text"  >
                   </div>
                   <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['nom'].errors"
                     class="text-danger">
@@ -101,7 +106,7 @@
                   <label for="email">Email <span class="obligatoire">*</span></label>
                   <div [ngClass]="{'invalid':submitted && updateForm.controls['email'].errors}"
                     class="input-group input-group-alternative mb-3">
-                    <input formControlName="email" class="form-control" type="email"  >
+                    <input formControlName="email"  class="form-control" type="email"  >
                   </div>
                   <div style="margin-top: -10px;" *ngIf="submitted && updateForm.controls['email'].errors"
                     class="text-danger">
@@ -115,7 +120,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annuler</button>
-                  <button type="button" class="btn btn-danger"  type="submit"  >Modifier</button>
+                  <button type="button" class="btn btn-danger"  type="submit">Modifier</button>
                 </div>
               </form>
             </div>

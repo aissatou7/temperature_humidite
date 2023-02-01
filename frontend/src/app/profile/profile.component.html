@@ -1,129 +1,225 @@
-<div  style="margin-right: 30%; margin-left: 30%;">
-  <div class="box ">
-
-
-
-    <div style="position: relative;">
-      <div class="card ">
-
-
+<div style="margin-right: 30%; margin-left: 30%">
+  <div class="box">
+    <div style="position: relative">
+      <div class="card">
         <div class="card-body pt-0 pt-md-4 mt-5">
-
           <div class="text-center">
             <h3>
-              {{prenom + ' ' + nom}}<span class="font-weight-light"></span>
+              {{ prenom + " " + nom }}<span class="font-weight-light"></span>
             </h3>
             <div class="h5 font-weight-300">
-              <i class="ni location_pin mr-2"></i>{{email}}
+              <i class="ni location_pin mr-2"></i>{{ email }}
             </div>
-
           </div>
         </div>
       </div>
     </div>
     <div class="row justify-content-center dd">
       <div class="col-lg-3 order-lg-2">
-
-
-            <img src="assets/img/theme/20825.jpg" class="rounded-circle shadow"
-            style="margin-left: -32px; width: 200px; height: 200px;position: relative; margin-bottom: 0px; margin-top: -360px;">
-
-
+        <img
+          src="assets/img/theme/20825.jpg"
+          class="rounded-circle shadow"
+          style="
+            margin-left: -32px;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 0px;
+            margin-top: -360px;
+          "
+        />
       </div>
     </div>
 
-    <div class="box mt-2 shadow  rounded">
-      <div class=" shadow  p-1 pp">
+    <div class="box mt-2 shadow rounded">
+      <div class="shadow p-1 pp">
         <div class="card-header bg-white p-1 align-items-center">
-          <div class=""  style="margin-left: 35%;">
+          <div class="" style="margin-left: 35%">
             <div class="">
               <h3 class="mb-0 align-items-center">Mon profile</h3>
             </div>
-
           </div>
         </div>
-        <div class="bg-white white" style="padding:10px;">
-          <form role="form"  [formGroup]="profileForm" (ngSubmit)="profileUser()">
-            <h6 style="text-align:center;" class="heading-small text-muted mb-1">Modifier mes informations</h6>
-            <p *ngIf="mailExiste != ''" class="text-danger" style="text-align: center; ">Le mail existe déja</p>
+        <div class="bg-white white" style="padding: 10px">
+          <form
+            role="form"
+            [formGroup]="profileForm"
+            (ngSubmit)="profileUser()"
+          >
+            <h6
+              style="text-align: center"
+              class="heading-small text-muted mb-1"
+            >
+              Modifier mes informations
+            </h6>
+            <p
+              *ngIf="mailExiste != ''"
+              class="text-danger"
+              style="text-align: center"
+            >
+              Le mail existe déja
+            </p>
             <div class="pl-md-6">
-
               <div class="row">
-
                 <div class="col-lg-12">
                   <label for="prenom">Prénom</label>
-                  <div [ngClass]="{'invalid':submitted && profileForm.controls['prenom'].errors}" class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                    </div>
-                    <input style="margin-left:0px"  formControlName="prenom"
-                    type="text" class="form-control" autocomplete="on">
+                  <div
+                    [ngClass]="{
+                      invalid:
+                        submitted && profileForm.controls['prenom'].errors
+                    }"
+                    class="input-group input-group-alternative mb-3"
+                  >
+                    <div class="input-group-prepend"></div>
+                    <input
+                      style="margin-left: 0px"
+                      formControlName="prenom"
+                      type="text"
+                      class="form-control"
+                      autocomplete="on"
+                    />
                   </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && profileForm.controls['prenom'].errors" class="text-danger">
-                    <div *ngIf="submitted && profileForm.controls['prenom'].errors['required']">
-                        Le prenom est obligatoire!
+                  <div
+                    style="margin-top: -10px"
+                    *ngIf="submitted && profileForm.controls['prenom'].errors"
+                    class="text-danger"
+                  >
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['prenom'].errors['required']
+                      "
+                    >
+                      Le prenom est obligatoire!
                     </div>
-                    <div *ngIf="submitted && profileForm.controls['prenom'].errors['cannotContainSpace']">
-                        Espace nom autorisé
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['prenom'].errors[
+                          'cannotContainSpace'
+                        ]
+                      "
+                    >
+                      Espace nom autorisé
                     </div>
-                    </div>
+                  </div>
                 </div>
-
               </div>
               <div class="row">
                 <div class="col-lg-12">
                   <label for="nom">Nom</label>
-                  <div [ngClass]="{'invalid':submitted && profileForm.controls['nom'].errors}" class="input-group input-group-alternative mb-3">
+                  <div
+                    [ngClass]="{
+                      invalid: submitted && profileForm.controls['nom'].errors
+                    }"
+                    class="input-group input-group-alternative mb-3"
+                  >
                     <div class="input-group-prepend">
                       <i class="fa fa-home"></i>
                     </div>
-                    <input style="margin-left:0px" formControlName="nom"
-                    type="text" class="form-control" autocomplete="on">
+                    <input
+                      style="margin-left: 0px"
+                      formControlName="nom"
+                      type="text"
+                      class="form-control"
+                      autocomplete="on"
+                    />
                   </div>
-                  <div style="margin-top: -10px;" *ngIf="submitted && profileForm.controls['nom'].errors" class="text-danger">
-                    <div *ngIf="submitted && profileForm.controls['nom'].errors['required']">
-                        nom est obligatoire!
+                  <div
+                    style="margin-top: -10px"
+                    *ngIf="submitted && profileForm.controls['nom'].errors"
+                    class="text-danger"
+                  >
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['nom'].errors['required']
+                      "
+                    >
+                      nom est obligatoire!
                     </div>
-                    <div *ngIf="submitted && profileForm.controls['nom'].errors['cannotContainSpace']">
-                        Espace nom autorisé
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['nom'].errors['cannotContainSpace']
+                      "
+                    >
+                      Espace nom autorisé
                     </div>
-                    </div>
+                  </div>
                 </div>
               </div>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <label for="email">Email</label>
-                    <div [ngClass]="{'invalid':submitted && profileForm.controls['email'].errors}" class="input-group input-group-alternative mb-3">
-                      <div class="input-group-prepend">
-
-                      </div>
-                      <input style="margin-left:0px" formControlName="email"
-                      type="text" class="form-control" autocomplete="on">
+              <div class="row">
+                <div class="col-lg-12">
+                  <label for="email">Email</label>
+                  <div
+                    [ngClass]="{
+                      invalid: submitted && profileForm.controls['email'].errors
+                    }"
+                    class="input-group input-group-alternative mb-3"
+                  >
+                    <div class="input-group-prepend"></div>
+                    <input
+                      style="margin-left: 0px"
+                      formControlName="email"
+                      type="text"
+                      class="form-control"
+                      autocomplete="on"
+                    />
+                  </div>
+                  <div
+                    style="margin-top: -10px"
+                    *ngIf="submitted && profileForm.controls['email'].errors"
+                    class="text-danger"
+                  >
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['email'].errors['required']
+                      "
+                    >
+                      adresse mail obligatoire
                     </div>
-                    <div style="margin-top: -10px;" *ngIf="submitted && profileForm.controls['email'].errors" class="text-danger">
-                      <div *ngIf="submitted && profileForm.controls['email'].errors['required']">
-                          adresse mail obligatoire
-                      </div>
-                      <div *ngIf="submitted && profileForm.controls['email'].errors['cannotContainSpace']">
-                          Espace nom autorisé
-                      </div>
-                      <div *ngIf="submitted && profileForm.controls['email'].errors['email']">
-                        format incorrect
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['email'].errors[
+                          'cannotContainSpace'
+                        ]
+                      "
+                    >
+                      Espace nom autorisé
                     </div>
-                      </div>
+                    <div
+                      *ngIf="
+                        submitted &&
+                        profileForm.controls['email'].errors['email']
+                      "
+                    >
+                      format incorrect
+                    </div>
                   </div>
                 </div>
-
+              </div>
             </div>
             <div class="d-flex justify-content-center">
-            <div class="row ">
-            <div class="col-md-6">
-              <button type="button"  class="btn btn-default btn-primary mt-3" (click)="reset();">Annuler</button>
-          </div>
-              <div class="col-md-6">
-                <button type="submit"  class="btn btn-default btn-danger mt-3">Modifier</button>
+              <div class="row">
+                <div class="col-md-6">
+                  <button
+                    type="button"
+                    class="btn btn-default btn-primary mt-3"
+                    (click)="reset()"
+                  >
+                    Annuler
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button type="submit" class="btn btn-default btn-danger mt-3">
+                    Modifier
+                  </button>
+                </div>
+              </div>
             </div>
-            </div>
-</div>
           </form>
         </div>
       </div>

@@ -5,7 +5,7 @@ import {Socket, io }from 'socket.io-client';
   providedIn: 'root'
 })
 export class RealtimeService {
-/*  socket = io('http://localhost:2000'); */
+
 
   constructor() {
     this.socket = io('ws://localhost:3000');

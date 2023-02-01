@@ -26,6 +26,7 @@ import { TableArchiveComponent } from './table-archive/table-archive.component';
 import { PasswordComponent } from './password/password.component'; //recherche
 import { HTTP_INTERCEPTORS } from '@angular/common/http'; //intersepteurs
 import { AuthInterceptor } from './authconfig.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ LoginComponent,
 
     BrowserModule,
     AppRoutingModule,
-
+    
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,

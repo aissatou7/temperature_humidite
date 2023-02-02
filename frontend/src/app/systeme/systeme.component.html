@@ -8,7 +8,7 @@
              <span>{{temperature+ ' °C'}}</span><br>
              <span>{{humidity+ ' %'}}</span>
             </h1>
-            <img *ngIf="humidity > 60 || humidity == 'default' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
+            <img *ngIf="humidity > 60 || humidity == 'default' || temperature == '0/' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
             <img *ngIf="humidity <= 60"src="./assets/img/brand/desert.jpg" class="col-xl-12" alt="image">
           </div>
         </div>

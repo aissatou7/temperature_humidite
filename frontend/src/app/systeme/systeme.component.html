@@ -8,7 +8,7 @@
              <span>{{temperature+ ' °C'}}</span><br>
              <span>{{humidity+ ' %'}}</span>
             </h1>
-            <img *ngIf="humidity > 60 || humidity == 'default' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
+            <img *ngIf="humidity > 60 || humidity == 'default' || temperature == '0/' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
             <img *ngIf="humidity <= 60"src="./assets/img/brand/desert.jpg" class="col-xl-12" alt="image">
           </div>
         </div>
@@ -29,8 +29,11 @@
         <div class="align-items-center">
         <img [src]="src" alt="image" class="col-xl-12 align-items-center" >
       <span class="d-flex justify-content-center">
-          <button id="my-button" (click)="changeImage()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
-      </span>
+
+          <button *ngIf="!etat" id="my-button" (click)="changeImage(); onVent()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
+          <button *ngIf="etat" id="my-button" (click)="changeImage(); offVent()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
+
+        </span>
 
       </div>
       </div>

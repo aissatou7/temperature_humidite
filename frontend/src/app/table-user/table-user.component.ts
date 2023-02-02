@@ -29,7 +29,7 @@ updateForm: FormGroup;
   code: any;
   showcode: boolean;
   message: string;
-
+  errMsg : any;
 
 
 
@@ -60,6 +60,7 @@ updateForm: FormGroup;
     this.id = this.url.snapshot.params['id'];
     console.log(this.id);
     // this.userService.singleUser()
+
   }
   passeIdentique(){
 
@@ -162,6 +163,9 @@ Archiver(id:any, etat:any){
 }
 
  onUpdate(){
+
+
+
   if (this.updateForm.value.prenom.lenght) {
 
   } else {
@@ -176,6 +180,30 @@ Archiver(id:any, etat:any){
       return;
     }
 
+
+  for (const iterator of this.users) {
+    this.submitted = true
+    
+   if(this.updateForm.invalid){
+    
+    return ;
+  }
+
+
+
+
+
+
+  console.log(iterator.email  )
+  if(iterator.email == this.updateForm.value.email && iterator._id != id){
+    this.errMsg = "Email existe déjà";
+    setTimeout(() => {
+      this.errMsg=""
+    }, 2000);
+    return;
+  }
+}
+
       this.userService.updateUser(id, data).subscribe(
         data=>{
           this.ngOnInit();
@@ -184,7 +212,14 @@ Archiver(id:any, etat:any){
                     'success');
           //window.location.reload();
           window.setTimeout(function(){location.reload()},1500)
-        });
+/* 
+        },
+      
+        error => {
+          this.errMsg = false
+          setTimeout(()=>{ this.errMsg = true}, 2000); */
+        }); 
+
   }
 
 }

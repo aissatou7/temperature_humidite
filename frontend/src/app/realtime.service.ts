@@ -5,7 +5,7 @@ import {Socket, io }from 'socket.io-client';
   providedIn: 'root'
 })
 export class RealtimeService {
-/*  socket = io('http://localhost:2000'); */
+
 
   constructor() {
     this.socket = io('ws://localhost:3000');
@@ -22,7 +22,7 @@ public dataa=1;
 
   getHeur() {
     return new Observable(observer => {
-      this.socket.on('18h', data => {
+      this.socket.on('Heure', data => {
         observer.next(data);
       });
     });

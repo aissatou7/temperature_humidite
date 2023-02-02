@@ -56,15 +56,15 @@ export class DashbordComponent implements OnInit {
       this.socketService.onFetchData().subscribe((data: any) =>  this.reel = data ) */
     var jr = this.datee.getDate()
 
-    var mois = this.datee.getMonth()
+    var mois = this.datee.getMonth() + 1
     const year = this.datee.getFullYear()
     const min = this.datee.getMinutes();
     const heur = this.datee.getHours(); //heure
     const sec = this.datee.getSeconds(); //secondes
     if (mois < 10) { mois = '0' + mois; }
-    if (mois == 0) {mois = this.datee.getMonth() + 1}
+    //if (mois == 0) {mois = this.datee.getMonth() + 1}
     if (jr < 10) { jr = '0' + jr; }
-    this.nowdate = jr + '/' + 0 + mois + '/' + year
+    this.nowdate = jr + '/' + mois + '/' + year
     console.log(this.nowdate)
   }
 

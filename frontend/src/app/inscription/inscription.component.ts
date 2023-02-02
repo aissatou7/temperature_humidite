@@ -92,13 +92,13 @@ changeMail:any = false;
        this.inputType_pwd = 0;
        this.inputType_txt = 1;
        this.inputType = "text";
-       console.log('type password');
+       //console.log('type password');
 
     } else {
       this.inputType = "password";
       this.inputType_pwd = 1;
       this.inputType_txt = 0;
-      console.log('type text');
+      //console.log('type text');
     }
   }
   eyes_confirm (type:any) {
@@ -107,13 +107,13 @@ changeMail:any = false;
        this.inputType_pwd_c = 0;
        this.inputType_txt_c = 1;
        this.inputType_c = "text";
-       console.log('type password');
+       //console.log('type password');
 
     } else {
       this.inputType_c = "password";
       this.inputType_pwd_c = 1;
       this.inputType_txt_c = 0;
-      console.log('type text');
+      //console.log('type text');
     }
   }
 

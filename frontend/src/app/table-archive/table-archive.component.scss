@@ -1,3 +1,4 @@
+
 .search{
   position: absolute;
   background-color: #fff;
@@ -5,8 +6,8 @@
   border-radius: 30px;
   padding: 5px;
   padding-bottom: 45px;
-  margin-top: 5px;
   border:1px solid #2d3239;
+  margin-top: 5px;
 }
 .inp{
   border: none;
@@ -43,4 +44,14 @@
 .search:hover > .btns{
 
   background-color: #f56036 ;
+}
+.search > .inp:focus{
+  width: 240px;
+  padding: 0 6px;
+  top: 50px;
+  
+}
+
+td{
+  font-size: 22px;
 }

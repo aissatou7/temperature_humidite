@@ -14,6 +14,8 @@ export class SystemeComponent implements OnInit {
 donnee:any
 temoin:any
 etat = false;
+
+
 /* s:false
 change(){
   if (this.etat == false) {
@@ -30,7 +32,7 @@ change(){
     break;
 } */
 temperature:any
-humidity:any = 'default';
+humidity:any ;
   constructor(private RealtimeService: RealtimeService) {
     this.socket = io('ws://localhost:3000');
   }
@@ -70,9 +72,12 @@ humidity:any = 'default';
     })
     this.RealtimeService.getTemp().subscribe((data) =>{
     console.log(data);
-     this.donnee = data
+     this.donnee = data;
+
+
      this.temperature = this.donnee[0] + this.donnee[1];
       this.humidity = this.donnee[3] + this.donnee[4];
+
       if (this.temperature >= 30){
         this.src="./assets/img/brand/ventilo.gif";
         this.style="background-color: red;";

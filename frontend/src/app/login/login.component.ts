@@ -15,6 +15,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   showcode = false;
   code;
   message;
+  // yeux
+  inputType : any = "password";
+  inputType_pwd;
+  inputType_txt;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -84,5 +88,10 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
       });
         }
+
+
+
+
+
       }
 

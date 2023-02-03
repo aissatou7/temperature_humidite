@@ -77,11 +77,7 @@ app.use((err,req,res,next) =>{
 
 
 //température et humidité
- const {SerialPort} = require('serialport');
-const { ReadlineParser } = require('@serialport/parser-readline');
-
-const portserie = new SerialPort({ path: '/dev/ttyACM0', baudRate: 14400 })
-const parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }))
+/* */
 /*
 io.on('connection', () => {
     console.log('a user connected');
@@ -91,15 +87,15 @@ parser.on('data', (data)=>{
     io.emit('temp',data)
 }) */
 
-// var Serialport = require('serialport');
-// const { error } = require('console');
-// var Readline = Serialport.parsers.Readline;
-//  var serialport=`require('serialport')`;
-// var port2 = new Serialport('/dev/ttyUSB0', {
-//      baudRate: 9600
-// });
+ var Serialport = require('serialport');
+ const { error } = require('console');
+ var Readline = Serialport.parsers.Readline;
+  var serialport=`require('serialport')`;
+ var port2 = new Serialport('/dev/ttyACM0', {
+      baudRate: 9600
+ });
 
-//  const parser = port2.pipe(new Readline({ delimiter: '\r\n' }))
+  const parser = port2.pipe(new Readline({ delimiter: '\r\n' }))
 //  console.log(parser);
 
 var temoin = '0';

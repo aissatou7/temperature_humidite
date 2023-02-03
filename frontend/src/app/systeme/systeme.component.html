@@ -5,10 +5,13 @@
         <div class="card-header bg-transparent">
           <div class="row align-items-center" style="position: relative">
              <h1 style="position: absolute; right:15px;top: 40px; font-size: 5rem; width: auto;color: white;backdrop-filter: blur(5px);box-sizing: border-box;padding: 0px 0px;">
-             <span>{{temperature+ ' °C'}}</span><br>
-             <span>{{humidity+ ' %'}}</span>
+
+             <span *ngIf="temperature == '0/' || temperature == 'undefined'" style="font-size: 50px;">données indisponible</span>
+             <span *ngIf="temperature != '0/'" >{{temperature+ ' °C'}}</span><br>
+             <span *ngIf="temperature != '0/'" >{{humidity+ ' %'}}</span>
             </h1>
-            <img *ngIf="humidity > 60 || humidity == 'default' || temperature == '0/' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
+            <img *ngIf="humidity > 60  " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
+            <img *ngIf="temperature == 'undefined' || temperature == '0/'" src="./assets/img/brand/sans.jpeg" class="col-xl-12" alt="image">
             <img *ngIf="humidity <= 60"src="./assets/img/brand/desert.jpg" class="col-xl-12" alt="image">
           </div>
         </div>

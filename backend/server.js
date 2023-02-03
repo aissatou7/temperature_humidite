@@ -136,7 +136,7 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( heur == '10' && min == '48' && sec == '00' ) {
+if ( heur == '09' && min == '08' && sec == '00' ) {
     console.log('IL EST 8H');  
   /*   var tempe = parseInt(temperer);
     var humi = parseInt(humidy); */
@@ -172,7 +172,7 @@ if ( heur == '10' && min == '48' && sec == '00' ) {
    }  
   
 
-    if  (heur == '10' && min == '49' && sec == '00' )  {
+    if  (heur == '09' && min == '09' && sec == '00' )  {
          console.log('IL EST 12H');
   
        /*      res.json(data); */
@@ -220,7 +220,7 @@ if ( heur == '10' && min == '48' && sec == '00' ) {
 } 
 
 
- if  ( heur == '10' && min == '50' && sec == '00' ) {
+ if  ( heur == '09' && min == '09' && sec == '30' ) {
     console.log('IL EST 18H');
 
   /*      res.json(data); */

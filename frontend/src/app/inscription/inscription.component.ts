@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, EmailValidator } from 
 import { UsernameValidator } from '../username.validator';
 import { UserService } from '../user.service';
 import Swal from 'sweetalert2';
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -124,5 +125,6 @@ export class InscriptionComponent implements OnInit {
       //console.log('type text');
     }
   }
+
 
 }

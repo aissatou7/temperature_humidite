@@ -75,6 +75,7 @@
                   </div>
                   <input class="form-control db" formControlName="password"
                     [ngClass]="{'is-invalid':submitted && registerForm.controls['password'].errors}" type="password">
+                    
                 </div>
                 <div *ngIf="submitted && registerForm.controls['password'].errors" class="text-danger">
                   <div *ngIf="submitted && registerForm.controls['password'].errors['required']">

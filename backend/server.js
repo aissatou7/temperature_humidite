@@ -77,12 +77,8 @@ app.use((err,req,res,next) =>{
 
 
 //température et humidité
-/* const {SerialPort} = require('serialport');
-const { ReadlineParser } = require('@serialport/parser-readline');
-
-const portserie = new SerialPort({ path: '/dev/ttyACM0', baudRate: 14400 })
-const parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }))
-
+/* */
+/*
 io.on('connection', () => {
     console.log('a user connected');
   });
@@ -91,15 +87,15 @@ parser.on('data', (data)=>{
     io.emit('temp',data)
 }) */
 
-var Serialport = require('serialport');
-const { error } = require('console');
-var Readline = Serialport.parsers.Readline;
- var serialport=`require('serialport')`;
-var port2 = new Serialport('/dev/ttyACM0', {
-     baudRate: 9600
-});
+ var Serialport = require('serialport');
+ const { error } = require('console');
+ var Readline = Serialport.parsers.Readline;
+  var serialport=`require('serialport')`;
+ var port2 = new Serialport('/dev/ttyACM0', {
+      baudRate: 9600
+ });
 
- const parser = port2.pipe(new Readline({ delimiter: '\r\n' }))
+  const parser = port2.pipe(new Readline({ delimiter: '\r\n' }))
 //  console.log(parser);
 
 var temoin = '0';
@@ -111,7 +107,7 @@ io.on('connection', (socket) => {
          /* if(arg==1){
         io.emit('recu', '1');
         } else { io.emit('recu', '0');}  */
-        console.log(arg) 
+    console.log(arg) 
        
     })
   });
@@ -121,7 +117,7 @@ parser.on("data", (data)=>{
     let tempy = data.split('/')
      let temperer = tempy[0]
     let humidy = tempy[1]
- 
+ console.log(humidy);
 const Data = temper;
   //calcul de la date et l'heure 
  var dataa 
@@ -140,7 +136,7 @@ const Data = temper;
   var datei = mois + '/' + numMois + '/' + laDate;
 
 
-if ( heur == '13' && min == '47' && sec == '00' ) {
+if ( heur == '09' && min == '08' && sec == '00' ) {
     console.log('IL EST 8H');  
   /*   var tempe = parseInt(temperer);
     var humi = parseInt(humidy); */
@@ -175,8 +171,8 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
     });
    }  
   
-// l'isertion des données à 12h
-    if  (heur == '13' && min == '47' && sec == '30' )  {
+
+    if  (heur == '09' && min == '09' && sec == '00' )  {
          console.log('IL EST 12H');
   
        /*      res.json(data); */
@@ -223,8 +219,8 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
 } 
 
-// l'isertion des données à 18h
- if  ( heur == '13' && min == '47' && sec == '35' ) {
+
+ if  ( heur == '09' && min == '09' && sec == '30' ) {
     console.log('IL EST 18H');
 
   /*      res.json(data); */

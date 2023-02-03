@@ -21,7 +21,7 @@ export class InscriptionComponent implements OnInit {
   inputType_pwd_c = 1;
   message: any
   changeMail: any = false;
-
+  confirm: any = '';
 
   constructor(public formBuilder: FormBuilder, public UserService: UserService) {
 
@@ -59,31 +59,39 @@ export class InscriptionComponent implements OnInit {
       return;
     }
     this.submitted = false;
+    if (this.invalid == true) {
+      this.confirm = "pas identique";
 
-    const user = {
-      nom: this.signupForm.value.nom,
-      prenom: this.signupForm.value.prenom,
-      email: this.signupForm.value.email,
-      password: this.signupForm.value.password,
-      role: this.signupForm.value.role,
-      etat: this.signupForm.value.etat,
-      matricule: Math.random().toString(26).slice(2),
+    }
+    else {
+      this.confirm = '';
+      const user = {
+        nom: this.signupForm.value.nom,
+        prenom: this.signupForm.value.prenom,
+        email: this.signupForm.value.email,
+        password: this.signupForm.value.password,
+        role: this.signupForm.value.role,
+        etat: this.signupForm.value.etat,
+        matricule: Math.random().toString(26).slice(2),
+
+      }
+
+      this.UserService.ajout(user).subscribe(data => {
+
+        this.message = data;
+        if (this.message.emailExiste == true) {
+          this.changeMail = true;
+
+        } else {
+          Swal.fire('inscription reussit'),
+            setTimeout(() => { window.location.reload(); }, 1000)
+        }
+
+
+      })
 
     }
 
-    this.UserService.ajout(user).subscribe(data => {
-
-      this.message = data;
-      if (this.message.emailExiste == true) {
-        this.changeMail = true;
-
-      } else {
-        Swal.fire('inscription reussit'),
-          setTimeout(() => { window.location.reload(); }, 1000)
-      }
-
-
-    })
 
   }
 

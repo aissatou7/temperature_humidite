@@ -6,7 +6,7 @@
           <div class="row align-items-center" style="position: relative">
              <h1 style="position: absolute; right:15px;top: 40px; font-size: 5rem; width: auto;color: white;backdrop-filter: blur(5px);box-sizing: border-box;padding: 0px 0px;">
 
-             <span *ngIf="temperature == '0/' || temperature == 'undefined'" style="font-size: 40px;">données indisponible,  Verifier votre cablage</span>
+             <span *ngIf="temperature == '0/' || temperature == 'undefined'" style="font-size: 40px;">données indisponible,  Verifier votre systeme</span>
              <span *ngIf="temperature != '0/'" >{{temperature+ ' °C'}}</span><br>
              <span *ngIf="temperature != '0/'" >{{humidity+ ' %'}}</span>
             </h1>

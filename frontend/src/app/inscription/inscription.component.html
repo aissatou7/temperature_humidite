@@ -152,7 +152,7 @@
           <div *ngIf="submitted && invalid" class="text-danger">
             les mot de passe ne correspond pas
           </div>
-
+          <div *ngIf="confirm != ''" style="color:red ;">les mot de passe ne correspond pas</div>
         </div>
         <div style="text-align:center;">
           <button type="submit" class="btn btn-primary btnp">Inscrire</button>

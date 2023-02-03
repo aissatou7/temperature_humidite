@@ -62,7 +62,7 @@
 
 
 .bg-gradient-danger {
-  background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
+  background: linear-gradient(87deg, #df4149 0, #f56036 100%) !important;
 }
 
 .dropdown {
@@ -89,7 +89,7 @@
   background-clip: padding-box;
   border: 1px solid rgba(248, 113, 51, 0.15);
   border-radius: .25rem;
-  box-shadow: #f5365c;
+  box-shadow: #df4149;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -115,9 +115,9 @@ height: 10%;
 
       .e:hover  { border: 1px solid #ff5757;
         color: #fff;
-        background-color: #f5365c;
+        background-color: #df4149;
         fill: #fff;
-        box-shadow: 2 0 10px #f03372;
+        box-shadow: 2 0 10px #df4149;
         transition-delay: 0.3s;
         text-transform: uppercase;
           .j{
@@ -127,9 +127,9 @@ height: 10%;
 
       .e:focus  { border: 1px solid #ff5757;
         color: #fff;
-        background-color: #f5365c;
+        background-color: #df4149;
         fill: #fff;
-        box-shadow: 2 0 10px #f03372;
+        box-shadow: 2 0 10px #df4149;
         transition-delay: 0.3s;
         text-transform: uppercase;
       }
@@ -148,7 +148,7 @@ height: 10%;
       .heure {
         display: block;
         justify-content: center;
-        background-color: #f5365c;
+        background-color: #df4149;
         color: #fff;
         font-family: $numeric-font;
         font-feature-settings: "tnum";

@@ -71,8 +71,8 @@ humidity:any = 'default';
     this.RealtimeService.getTemp().subscribe((data) =>{
     //console.log(data);
      this.donnee = data
-     this.temperature = this.donnee[0] + this.donnee[1];
-      this.humidity = this.donnee[3] + this.donnee[4];
+     this.temperature = this.donnee[0] + this.donnee[1];//this.temperature = this.donnee[1] + this.donnee[2];
+      this.humidity = this.donnee[3] + this.donnee[4];//this.humidity = this.donnee[4] + this.donnee[5];
       console.log(this.humidity)
       if (this.temperature >= 30){
         this.src="./assets/img/brand/ventilo.gif";

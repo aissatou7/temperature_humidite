@@ -22,12 +22,9 @@ inputType_txt_c = 0;
 inputType_pwd_c = 1;
 message:any
 changeMail:any = false;
- role = localStorage.getItem('role')
+confirm:any = '';
 
-  constructor(
-     public formBuilder: FormBuilder,
-      public UserService: UserService,
-      public route : Router ) {
+  constructor( public formBuilder: FormBuilder, public UserService: UserService ) {
 
     //Crontôle de saisie du formulaire
     this.signupForm = this.formBuilder.group({
@@ -62,32 +59,40 @@ changeMail:any = false;
     if(this.signupForm.invalid){
       return;
     }
-  this.submitted=false;
+    this.submitted=false;
+    if (this.invalid == true) {
+      this.confirm = "pas identique";
 
-  const user = {
-    nom:this.signupForm.value.nom,
-    prenom:this.signupForm.value.prenom,
-    email:this.signupForm.value.email,
-    password:this.signupForm.value.password,
-    role:this.signupForm.value.role,
-    etat:this.signupForm.value.etat,
-    matricule : Math.random().toString(26).slice(2),
+    }
+    else{
+      this.confirm = '';
+      const user = {
+        nom:this.signupForm.value.nom,
+        prenom:this.signupForm.value.prenom,
+        email:this.signupForm.value.email,
+        password:this.signupForm.value.password,
+        role:this.signupForm.value.role,
+        etat:this.signupForm.value.etat,
+        matricule : Math.random().toString(26).slice(2),
 
-  }
-
-    this.UserService.ajout(user).subscribe(data =>{
-
-      this.message = data;
-      if (this.message.emailExiste == true) {
-        this.changeMail = true;
-
-      } else {
-          Swal.fire('inscription reussit'),
-           setTimeout(()=>{ window.location.reload();}, 1000)
       }
 
+        this.UserService.ajout(user).subscribe(data =>{
 
-    })
+          this.message = data;
+          if (this.message.emailExiste == true) {
+            this.changeMail = true;
+
+          } else {
+              Swal.fire('inscription reussit'),
+               setTimeout(()=>{ window.location.reload();}, 1000)
+          }
+
+
+        })
+
+    }
+
 
   }
 

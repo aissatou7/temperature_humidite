@@ -123,7 +123,7 @@
                       <path d="M14.108 7.96063L9.04796 12.599C8.37696 11.9839 8 11.1497 8 10.2798C8 9.84909 8.09255 9.4226 8.27236 9.02467C8.45217 8.62675 8.71572 8.26519 9.04796 7.96063C9.3802 7.65607 9.77464 7.41448 10.2087 7.24966C10.6428 7.08483 11.1081 7 11.578 7C12.5269 7 13.437 7.34555 14.108 7.96063V7.96063Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M14.51 10.8083C14.3745 11.4478 14.0337 12.0355 13.5312 12.4961C13.0287 12.9567 12.3876 13.2692 11.69 13.3933M8.47 12.4858L1 19.3333M21 1L13.53 7.8475" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M16.605 3.87C14.855 2.66 12.855 2 10.785 2C7.255 2 3.965 3.90667 1.675 7.20667C0.775 8.49917 0.775 10.6717 1.675 11.9642C2.465 13.1008 3.385 14.0817 4.385 14.87M7.205 16.4833C8.345 16.9233 9.555 17.1617 10.785 17.1617C14.315 17.1617 17.605 15.255 19.895 11.955C20.795 10.6625 20.795 8.49 19.895 7.1975C19.565 6.72083 19.205 6.27167 18.835 5.85" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
+                    </svg>
 
                   </div>
                 </div>
@@ -131,6 +131,7 @@
                   <div *ngIf="submitted && invalid" class="text-danger">
                   les mot de passe ne correspond pas
                   </div >
+                  <div *ngIf="confirm != ''" style="color:red ;">les mot de passe ne correspond pas</div>
 
             </div>
             <div  style="text-align:center;">

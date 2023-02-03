@@ -13,7 +13,7 @@
 
   </div>
   <!-- Page content -->
-  
+
   <div class="container mt--8 pb-5 ">
     <div class="row justify-content-center ">
       <div class="col-lg-5 col-md-7 ">
@@ -21,13 +21,13 @@
           {{message}}
         </div>
         <div class="card bg-light shadow border-0 ">
-          
+
           <div class="card-body px-lg-5 py-lg-5">
-            
+
             <div class="text-center  mb-4">
               <h1>Connexion</h1>
             </div>
-            
+
             <form role="form" class="format" [formGroup]="registerForm" (ngSubmit)="loginUser()">
               <label for="email">Email</label>
               <div class="form-group mb-3 bg-light">
@@ -75,6 +75,7 @@
                   </div>
                   <input class="form-control db" formControlName="password"
                     [ngClass]="{'is-invalid':submitted && registerForm.controls['password'].errors}" type="password">
+                    
                 </div>
                 <div *ngIf="submitted && registerForm.controls['password'].errors" class="text-danger">
                   <div *ngIf="submitted && registerForm.controls['password'].errors['required']">

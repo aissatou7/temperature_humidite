@@ -47,7 +47,7 @@ app.use('/endpoint',userRoute);
 
 //Here we are managing server's port (using which are giving by the system or 3000)
 const port = process.env.PORT || 3000;
-// const port = 8000;
+// const port = 3000;
  server.listen(port,() => {
     console.log('Port connected to: ' + port)
 });
@@ -175,7 +175,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
     });
    }  
   
-
+// l'isertion des données à 12h
     if  (heur == '13' && min == '47' && sec == '30' )  {
          console.log('IL EST 12H');
   
@@ -223,7 +223,7 @@ if ( heur == '13' && min == '47' && sec == '00' ) {
 
 } 
 
-
+// l'isertion des données à 18h
  if  ( heur == '13' && min == '47' && sec == '35' ) {
     console.log('IL EST 18H');
 

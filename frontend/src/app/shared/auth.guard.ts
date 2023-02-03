@@ -1,3 +1,5 @@
+
+                                /* -------------  controle d'accès au route ou de depart depuis une route */
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,

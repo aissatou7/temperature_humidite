@@ -63,7 +63,7 @@ export class UserService {
     );
     // .pipe(catchError(this.handleError));
   }
-
+//Modification password du personne connecter
   updatePassword(id: any, data: any): Observable<any> {
     console.log(id);
 

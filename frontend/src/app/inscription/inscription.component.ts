@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl, EmailValidator } from 
 import { UsernameValidator } from '../username.validator';
 import { UserService} from '../user.service';
 import Swal from 'sweetalert2';
+import { Route, Router } from '@angular/router';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -21,9 +22,12 @@ inputType_txt_c = 0;
 inputType_pwd_c = 1;
 message:any
 changeMail:any = false;
+ role = localStorage.getItem('role')
 
-
-  constructor( public formBuilder: FormBuilder, public UserService: UserService ) {
+  constructor(
+     public formBuilder: FormBuilder,
+      public UserService: UserService,
+      public route : Router ) {
 
     //Crontôle de saisie du formulaire
     this.signupForm = this.formBuilder.group({
@@ -116,5 +120,6 @@ changeMail:any = false;
       //console.log('type text');
     }
   }
+
 
 }

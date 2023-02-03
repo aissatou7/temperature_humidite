@@ -80,8 +80,8 @@ app.use((err,req,res,next) =>{
  const {SerialPort} = require('serialport');
 const { ReadlineParser } = require('@serialport/parser-readline');
 
-const portserie = new SerialPort({ path: '/dev/ttyACM0', baudRate: 14400 })
-const parser = portserie.pipe(new ReadlineParser({ delimiter: '\r\n' }))
+const port2 = new SerialPort({ path: '/dev/ttyACM0', baudRate: 14400 })
+const parser = port2.pipe(new ReadlineParser({ delimiter: '\r\n' }))
 /*
 io.on('connection', () => {
     console.log('a user connected');

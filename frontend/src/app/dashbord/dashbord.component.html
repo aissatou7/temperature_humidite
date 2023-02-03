@@ -2,24 +2,41 @@
   <div style=" margin-bottom: 20px; padding-top: 130px;">
     <div class=" ">
 
-      <div class="header-body" >
+      <div class="header-body">
         <!-- Card stats -->
         <div class="row">
 
-          <div  *ngFor="let i   of index" class="col-xl-3 col-lg-6">
+          <div *ngFor="let i   of index" class="col-xl-3 col-lg-6">
             <div class="card card-stats mb-4 mb-xl-0 shadow" *ngFor="let data of dat ">
               <div class="card-body ch">
-            <div class="row">
+                <div class="row">
                   <div class="col ">
-                    <table  class="table table align-items-center table-flush">
+                    <table class="table table align-items-center table-flush">
 
-                        <tbody>
- <th>  <h5 class="h2 card-title text-uppercase text-muted mb-0">{{i ==1 ? "8h:00 "  : i == 2 ? "12h:00": i == 3 ? "18h:00": "Moyenne"}}<img src="./assets/img/sun.png" style="height: 30px; width: 30px;"></h5> </th>
-  </tbody>
-  <tbody>
-                        <td>  <div class="h4 font-weight-bold mb-0"> <img src="./assets/img/hot.png" style="height: 30px; width: 30px;">Température: <span class="text-success"> {{i ==1 ? data.temperature8h : i == 2 ? data.temperature12h: i == 3 ? data.temperature18h: data.temperatureM | number: '1.1-2' }}</span> °C</div> </td> </tbody>
-                 <tbody>       <td>  <div class="h4 font-weight-bold mb-0"><img src="./assets/img/humidity.png" style="height: 30px; width: 30px;">Humidité: <span class="text-primary">{{i ==1 ? data.humidite8h : i == 2 ? data.humidite12h: i == 3 ? data.humidite18h: data.humiditeM | number: '1.1-2'}}</span>  % </div></td></tbody>
-                        </table>
+                      <tbody>
+                        <th>
+                          <h5 class="h2 card-title text-uppercase text-muted mb-0">{{i ==1 ? "8h:00 " : i == 2 ?
+                            "12h:00": i == 3 ? "18h:00": "Moyenne"}}<img src="./assets/img/sun.png"
+                              style="height: 30px; width: 30px;"></h5>
+                        </th>
+                      </tbody>
+                      <tbody>
+                        <td>
+                          <div class="h4 font-weight-bold mb-0"> <img src="./assets/img/hot.png"
+                              style="height: 30px; width: 30px;">Température: <span class="text-success"> {{i ==1 ?
+                              data.temperature8h : i == 2 ? data.temperature12h: i == 3 ? data.temperature18h:
+                              data.temperatureM | number: '1.1-2' }}</span> °C</div>
+                        </td>
+                      </tbody>
+                      <tbody>
+                        <td>
+                          <div class="h4 font-weight-bold mb-0"><img src="./assets/img/humidity.png"
+                              style="height: 30px; width: 30px;">Humidité: <span class="text-primary">{{i ==1 ?
+                              data.humidite8h : i == 2 ? data.humidite12h: i == 3 ? data.humidite18h: data.humiditeM |
+                              number: '1.1-2'}}</span> % </div>
+                        </td>
+                      </tbody>
+                    </table>
 
                   </div>
 

@@ -1,15 +1,15 @@
-
-.search{
+.search {
   position: absolute;
   background-color: #fff;
   height: 40px;
   border-radius: 30px;
   padding: 5px;
   padding-bottom: 45px;
-  border:1px solid #2d3239;
+  border: 1px solid #2d3239;
   margin-top: 5px;
 }
-.inp{
+
+.inp {
   border: none;
   background: none;
   outline: none;
@@ -21,7 +21,8 @@
   line-height: 40px;
   width: 0px;
 }
-.btns{
+
+.btns {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +34,8 @@
   transition: 0.4s;
   text-decoration: none;
 }
-.search:hover > .inp{
+
+.search:hover>.inp {
   width: 240px;
   padding: 0 6px;
   top: 50px;
@@ -41,17 +43,14 @@
 }
 
 
-.search:hover > .btns{
+.search:hover>.btns {
 
-  background-color: #f56036 ;
+  background-color: #f56036;
 }
-.search > .inp:focus{
+
+.search>.inp:focus {
   width: 240px;
   padding: 0 6px;
   top: 50px;
-  
-}
 
-td{
-  font-size: 22px;
 }

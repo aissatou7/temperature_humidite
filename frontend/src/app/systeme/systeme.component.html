@@ -19,26 +19,34 @@
       </div>
     </div>
     <div class="col-md-4 bg-white rounded shadow" style="position: relative;">
-      <div class=" align-items-center  " >
+      <div class=" align-items-center  ">
         <div class="bg-white mb-3 d-flex justify-content-center">
 
 
 
-              <h1 class="">Controle du systeme</h1>
+          <h1 class="">Controle du systeme</h1>
 
-  <div class="dropdown-divider black"></div>
+          <div class="dropdown-divider black"></div>
         </div>
 
         <div class="align-items-center">
-        <img [src]="src" alt="image" class="col-xl-12 align-items-center" >
-      <span class="d-flex justify-content-center">
+          <img [src]="src" alt="image" class="col-xl-12 align-items-center">
+          <span class="d-flex justify-content-center">
 
-          <button *ngIf="!etat" id="my-button" (click)="changeImage(); onVent()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
-          <button *ngIf="etat" id="my-button" (click)="changeImage(); offVent()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
+            <button *ngIf="!etat" id="my-button" (click)="changeImage(); onVent()"
+              class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"
+              [style]="style"><span class="">
+                <h2></h2>
+              </span></button>
+            <button *ngIf="etat" id="my-button" (click)="changeImage(); offVent()"
+              class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"
+              [style]="style"><span class="">
+                <h2></h2>
+              </span></button>
 
-        </span>
+          </span>
 
-      </div>
+        </div>
       </div>
     </div>
   </div>

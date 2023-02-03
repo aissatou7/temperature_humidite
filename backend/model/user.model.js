@@ -1,31 +1,24 @@
-const mongoose = require ('mongoose');
-/* var uniqueValidator = require('mongoose-unique-validator'); */
+const mongoose = require('mongoose');
+
 const userSchema = mongoose.Schema(
 
-{
+    {
 
-prenom: { type:String},
-nom: { type:String},
-email: { type:String},
-matricule: { type:String},
-password: { type:String},
-role: { type:String},
-etat: { type:Boolean}
-/* dateArchivage: { type: Date}  */
-
-
-},
-{timestamps: true},
-{
-    collection: 'users'
-}
-
-/* {
-collection:'books'
-} */ );
-
-/* userSchema.plugin(uniqueValidator , { message: "email exite deja"}); */
+        prenom: { type: String },
+        nom: { type: String },
+        email: { type: String },
+        matricule: { type: String },
+        password: { type: String },
+        role: { type: String },
+        etat: { type: Boolean }
 
 
 
+    },
+    { timestamps: true },
+    {
+        collection: 'users'
+    }
+
+);
 module.exports = mongoose.model('users', userSchema);

@@ -17,7 +17,7 @@
         </div>
       </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush">
+          <table class="table align-items-center table-striped">
 
             <thead class="card-header ">
               <tr>
@@ -30,7 +30,7 @@
               </tr>
             </thead>
             <tbody >
-              <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 6, currentPage: p } " >
+              <tr *ngFor="let user of users |filter:term | paginate: { itemsPerPage: 5, currentPage: p } " >
 
                 <td> {{user.prenom}} </td>
                 <td> {{user.nom}} </td>

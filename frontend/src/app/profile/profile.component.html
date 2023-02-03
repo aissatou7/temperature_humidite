@@ -41,7 +41,10 @@
             <h6 style="text-align: center" class="heading-small text-muted mb-1">
               Modifier mes informations
             </h6>
-            <p *ngIf="mailExiste != ''" class="text-danger" style="text-align: center">
+            <p
+              *ngIf="mailExiste != ''"
+              class="alert alert-danger" role="alert"
+            >
               Le mail existe déja
             </p>
             <div class="pl-md-6">

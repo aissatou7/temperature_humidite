@@ -59,7 +59,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  reset() {
+  reset() {//pour annuler les modifications
     this.ngOnInit();
   }
 
@@ -89,6 +89,9 @@ export class ProfileComponent implements OnInit {
 
         if (this.users.length >= 1) {
           this.mailExiste = 'le mail existe déja';
+          setTimeout(() => {
+            this.mailExiste = ""
+          }, 2000);
         } else {
           const data = {
             nom: this.profileForm.value.nom,

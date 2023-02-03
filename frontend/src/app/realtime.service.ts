@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
-import {Socket, io }from 'socket.io-client';
+import { Socket, io } from 'socket.io-client';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,9 +9,9 @@ export class RealtimeService {
 
   constructor() {
     this.socket = io('ws://localhost:3000');
-   }
+  }
   private socket: Socket;
-public dataa=1;
+  public dataa = 1;
   getTemp() {
     return new Observable(observer => {
       this.socket.on('temp', data => {

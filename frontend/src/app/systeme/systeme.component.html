@@ -4,38 +4,48 @@
       <div class="card bg-gradient-default shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center" style="position: relative">
-             <h1 style="position: absolute; right:15px;top: 40px; font-size: 5rem; width: auto;color: white;backdrop-filter: blur(5px);box-sizing: border-box;padding: 0px 0px;">
-             <span>{{temperature+ ' °C'}}</span><br>
-             <span>{{humidity+ ' %'}}</span>
+            <h1
+              style="position: absolute; right:15px;top: 40px; font-size: 5rem; width: auto;color: white;backdrop-filter: blur(5px);box-sizing: border-box;padding: 0px 0px;">
+              <span>{{temperature+ ' °C'}}</span><br>
+              <span>{{humidity+ ' %'}}</span>
             </h1>
-            <img *ngIf="humidity > 60 || humidity == 'default' " src="./assets/img/brand/img.jpg" class="col-xl-12" alt="image">
-            <img *ngIf="humidity <= 60"src="./assets/img/brand/desert.jpg" class="col-xl-12" alt="image">
+            <img *ngIf="humidity > 60 || humidity == 'default' " src="./assets/img/brand/img.jpg" class="col-xl-12"
+              alt="image">
+            <img *ngIf="humidity <= 60" src="./assets/img/brand/desert.jpg" class="col-xl-12" alt="image">
           </div>
         </div>
 
       </div>
     </div>
     <div class="col-md-4 bg-white rounded shadow" style="position: relative;">
-      <div class=" align-items-center  " >
+      <div class=" align-items-center  ">
         <div class="bg-white mb-3 d-flex justify-content-center">
 
 
 
-              <h1 class="">Controle du systeme</h1>
+          <h1 class="">Controle du systeme</h1>
 
-  <div class="dropdown-divider black"></div>
+          <div class="dropdown-divider black"></div>
         </div>
 
         <div class="align-items-center">
-        <img [src]="src" alt="image" class="col-xl-12 align-items-center" >
-      <span class="d-flex justify-content-center">
+          <img [src]="src" alt="image" class="col-xl-12 align-items-center">
+          <span class="d-flex justify-content-center">
 
-          <button *ngIf="!etat" id="my-button" (click)="changeImage(); onVent()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
-          <button *ngIf="etat" id="my-button" (click)="changeImage(); offVent()" class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"  [style]="style"><span class=""><h2 ></h2></span></button>
+            <button *ngIf="!etat" id="my-button" (click)="changeImage(); onVent()"
+              class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"
+              [style]="style"><span class="">
+                <h2></h2>
+              </span></button>
+            <button *ngIf="etat" id="my-button" (click)="changeImage(); offVent()"
+              class="btn rounded mt-3 mb-4 text-white " style="background-color: blueviolet;" [innerHTML]="texteBouton"
+              [style]="style"><span class="">
+                <h2></h2>
+              </span></button>
 
-        </span>
+          </span>
 
-      </div>
+        </div>
       </div>
     </div>
   </div>
